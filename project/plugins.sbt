@@ -11,6 +11,5 @@ addSbtPlugin("com.lightbend.sbt" % "sbt-java-formatter" % "0.6.0")
 // [error] (plugin / Compile / compileIncremental) java.lang.NoClassDefFoundError: com/sun/tools/javac/code/Symbol
 addSbtPlugin("org.scala-debugger" % "sbt-jdi-tools" % "1.1.1")
 
-
 libraryDependencies ++=
   List("com.thesamet.scalapb" %% "compilerplugin" % "0.10.10")

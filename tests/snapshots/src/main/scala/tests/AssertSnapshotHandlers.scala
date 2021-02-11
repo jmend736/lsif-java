@@ -1,7 +1,9 @@
 package tests
 
 import java.nio.charset.StandardCharsets
-import java.nio.file.{Files, Path, Paths}
+import java.nio.file.Files
+import java.nio.file.Path
+
 import munit.FailException
 import munit.FunSuite
 import munit.Location

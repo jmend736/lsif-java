@@ -109,6 +109,7 @@ These are the main components of the project.
 | `snapshot/testOnly tests.LibrarySnapshotSuite`   | sbt shell | Runs slow snapshot tests. Indexes a corpus of external Java libraries.              |
 | `snapshot/test`                                  | sbt shell | Runs all snapshot tests.                                                            |
 | `snapshot/run`                                   | sbt shell | Update snapshot tests. Use this command after you have fixed a bug.                 |
+| `fixAll`                                   | sbt shell | Run Scalafmt, Scalafix and Javafmt on all sources |
 
 ### Import the project into IntelliJ
 

@@ -9,6 +9,7 @@ inThisBuild(
     organization := "com.sourcegraph",
     scalafixDependencies +=
       "com.github.liancheng" %% "organize-imports" % "0.5.0",
+    scalafixCaching := true,
     scalacOptions ++= List("-Wunused:imports"),
     semanticdbEnabled := true,
     semanticdbVersion := scalametaVersion,
@@ -19,6 +20,17 @@ inThisBuild(
 name := "root"
 bloopGenerate.in(Compile) := None
 bloopGenerate.in(Test) := None
+
+commands +=
+  Command.command("fixAll") { s =>
+    "scalafixAll" :: "scalafmtAll" :: "scalafmtSbt" :: "javafmtAll" :: s
+  }
+
+commands +=
+  Command.command("checkAll") { s =>
+    "scalafmtCheckAll" :: "scalafmtSbtCheck" :: "scalafixAll --check" ::
+      "javafmtCheckAll" :: s
+  }
 
 lazy val testSettings = List(
   skip.in(publish) := true,
