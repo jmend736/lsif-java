@@ -1,9 +1,7 @@
 package tests
 
 import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.nio.file.Path
-
+import java.nio.file.{Files, Path, Paths}
 import munit.FailException
 import munit.FunSuite
 import munit.Location
@@ -22,8 +20,7 @@ trait AssertSnapshotHandlers {
         if (Files.isRegularFile(expectFile)) {
           val expected =
             new String(Files.readAllBytes(expectFile), StandardCharsets.UTF_8)
-          val location = new Location(expectFile.toString, line = 0)
-          self.assertNoDiff(obtainedOutput(), expected)(location)
+          self.assertNoDiff(obtainedOutput(), expected)
         } else {
           throw new FailException(
             s"no snapshot file. To fix this problem, execute the command 'sbt snapshots/run'",

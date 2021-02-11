@@ -11,7 +11,8 @@ inThisBuild(
       "com.github.liancheng" %% "organize-imports" % "0.5.0",
     scalacOptions ++= List("-Wunused:imports"),
     semanticdbEnabled := true,
-    semanticdbVersion := scalametaVersion
+    semanticdbVersion := scalametaVersion,
+    javafmtOnCompile := false
   )
 )
 

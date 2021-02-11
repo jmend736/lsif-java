@@ -5,6 +5,7 @@ addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.9.25")
 addSbtPlugin("com.thesamet" % "sbt-protoc" % "1.0.0")
 addSbtPlugin("ch.epfl.scala" % "sbt-bloop" % "1.4.6-21-464e4ec4")
 addSbtPlugin("com.sourcegraph" % "sbt-sourcegraph" % "0.1.8")
+addSbtPlugin("com.lightbend.sbt" % "sbt-java-formatter" % "0.6.0")
 
 // sbt-jdi-tools appears to fix an error related to this message:
 // [error] (plugin / Compile / compileIncremental) java.lang.NoClassDefFoundError: com/sun/tools/javac/code/Symbol
