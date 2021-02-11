@@ -74,38 +74,38 @@ class UpdateOp {
 //                ^^^^^^^^ definition com/airbnb/epoxy/UpdateOp#instance().
 //                          ^^^^ reference com/airbnb/epoxy/UpdateOp#Type#
 //                                   ^^^^ definition local0
-//                                             ^^^^^^^^^^^^^ definition local2
-//                                                                ^^^^^^^^^ definition local4
+//                                             ^^^^^^^^^^^^^ definition local1
+//                                                                ^^^^^^^^^ definition local2
       @Nullable EpoxyModel<?> payload) {
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //              ^^^^^^^^^^ reference _root_/
-//                            ^^^^^^^ definition local6
+//                            ^^^^^^^ definition local3
     UpdateOp op = new UpdateOp();
 //  ^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#
-//           ^^ definition local8
+//           ^^ definition local4
 //                ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#`<init>`().
 //                    ^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#
 
     op.type = type;
-//  ^^ reference local10
+//  ^^ reference local4
 //     ^^^^ reference com/airbnb/epoxy/UpdateOp#type.
-//            ^^^^ reference local11
+//            ^^^^ reference local0
     op.positionStart = positionStart;
-//  ^^ reference local12
+//  ^^ reference local4
 //     ^^^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#positionStart.
-//                     ^^^^^^^^^^^^^ reference local13
+//                     ^^^^^^^^^^^^^ reference local1
     op.itemCount = itemCount;
-//  ^^ reference local14
+//  ^^ reference local4
 //     ^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#itemCount.
-//                 ^^^^^^^^^ reference local15
+//                 ^^^^^^^^^ reference local2
 
     op.addPayload(payload);
-//  ^^ reference local16
+//  ^^ reference local4
 //     ^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#addPayload().
-//                ^^^^^^^ reference local17
+//                ^^^^^^^ reference local3
 
     return op;
-//         ^^ reference local18
+//         ^^ reference local4
   }
 
   /** Returns the index one past the last item in the affected range. */
@@ -118,27 +118,27 @@ class UpdateOp {
 
   boolean isAfter(int position) {
 //        ^^^^^^^ definition com/airbnb/epoxy/UpdateOp#isAfter().
-//                    ^^^^^^^^ definition local19
+//                    ^^^^^^^^ definition local5
     return position < positionStart;
-//         ^^^^^^^^ reference local21
+//         ^^^^^^^^ reference local5
 //                    ^^^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#positionStart.
   }
 
   boolean isBefore(int position) {
 //        ^^^^^^^^ definition com/airbnb/epoxy/UpdateOp#isBefore().
-//                     ^^^^^^^^ definition local22
+//                     ^^^^^^^^ definition local6
     return position >= positionEnd();
-//         ^^^^^^^^ reference local24
+//         ^^^^^^^^ reference local6
 //                     ^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#positionEnd().
   }
 
   boolean contains(int position) {
 //        ^^^^^^^^ definition com/airbnb/epoxy/UpdateOp#contains().
-//                     ^^^^^^^^ definition local25
+//                     ^^^^^^^^ definition local7
     return position >= positionStart && position < positionEnd();
-//         ^^^^^^^^ reference local27
+//         ^^^^^^^^ reference local7
 //                     ^^^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#positionStart.
-//                                      ^^^^^^^^ reference local28
+//                                      ^^^^^^^^ reference local7
 //                                                 ^^^^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#positionEnd().
   }
 
@@ -146,9 +146,9 @@ class UpdateOp {
 //     ^^^^^^^^^^ definition com/airbnb/epoxy/UpdateOp#addPayload().
 //                 ^^^^^^^^ reference androidx/annotation/Nullable#
 //                          ^^^^^^^^^^ reference _root_/
-//                                        ^^^^^^^ definition local29
+//                                        ^^^^^^^ definition local8
     if (payload == null) {
-//      ^^^^^^^ reference local31
+//      ^^^^^^^ reference local8
       return;
     }
 
@@ -172,7 +172,7 @@ class UpdateOp {
     payloads.add(payload);
 //  ^^^^^^^^ reference com/airbnb/epoxy/UpdateOp#payloads.
 //           ^^^ reference java/util/ArrayList#add().
-//               ^^^^^^^ reference local32
+//               ^^^^^^^ reference local8
   }
 
   @Override

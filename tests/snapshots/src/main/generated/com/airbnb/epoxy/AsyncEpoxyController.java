@@ -44,8 +44,8 @@ public abstract class AsyncEpoxyController extends EpoxyController {
 //                                    ^^^^^^^^^^^ definition local0
     this(enableAsync, enableAsync);
 //  ^^^^ reference com/airbnb/epoxy/AsyncEpoxyController#`<init>`(+2).
-//       ^^^^^^^^^^^ reference local2
-//                    ^^^^^^^^^^^ reference local3
+//       ^^^^^^^^^^^ reference local0
+//                    ^^^^^^^^^^^ reference local0
   }
 
   /**
@@ -53,21 +53,21 @@ public abstract class AsyncEpoxyController extends EpoxyController {
    */
   public AsyncEpoxyController(boolean enableAsyncModelBuilding, boolean enableAsyncDiffing) {
 //       ^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyController#`<init>`(+2).
-//                                    ^^^^^^^^^^^^^^^^^^^^^^^^ definition local4
-//                                                                      ^^^^^^^^^^^^^^^^^^ definition local6
+//                                    ^^^^^^^^^^^^^^^^^^^^^^^^ definition local1
+//                                                                      ^^^^^^^^^^^^^^^^^^ definition local2
     super(getHandler(enableAsyncModelBuilding), getHandler(enableAsyncDiffing));
 //        ^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyController#getHandler().
-//                   ^^^^^^^^^^^^^^^^^^^^^^^^ reference local8
+//                   ^^^^^^^^^^^^^^^^^^^^^^^^ reference local1
 //                                              ^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyController#getHandler().
-//                                                         ^^^^^^^^^^^^^^^^^^ reference local9
+//                                                         ^^^^^^^^^^^^^^^^^^ reference local2
   }
 
   private static Handler getHandler(boolean enableAsync) {
 //               ^^^^^^^ reference _root_/
 //                       ^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyController#getHandler().
-//                                          ^^^^^^^^^^^ definition local10
+//                                          ^^^^^^^^^^^ definition local3
     return enableAsync ? getAsyncBackgroundHandler() : MAIN_THREAD_HANDLER;
-//         ^^^^^^^^^^^ reference local12
+//         ^^^^^^^^^^^ reference local3
 //                       ^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyController#getAsyncBackgroundHandler#
 //                                                     ^^^^^^^^^^^^^^^^^^^ reference _root_/
   }

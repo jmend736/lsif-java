@@ -82,30 +82,30 @@ class AsyncEpoxyDiffer {
       @NonNull Handler handler,
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^^^^ reference _root_/
-//                     ^^^^^^^ definition local2
+//                     ^^^^^^^ definition local1
       @NonNull ResultCallback resultCallback,
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#ResultCallback#
-//                            ^^^^^^^^^^^^^^ definition local4
+//                            ^^^^^^^^^^^^^^ definition local2
       @NonNull ItemCallback<EpoxyModel<?>> diffCallback
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^^^^^^^^^ reference _root_/
 //                          ^^^^^^^^^^ reference _root_/
-//                                         ^^^^^^^^^^^^ definition local6
+//                                         ^^^^^^^^^^^^ definition local3
   ) {
     this.executor = new HandlerExecutor(handler);
 //  ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#this.
 //       ^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#executor.
 //                      ^^^^^^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^ reference local8
+//                                      ^^^^^^^ reference local1
     this.resultCallback = resultCallback;
 //  ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#this.
 //       ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#resultCallback.
-//                        ^^^^^^^^^^^^^^ reference local9
+//                        ^^^^^^^^^^^^^^ reference local2
     this.diffCallback = diffCallback;
 //  ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#this.
 //       ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#diffCallback.
-//                      ^^^^^^^^^^^^ reference local10
+//                      ^^^^^^^^^^^^ reference local3
   }
 
   @Nullable
@@ -194,21 +194,21 @@ class AsyncEpoxyDiffer {
 //                                               ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                                        ^^^^ reference java/util/List#
 //                                                             ^^^^^^^^^^ reference _root_/
-//                                                                            ^^^^^^^ definition local11
+//                                                                            ^^^^^^^ definition local4
     // We need to make sure that generation changes and list updates are synchronized
     final boolean interruptedDiff = cancelDiff();
-//                ^^^^^^^^^^^^^^^ definition local13
+//                ^^^^^^^^^^^^^^^ definition local5
 //                                  ^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#cancelDiff().
     int generation = generationTracker.incrementAndGetNextScheduled();
-//      ^^^^^^^^^^ definition local15
+//      ^^^^^^^^^^ definition local6
 //                   ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#generationTracker.
 //                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#incrementAndGetNextScheduled().
     tryLatchList(newList, generation);
 //  ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#tryLatchList().
-//               ^^^^^^^ reference local17
-//                        ^^^^^^^^^^ reference local18
+//               ^^^^^^^ reference local4
+//                        ^^^^^^^^^^ reference local6
     return interruptedDiff;
-//         ^^^^^^^^^^^^^^^ reference local19
+//         ^^^^^^^^^^^^^^^ reference local5
   }
 
   /**
@@ -230,89 +230,89 @@ class AsyncEpoxyDiffer {
 //                        ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                       ^^^^ reference java/util/List#
 //                                                      ^^^^^^^^^^ reference _root_/
-//                                                                     ^^^^^^^ definition local20
+//                                                                     ^^^^^^^ definition local7
     final int runGeneration;
-//            ^^^^^^^^^^^^^ definition local22
+//            ^^^^^^^^^^^^^ definition local8
     @Nullable final List<? extends EpoxyModel<?>> previousList;
 //   ^^^^^^^^ reference androidx/annotation/Nullable#
 //                  ^^^^ reference java/util/List#
 //                                 ^^^^^^^^^^ reference _root_/
-//                                                ^^^^^^^^^^^^ definition local24
+//                                                ^^^^^^^^^^^^ definition local9
 
     synchronized (this) {
 //                ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#this.
       // Incrementing generation means any currently-running diffs are discarded when they finish
       // We synchronize to guarantee list object and generation number are in sync
       runGeneration = generationTracker.incrementAndGetNextScheduled();
-//    ^^^^^^^^^^^^^ reference local26
+//    ^^^^^^^^^^^^^ reference local8
 //                    ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#generationTracker.
 //                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#incrementAndGetNextScheduled().
       previousList = list;
-//    ^^^^^^^^^^^^ reference local27
+//    ^^^^^^^^^^^^ reference local9
 //                   ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#list.
     }
 
     if (newList == previousList) {
-//      ^^^^^^^ reference local28
-//                 ^^^^^^^^^^^^ reference local29
+//      ^^^^^^^ reference local7
+//                 ^^^^^^^^^^^^ reference local9
       // nothing to do
       onRunCompleted(runGeneration, newList, DiffResult.noOp(previousList));
 //    ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().
-//                   ^^^^^^^^^^^^^ reference local30
-//                                  ^^^^^^^ reference local31
+//                   ^^^^^^^^^^^^^ reference local8
+//                                  ^^^^^^^ reference local7
 //                                           ^^^^^^^^^^ reference _root_/
 //                                                      ^^^^ reference noOp#
-//                                                           ^^^^^^^^^^^^ reference local32
+//                                                           ^^^^^^^^^^^^ reference local9
       return;
     }
 
     if (newList == null || newList.isEmpty()) {
-//      ^^^^^^^ reference local33
-//                         ^^^^^^^ reference local34
+//      ^^^^^^^ reference local7
+//                         ^^^^^^^ reference local7
 //                                 ^^^^^^^ reference java/util/List#isEmpty().
       // fast simple clear all
       DiffResult result = null;
 //    ^^^^^^^^^^ reference _root_/
-//               ^^^^^^ definition local35
+//               ^^^^^^ definition local10
       if (previousList != null && !previousList.isEmpty()) {
-//        ^^^^^^^^^^^^ reference local37
-//                                 ^^^^^^^^^^^^ reference local38
+//        ^^^^^^^^^^^^ reference local9
+//                                 ^^^^^^^^^^^^ reference local9
 //                                              ^^^^^^^ reference java/util/List#isEmpty().
         result = DiffResult.clear(previousList);
-//      ^^^^^^ reference local39
+//      ^^^^^^ reference local10
 //               ^^^^^^^^^^ reference _root_/
 //                          ^^^^^ reference clear#
-//                                ^^^^^^^^^^^^ reference local40
+//                                ^^^^^^^^^^^^ reference local9
       }
       onRunCompleted(runGeneration, null, result);
 //    ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().
-//                   ^^^^^^^^^^^^^ reference local41
-//                                        ^^^^^^ reference local42
+//                   ^^^^^^^^^^^^^ reference local8
+//                                        ^^^^^^ reference local10
       return;
     }
 
     if (previousList == null || previousList.isEmpty()) {
-//      ^^^^^^^^^^^^ reference local43
-//                              ^^^^^^^^^^^^ reference local44
+//      ^^^^^^^^^^^^ reference local9
+//                              ^^^^^^^^^^^^ reference local9
 //                                           ^^^^^^^ reference java/util/List#isEmpty().
       // fast simple first insert
       onRunCompleted(runGeneration, newList, DiffResult.inserted(newList));
 //    ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().
-//                   ^^^^^^^^^^^^^ reference local45
-//                                  ^^^^^^^ reference local46
+//                   ^^^^^^^^^^^^^ reference local8
+//                                  ^^^^^^^ reference local7
 //                                           ^^^^^^^^^^ reference _root_/
 //                                                      ^^^^^^^^ reference inserted#
-//                                                               ^^^^^^^ reference local47
+//                                                               ^^^^^^^ reference local7
       return;
     }
 
     final DiffCallback wrappedCallback = new DiffCallback(previousList, newList, diffCallback);
 //        ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#
-//                     ^^^^^^^^^^^^^^^ definition local48
+//                     ^^^^^^^^^^^^^^^ definition local11
 //                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#`<init>`().
 //                                           ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#
-//                                                        ^^^^^^^^^^^^ reference local50
-//                                                                      ^^^^^^^ reference local51
+//                                                        ^^^^^^^^^^^^ reference local9
+//                                                                      ^^^^^^^ reference local7
 //                                                                               ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#diffCallback.
 
     executor.execute(new Runnable() {
@@ -329,19 +329,19 @@ class AsyncEpoxyDiffer {
         DiffUtil.DiffResult result = DiffUtil.calculateDiff(wrappedCallback);
 //      ^^^^^^^^ reference DiffUtil/
 //               ^^^^^^^^^^ reference DiffUtil/DiffResult#
-//                          ^^^^^^ definition local52
+//                          ^^^^^^ definition local12
 //                                   ^^^^^^^^ reference _root_/
 //                                            ^^^^^^^^^^^^^ reference calculateDiff#
-//                                                          ^^^^^^^^^^^^^^^ reference local54
+//                                                          ^^^^^^^^^^^^^^^ reference local11
         onRunCompleted(runGeneration, newList, DiffResult.diff(previousList, newList, result));
 //      ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().
-//                     ^^^^^^^^^^^^^ reference local55
-//                                    ^^^^^^^ reference local56
+//                     ^^^^^^^^^^^^^ reference local8
+//                                    ^^^^^^^ reference local7
 //                                             ^^^^^^^^^^ reference _root_/
 //                                                        ^^^^ reference diff#
-//                                                             ^^^^^^^^^^^^ reference local57
-//                                                                           ^^^^^^^ reference local58
-//                                                                                    ^^^^^^ reference local59
+//                                                             ^^^^^^^^^^^^ reference local9
+//                                                                           ^^^^^^^ reference local7
+//                                                                                    ^^^^^^ reference local12
       }
     });
   }
@@ -349,16 +349,16 @@ class AsyncEpoxyDiffer {
   private void onRunCompleted(
 //             ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().
       final int runGeneration,
-//              ^^^^^^^^^^^^^ definition local60
+//              ^^^^^^^^^^^^^ definition local13
       @Nullable final List<? extends EpoxyModel<?>> newList,
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //                    ^^^^ reference java/util/List#
 //                                   ^^^^^^^^^^ reference _root_/
-//                                                  ^^^^^^^ definition local62
+//                                                  ^^^^^^^ definition local14
       @Nullable final DiffResult result
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //                    ^^^^^^^^^^ reference _root_/
-//                               ^^^^^^ definition local64
+//                               ^^^^^^ definition local15
   ) {
 
     // We use an asynchronous handler so that the Runnable can be posted directly back to the main
@@ -376,17 +376,17 @@ class AsyncEpoxyDiffer {
       public void run() {
 //                ^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#onRunCompleted().``#run().
         final boolean dispatchResult = tryLatchList(newList, runGeneration);
-//                    ^^^^^^^^^^^^^^ definition local66
+//                    ^^^^^^^^^^^^^^ definition local16
 //                                     ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#tryLatchList().
-//                                                  ^^^^^^^ reference local68
-//                                                           ^^^^^^^^^^^^^ reference local69
+//                                                  ^^^^^^^ reference local14
+//                                                           ^^^^^^^^^^^^^ reference local13
         if (result != null && dispatchResult) {
-//          ^^^^^^ reference local70
-//                            ^^^^^^^^^^^^^^ reference local71
+//          ^^^^^^ reference local15
+//                            ^^^^^^^^^^^^^^ reference local16
           resultCallback.onResult(result);
 //        ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#resultCallback.
 //                       ^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#ResultCallback#onResult().
-//                                ^^^^^^ reference local72
+//                                ^^^^^^ reference local15
         }
       }
     });
@@ -405,19 +405,19 @@ class AsyncEpoxyDiffer {
 //                                           ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                                    ^^^^ reference java/util/List#
 //                                                                   ^^^^^^^^^^ reference _root_/
-//                                                                                  ^^^^^^^ definition local73
+//                                                                                  ^^^^^^^ definition local17
       int runGeneration) {
-//        ^^^^^^^^^^^^^ definition local75
+//        ^^^^^^^^^^^^^ definition local18
     if (generationTracker.finishGeneration(runGeneration)) {
 //      ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#generationTracker.
 //                        ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#finishGeneration().
-//                                         ^^^^^^^^^^^^^ reference local77
+//                                         ^^^^^^^^^^^^^ reference local18
       list = newList;
 //    ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#list.
-//           ^^^^^^^ reference local78
+//           ^^^^^^^ reference local17
 
       if (newList == null) {
-//        ^^^^^^^ reference local79
+//        ^^^^^^^ reference local17
         readOnlyList = Collections.emptyList();
 //      ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#readOnlyList.
 //                     ^^^^^^^^^^^ reference java/util/Collections#
@@ -427,7 +427,7 @@ class AsyncEpoxyDiffer {
 //      ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#readOnlyList.
 //                     ^^^^^^^^^^^ reference java/util/Collections#
 //                                 ^^^^^^^^^^^^^^^^ reference java/util/Collections#unmodifiableList().
-//                                                  ^^^^^^^ reference local80
+//                                                  ^^^^^^^ reference local17
       }
 
       return true;
@@ -466,13 +466,13 @@ class AsyncEpoxyDiffer {
     synchronized boolean finishMaxGeneration() {
 //                       ^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#finishMaxGeneration().
       boolean isInterrupting = hasUnfinishedGeneration();
-//            ^^^^^^^^^^^^^^ definition local81
+//            ^^^^^^^^^^^^^^ definition local19
 //                             ^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#hasUnfinishedGeneration().
       maxFinishedGeneration = maxScheduledGeneration;
 //    ^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#maxFinishedGeneration.
 //                            ^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#maxScheduledGeneration.
       return isInterrupting;
-//           ^^^^^^^^^^^^^^ reference local83
+//           ^^^^^^^^^^^^^^ reference local19
     }
 
     synchronized boolean hasUnfinishedGeneration() {
@@ -484,24 +484,24 @@ class AsyncEpoxyDiffer {
 
     synchronized boolean finishGeneration(int runGeneration) {
 //                       ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#finishGeneration().
-//                                            ^^^^^^^^^^^^^ definition local84
+//                                            ^^^^^^^^^^^^^ definition local20
       boolean isLatestGeneration =
-//            ^^^^^^^^^^^^^^^^^^ definition local86
+//            ^^^^^^^^^^^^^^^^^^ definition local21
           maxScheduledGeneration == runGeneration && runGeneration > maxFinishedGeneration;
 //        ^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#maxScheduledGeneration.
-//                                  ^^^^^^^^^^^^^ reference local88
-//                                                   ^^^^^^^^^^^^^ reference local89
+//                                  ^^^^^^^^^^^^^ reference local20
+//                                                   ^^^^^^^^^^^^^ reference local20
 //                                                                   ^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#maxFinishedGeneration.
 
       if (isLatestGeneration) {
-//        ^^^^^^^^^^^^^^^^^^ reference local90
+//        ^^^^^^^^^^^^^^^^^^ reference local21
         maxFinishedGeneration = runGeneration;
 //      ^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#GenerationTracker#maxFinishedGeneration.
-//                              ^^^^^^^^^^^^^ reference local91
+//                              ^^^^^^^^^^^^^ reference local20
       }
 
       return isLatestGeneration;
-//           ^^^^^^^^^^^^^^^^^^ reference local92
+//           ^^^^^^^^^^^^^^^^^^ reference local21
     }
   }
 
@@ -527,26 +527,26 @@ class AsyncEpoxyDiffer {
 //  ^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#`<init>`().
 //               ^^^^ reference java/util/List#
 //                              ^^^^^^^^^^ reference _root_/
-//                                             ^^^^^^^ definition local93
+//                                             ^^^^^^^ definition local22
 //                                                      ^^^^ reference java/util/List#
 //                                                                     ^^^^^^^^^^ reference _root_/
-//                                                                                    ^^^^^^^ definition local95
+//                                                                                    ^^^^^^^ definition local23
         ItemCallback<EpoxyModel<?>> diffCallback) {
 //      ^^^^^^^^^^^^ reference _root_/
 //                   ^^^^^^^^^^ reference _root_/
-//                                  ^^^^^^^^^^^^ definition local97
+//                                  ^^^^^^^^^^^^ definition local24
       this.oldList = oldList;
 //    ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#this.
 //         ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#oldList.
-//                   ^^^^^^^ reference local99
+//                   ^^^^^^^ reference local22
       this.newList = newList;
 //    ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#this.
 //         ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#newList.
-//                   ^^^^^^^ reference local100
+//                   ^^^^^^^ reference local23
       this.diffCallback = diffCallback;
 //    ^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#diffCallback.
-//                        ^^^^^^^^^^^^ reference local101
+//                        ^^^^^^^^^^^^ reference local24
     }
 
     @Override
@@ -571,19 +571,19 @@ class AsyncEpoxyDiffer {
 //   ^^^^^^^^ reference java/lang/Override#
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
 //                 ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#areItemsTheSame().
-//                                     ^^^^^^^^^^^^^^^ definition local102
-//                                                          ^^^^^^^^^^^^^^^ definition local104
+//                                     ^^^^^^^^^^^^^^^ definition local25
+//                                                          ^^^^^^^^^^^^^^^ definition local26
       return diffCallback.areItemsTheSame(
 //           ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#diffCallback.
 //                        ^^^^^^^^^^^^^^^ reference `<any>`#areItemsTheSame#
           oldList.get(oldItemPosition),
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#oldList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local106
+//                    ^^^^^^^^^^^^^^^ reference local25
           newList.get(newItemPosition)
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#newList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local107
+//                    ^^^^^^^^^^^^^^^ reference local26
       );
     }
 
@@ -591,19 +591,19 @@ class AsyncEpoxyDiffer {
 //   ^^^^^^^^ reference java/lang/Override#
     public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
 //                 ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#areContentsTheSame().
-//                                        ^^^^^^^^^^^^^^^ definition local108
-//                                                             ^^^^^^^^^^^^^^^ definition local110
+//                                        ^^^^^^^^^^^^^^^ definition local27
+//                                                             ^^^^^^^^^^^^^^^ definition local28
       return diffCallback.areContentsTheSame(
 //           ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#diffCallback.
 //                        ^^^^^^^^^^^^^^^^^^ reference `<any>`#areContentsTheSame#
           oldList.get(oldItemPosition),
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#oldList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local112
+//                    ^^^^^^^^^^^^^^^ reference local27
           newList.get(newItemPosition)
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#newList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local113
+//                    ^^^^^^^^^^^^^^^ reference local28
       );
     }
 
@@ -614,19 +614,19 @@ class AsyncEpoxyDiffer {
     public Object getChangePayload(int oldItemPosition, int newItemPosition) {
 //         ^^^^^^ reference java/lang/Object#
 //                ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#getChangePayload().
-//                                     ^^^^^^^^^^^^^^^ definition local114
-//                                                          ^^^^^^^^^^^^^^^ definition local116
+//                                     ^^^^^^^^^^^^^^^ definition local29
+//                                                          ^^^^^^^^^^^^^^^ definition local30
       return diffCallback.getChangePayload(
 //           ^^^^^^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#diffCallback.
 //                        ^^^^^^^^^^^^^^^^ reference `<any>`#getChangePayload#
           oldList.get(oldItemPosition),
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#oldList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local118
+//                    ^^^^^^^^^^^^^^^ reference local29
           newList.get(newItemPosition)
 //        ^^^^^^^ reference com/airbnb/epoxy/AsyncEpoxyDiffer#DiffCallback#newList.
 //                ^^^ reference java/util/List#get().
-//                    ^^^^^^^^^^^^^^^ reference local119
+//                    ^^^^^^^^^^^^^^^ reference local30
       );
     }
   }

@@ -52,7 +52,7 @@ class NotifyBlocker extends AdapterDataObserver {
   public void onItemRangeChanged(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/NotifyBlocker#onItemRangeChanged().
 //                                   ^^^^^^^^^^^^^ definition local0
-//                                                      ^^^^^^^^^ definition local2
+//                                                      ^^^^^^^^^ definition local1
     onChanged();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/NotifyBlocker#onChanged().
   }
@@ -61,10 +61,10 @@ class NotifyBlocker extends AdapterDataObserver {
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeChanged(int positionStart, int itemCount, Object payload) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/NotifyBlocker#onItemRangeChanged(+1).
-//                                   ^^^^^^^^^^^^^ definition local4
-//                                                      ^^^^^^^^^ definition local6
+//                                   ^^^^^^^^^^^^^ definition local2
+//                                                      ^^^^^^^^^ definition local3
 //                                                                 ^^^^^^ reference java/lang/Object#
-//                                                                        ^^^^^^^ definition local8
+//                                                                        ^^^^^^^ definition local4
     onChanged();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/NotifyBlocker#onChanged().
   }
@@ -73,8 +73,8 @@ class NotifyBlocker extends AdapterDataObserver {
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeInserted(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/NotifyBlocker#onItemRangeInserted().
-//                                    ^^^^^^^^^^^^^ definition local10
-//                                                       ^^^^^^^^^ definition local12
+//                                    ^^^^^^^^^^^^^ definition local5
+//                                                       ^^^^^^^^^ definition local6
     onChanged();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/NotifyBlocker#onChanged().
   }
@@ -83,8 +83,8 @@ class NotifyBlocker extends AdapterDataObserver {
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeRemoved(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/NotifyBlocker#onItemRangeRemoved().
-//                                   ^^^^^^^^^^^^^ definition local14
-//                                                      ^^^^^^^^^ definition local16
+//                                   ^^^^^^^^^^^^^ definition local7
+//                                                      ^^^^^^^^^ definition local8
     onChanged();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/NotifyBlocker#onChanged().
   }
@@ -93,9 +93,9 @@ class NotifyBlocker extends AdapterDataObserver {
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
 //            ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/NotifyBlocker#onItemRangeMoved().
-//                                 ^^^^^^^^^^^^ definition local18
-//                                                   ^^^^^^^^^^ definition local20
-//                                                                   ^^^^^^^^^ definition local22
+//                                 ^^^^^^^^^^^^ definition local9
+//                                                   ^^^^^^^^^^ definition local10
+//                                                                   ^^^^^^^^^ definition local11
     onChanged();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/NotifyBlocker#onChanged().
   }

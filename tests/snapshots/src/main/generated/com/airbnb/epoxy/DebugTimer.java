@@ -25,7 +25,7 @@ class DebugTimer implements Timer {
     this.tag = tag;
 //  ^^^^ reference com/airbnb/epoxy/DebugTimer#this.
 //       ^^^ reference com/airbnb/epoxy/DebugTimer#tag.
-//             ^^^ reference local2
+//             ^^^ reference local0
     reset();
 //  ^^^^^ reference com/airbnb/epoxy/DebugTimer#reset().
   }
@@ -43,7 +43,7 @@ class DebugTimer implements Timer {
   public void start(String sectionName) {
 //            ^^^^^ definition com/airbnb/epoxy/DebugTimer#start().
 //                  ^^^^^^ reference java/lang/String#
-//                         ^^^^^^^^^^^ definition local3
+//                         ^^^^^^^^^^^ definition local1
     if (startTime != -1) {
 //      ^^^^^^^^^ reference com/airbnb/epoxy/DebugTimer#startTime.
       throw new IllegalStateException("Timer was already started");
@@ -58,7 +58,7 @@ class DebugTimer implements Timer {
     this.sectionName = sectionName;
 //  ^^^^ reference com/airbnb/epoxy/DebugTimer#this.
 //       ^^^^^^^^^^^ reference com/airbnb/epoxy/DebugTimer#sectionName.
-//                     ^^^^^^^^^^^ reference local5
+//                     ^^^^^^^^^^^ reference local1
   }
 
   @Override
@@ -73,7 +73,7 @@ class DebugTimer implements Timer {
     }
 
     float durationMs = (System.nanoTime() - startTime) / 1000000f;
-//        ^^^^^^^^^^ definition local6
+//        ^^^^^^^^^^ definition local2
 //                      ^^^^^^ reference java/lang/System#
 //                             ^^^^^^^^ reference java/lang/System#nanoTime().
 //                                          ^^^^^^^^^ reference com/airbnb/epoxy/DebugTimer#startTime.
@@ -84,7 +84,7 @@ class DebugTimer implements Timer {
 //             ^^^^^^ reference java/lang/String#
 //                    ^^^^^^ reference java/lang/String#format().
 //                           ^^^^^^^^^^^ reference com/airbnb/epoxy/DebugTimer#sectionName.
-//                                                     ^^^^^^^^^^ reference local8
+//                                                     ^^^^^^^^^^ reference local2
     reset();
 //  ^^^^^ reference com/airbnb/epoxy/DebugTimer#reset().
   }

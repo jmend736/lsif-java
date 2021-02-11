@@ -23,10 +23,10 @@ public interface OnModelCheckedChangeListener<T extends EpoxyModel<?>, V> {
 //               ^ reference com/airbnb/epoxy/OnModelCheckedChangeListener#[T]
 //                 ^^^^^ definition local0
 //                        ^ reference com/airbnb/epoxy/OnModelCheckedChangeListener#[V]
-//                          ^^^^^^^^^^ definition local2
+//                          ^^^^^^^^^^ definition local1
       CompoundButton checkedView, boolean isChecked, int position);
 //    ^^^^^^^^^^^^^^ reference _root_/
-//                   ^^^^^^^^^^^ definition local4
-//                                        ^^^^^^^^^ definition local6
-//                                                       ^^^^^^^^ definition local8
+//                   ^^^^^^^^^^^ definition local2
+//                                        ^^^^^^^^^ definition local3
+//                                                       ^^^^^^^^ definition local4
 }

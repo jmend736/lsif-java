@@ -30,8 +30,8 @@ public interface EpoxyDragCallback<T extends EpoxyModel> extends BaseEpoxyTouchC
 //                   ^ reference com/airbnb/epoxy/EpoxyDragCallback#[T]
 //                     ^^^^^ definition local0
 //                            ^^^^ reference _root_/
-//                                 ^^^^^^^^ definition local2
-//                                               ^^^^^^^^^^^^^^^ definition local4
+//                                 ^^^^^^^^ definition local1
+//                                               ^^^^^^^^^^^^^^^ definition local2
 
   /**
    * Called after {@link #onDragStarted(EpoxyModel, View, int)} when the dragged view is dropped to
@@ -49,12 +49,12 @@ public interface EpoxyDragCallback<T extends EpoxyModel> extends BaseEpoxyTouchC
    */
   void onModelMoved(int fromPosition, int toPosition, T modelBeingMoved, View itemView);
 //     ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDragCallback#onModelMoved().
-//                      ^^^^^^^^^^^^ definition local6
-//                                        ^^^^^^^^^^ definition local8
+//                      ^^^^^^^^^^^^ definition local3
+//                                        ^^^^^^^^^^ definition local4
 //                                                    ^ reference com/airbnb/epoxy/EpoxyDragCallback#[T]
-//                                                      ^^^^^^^^^^^^^^^ definition local10
+//                                                      ^^^^^^^^^^^^^^^ definition local5
 //                                                                       ^^^^ reference _root_/
-//                                                                            ^^^^^^^^ definition local12
+//                                                                            ^^^^^^^^ definition local6
 
   /**
    * Called after {@link #onDragStarted(EpoxyModel, View, int)} when the view being dragged is
@@ -73,7 +73,7 @@ public interface EpoxyDragCallback<T extends EpoxyModel> extends BaseEpoxyTouchC
   void onDragReleased(T model, View itemView);
 //     ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDragCallback#onDragReleased().
 //                    ^ reference com/airbnb/epoxy/EpoxyDragCallback#[T]
-//                      ^^^^^ definition local14
+//                      ^^^^^ definition local7
 //                             ^^^^ reference _root_/
-//                                  ^^^^^^^^ definition local16
+//                                  ^^^^^^^^ definition local8
 }

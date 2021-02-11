@@ -26,27 +26,27 @@ class ImmutableModelException extends RuntimeException {
   ^^^^^^ definition com/airbnb/epoxy/ImmutableModelException#`<init>`().
 //                        ^^^^^^^^^^ reference _root_/
 //                                   ^^^^^ definition local0
-//                                              ^^^^^^^^^^^^^ definition local2
+//                                              ^^^^^^^^^^^^^ definition local1
     this(model, "", modelPosition);
 //  ^^^^ reference com/airbnb/epoxy/ImmutableModelException#`<init>`(+1).
-//       ^^^^^ reference local4
-//                  ^^^^^^^^^^^^^ reference local5
+//       ^^^^^ reference local0
+//                  ^^^^^^^^^^^^^ reference local1
   }
 
   ImmutableModelException(EpoxyModel model,
   ^^^^^^ definition com/airbnb/epoxy/ImmutableModelException#`<init>`(+1).
 //                        ^^^^^^^^^^ reference _root_/
-//                                   ^^^^^ definition local6
+//                                   ^^^^^ definition local2
       String descriptionOfWhenChangeHappened, int modelPosition) {
 //    ^^^^^^ reference java/lang/String#
-//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition local8
-//                                                ^^^^^^^^^^^^^ definition local10
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition local3
+//                                                ^^^^^^^^^^^^^ definition local4
     super(buildMessage(model, descriptionOfWhenChangeHappened, modelPosition));
 //  ^^^^^ reference java/lang/RuntimeException#`<init>`(+1).
 //        ^^^^^^^^^^^^ reference com/airbnb/epoxy/ImmutableModelException#buildMessage().
-//                     ^^^^^ reference local12
-//                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference local13
-//                                                             ^^^^^^^^^^^^^ reference local14
+//                     ^^^^^ reference local2
+//                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference local3
+//                                                             ^^^^^^^^^^^^^ reference local4
   }
 
   @NonNull
@@ -55,25 +55,25 @@ class ImmutableModelException extends RuntimeException {
 //               ^^^^^^ reference java/lang/String#
 //                      ^^^^^^^^^^^^ definition com/airbnb/epoxy/ImmutableModelException#buildMessage().
 //                                   ^^^^^^^^^^ reference _root_/
-//                                              ^^^^^ definition local15
+//                                              ^^^^^ definition local5
       String descriptionOfWhenChangeHappened, int modelPosition) {
 //    ^^^^^^ reference java/lang/String#
-//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition local17
-//                                                ^^^^^^^^^^^^^ definition local19
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition local6
+//                                                ^^^^^^^^^^^^^ definition local7
     return new StringBuilder(descriptionOfWhenChangeHappened)
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/StringBuilder#`<init>`(+2).
 //             ^^^^^^^^^^^^^ reference java/lang/StringBuilder#
-//                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference local21
+//                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference local6
         .append(" Position: ")
 //       ^^^^^^ reference java/lang/StringBuilder#append(+1).
         .append(modelPosition)
 //       ^^^^^^ reference java/lang/StringBuilder#append(+9).
-//              ^^^^^^^^^^^^^ reference local22
+//              ^^^^^^^^^^^^^ reference local7
         .append(" Model: ")
 //       ^^^^^^ reference java/lang/StringBuilder#append(+1).
         .append(model.toString())
 //       ^^^^^^ reference java/lang/StringBuilder#append(+7).
-//              ^^^^^ reference local23
+//              ^^^^^ reference local5
 //                    ^^^^^^^^ reference toString#
         .append("\n\n")
 //       ^^^^^^ reference `<any>`#append#

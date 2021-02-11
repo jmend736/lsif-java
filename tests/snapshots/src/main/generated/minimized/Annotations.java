@@ -33,24 +33,24 @@ import static java.lang.annotation.ElementType.*;
  ^^^^^^^^^ reference java/lang/annotation/Retention#
 //         ^^^^^^^^^^^^^^^ reference java/lang/annotation/RetentionPolicy#
 //                         ^^^^^^^ reference java/lang/annotation/RetentionPolicy#RUNTIME.
-@Target(value={CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE})
+@Target(value = {CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE})
  ^^^^^^ reference java/lang/annotation/Target#
 //      ^^^^^ reference java/lang/annotation/Target#value().
-//             ^^^^^^^^^^^ reference java/lang/annotation/ElementType#CONSTRUCTOR.
-//                          ^^^^^ reference java/lang/annotation/ElementType#FIELD.
-//                                 ^^^^^^^^^^^^^^ reference java/lang/annotation/ElementType#LOCAL_VARIABLE.
-//                                                 ^^^^^^ reference java/lang/annotation/ElementType#METHOD.
-//                                                         ^^^^^^^ reference java/lang/annotation/ElementType#PACKAGE.
-//                                                                  ^^^^^^^^^ reference java/lang/annotation/ElementType#PARAMETER.
-//                                                                             ^^^^ reference java/lang/annotation/ElementType#TYPE.
+//               ^^^^^^^^^^^ reference java/lang/annotation/ElementType#CONSTRUCTOR.
+//                            ^^^^^ reference java/lang/annotation/ElementType#FIELD.
+//                                   ^^^^^^^^^^^^^^ reference java/lang/annotation/ElementType#LOCAL_VARIABLE.
+//                                                   ^^^^^^ reference java/lang/annotation/ElementType#METHOD.
+//                                                           ^^^^^^^ reference java/lang/annotation/ElementType#PACKAGE.
+//                                                                    ^^^^^^^^^ reference java/lang/annotation/ElementType#PARAMETER.
+//                                                                               ^^^^ reference java/lang/annotation/ElementType#TYPE.
 public @interface Annotations {
 //      ^^^^^^^^^^^ definition minimized/Annotations#
 
-    String value() default "";
-//  ^^^^^^ reference java/lang/String#
-//         ^^^^^ definition minimized/Annotations#value().
+  String value() default "";
+  ^^^^^^ reference java/lang/String#
+//       ^^^^^ definition minimized/Annotations#value().
 
-    String format() default "";
-//  ^^^^^^ reference java/lang/String#
-//         ^^^^^^ definition minimized/Annotations#format().
+  String format() default "";
+  ^^^^^^ reference java/lang/String#
+//       ^^^^^^ definition minimized/Annotations#format().
 }

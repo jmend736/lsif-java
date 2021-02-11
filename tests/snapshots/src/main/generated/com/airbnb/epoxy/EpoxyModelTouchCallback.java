@@ -73,15 +73,15 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
 //                                                         ^^^^^^^^^^ definition local0
 //                                                                     ^^^^^ reference java/lang/Class#
 //                                                                           ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                                                                              ^^^^^^^^^^^^^^^^ definition local2
+//                                                                              ^^^^^^^^^^^^^^^^ definition local1
     this.controller = controller;
 //  ^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#this.
 //       ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#controller.
-//                    ^^^^^^^^^^ reference local4
+//                    ^^^^^^^^^^ reference local0
     this.targetModelClass = targetModelClass;
 //  ^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#this.
 //       ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#targetModelClass.
-//                          ^^^^^^^^^^^^^^^^ reference local5
+//                          ^^^^^^^^^^^^^^^^ reference local1
   }
 
   @Override
@@ -89,38 +89,38 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected int getMovementFlags(RecyclerView recyclerView, EpoxyViewHolder viewHolder) {
 //              ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#getMovementFlags().
 //                               ^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^^^^^^^ definition local6
+//                                            ^^^^^^^^^^^^ definition local2
 //                                                          ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                          ^^^^^^^^^^ definition local8
+//                                                                          ^^^^^^^^^^ definition local3
     EpoxyModel<?> model = viewHolder.getModel();
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local10
-//                        ^^^^^^^^^^ reference local12
+//                ^^^^^ definition local4
+//                        ^^^^^^^^^^ reference local3
 //                                   ^^^^^^^^ reference getModel#
 
     // If multiple touch callbacks are registered on the recyclerview (to support combinations of
     // dragging and dropping) then we won't want to enable anything if another
     // callback has a view actively selected.
     boolean isOtherCallbackActive =
-//          ^^^^^^^^^^^^^^^^^^^^^ definition local13
+//          ^^^^^^^^^^^^^^^^^^^^^ definition local5
         holderBeingDragged == null
 //      ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#holderBeingDragged.
             && holderBeingSwiped == null
 //             ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#holderBeingSwiped.
             && recyclerViewHasSelection(recyclerView);
 //             ^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#recyclerViewHasSelection().
-//                                      ^^^^^^^^^^^^ reference local15
+//                                      ^^^^^^^^^^^^ reference local2
 
     if (!isOtherCallbackActive && isTouchableModel(model)) {
-//       ^^^^^^^^^^^^^^^^^^^^^ reference local16
+//       ^^^^^^^^^^^^^^^^^^^^^ reference local5
 //                                ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                                                 ^^^^^ reference local17
+//                                                 ^^^^^ reference local4
       //noinspection unchecked
       return getMovementFlagsForModel((T) model, viewHolder.getAdapterPosition());
 //           ^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#getMovementFlagsForModel#
 //                                     ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                                        ^^^^^ reference local18
-//                                               ^^^^^^^^^^ reference local19
+//                                        ^^^^^ reference local4
+//                                               ^^^^^^^^^^ reference local3
 //                                                          ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
     } else {
       return 0;
@@ -132,27 +132,27 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected boolean canDropOver(RecyclerView recyclerView, EpoxyViewHolder current,
 //                  ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#canDropOver().
 //                              ^^^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^^^^ definition local20
+//                                           ^^^^^^^^^^^^ definition local6
 //                                                         ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                         ^^^^^^^ definition local22
+//                                                                         ^^^^^^^ definition local7
       EpoxyViewHolder target) {
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^ definition local24
+//                    ^^^^^^ definition local8
     // By default we don't allow dropping on a model that isn't a drag target
     return isTouchableModel(target.getModel());
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                          ^^^^^^ reference local26
+//                          ^^^^^^ reference local8
 //                                 ^^^^^^^^ reference getModel#
   }
 
   protected boolean isTouchableModel(EpoxyModel<?> model) {
 //                  ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
 //                                   ^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^ definition local27
+//                                                 ^^^^^ definition local9
     return targetModelClass.isInstance(model);
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#targetModelClass.
 //                          ^^^^^^^^^^ reference java/lang/Class#isInstance().
-//                                     ^^^^^ reference local29
+//                                     ^^^^^ reference local9
   }
 
   @Override
@@ -160,12 +160,12 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected boolean onMove(RecyclerView recyclerView, EpoxyViewHolder viewHolder,
 //                  ^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onMove().
 //                         ^^^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^^^ definition local30
+//                                      ^^^^^^^^^^^^ definition local10
 //                                                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                    ^^^^^^^^^^ definition local32
+//                                                                    ^^^^^^^^^^ definition local11
       EpoxyViewHolder target) {
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^ definition local34
+//                    ^^^^^^ definition local12
 
     if (controller == null) {
 //      ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#controller.
@@ -176,43 +176,43 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
     }
 
     int fromPosition = viewHolder.getAdapterPosition();
-//      ^^^^^^^^^^^^ definition local36
-//                     ^^^^^^^^^^ reference local38
+//      ^^^^^^^^^^^^ definition local13
+//                     ^^^^^^^^^^ reference local11
 //                                ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
     int toPosition = target.getAdapterPosition();
-//      ^^^^^^^^^^ definition local39
-//                   ^^^^^^ reference local41
+//      ^^^^^^^^^^ definition local14
+//                   ^^^^^^ reference local12
 //                          ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
     controller.moveModel(fromPosition, toPosition);
 //  ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#controller.
 //             ^^^^^^^^^ reference moveModel#
-//                       ^^^^^^^^^^^^ reference local42
-//                                     ^^^^^^^^^^ reference local43
+//                       ^^^^^^^^^^^^ reference local13
+//                                     ^^^^^^^^^^ reference local14
 
     EpoxyModel<?> model = viewHolder.getModel();
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local44
-//                        ^^^^^^^^^^ reference local46
+//                ^^^^^ definition local15
+//                        ^^^^^^^^^^ reference local11
 //                                   ^^^^^^^^ reference getModel#
     if (!isTouchableModel(model)) {
 //       ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                        ^^^^^ reference local47
+//                        ^^^^^ reference local15
       throw new IllegalStateException(
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#`<init>`(+1). 1:80
 //              ^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#
           "A model was dragged that is not a valid target: " + model.getClass());
-//                                                             ^^^^^ reference local48
+//                                                             ^^^^^ reference local15
 //                                                                   ^^^^^^^^ reference `<any>`#getClass#
     }
 
     //noinspection unchecked
     onModelMoved(fromPosition, toPosition, (T) model, viewHolder.itemView);
 //  ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#onModelMoved().
-//               ^^^^^^^^^^^^ reference local49
-//                             ^^^^^^^^^^ reference local50
+//               ^^^^^^^^^^^^ reference local13
+//                             ^^^^^^^^^^ reference local14
 //                                          ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                                             ^^^^^ reference local51
-//                                                    ^^^^^^^^^^ reference local52
+//                                             ^^^^^ reference local15
+//                                                    ^^^^^^^^^^ reference local11
 //                                                               ^^^^^^^^ reference itemView#
     return true;
   }
@@ -221,12 +221,12 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
    ^^^^^^^^ reference java/lang/Override#
   public void onModelMoved(int fromPosition, int toPosition, T modelBeingMoved, View itemView) {
 //            ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onModelMoved().
-//                             ^^^^^^^^^^^^ definition local53
-//                                               ^^^^^^^^^^ definition local55
+//                             ^^^^^^^^^^^^ definition local16
+//                                               ^^^^^^^^^^ definition local17
 //                                                           ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                                                             ^^^^^^^^^^^^^^^ definition local57
+//                                                             ^^^^^^^^^^^^^^^ definition local18
 //                                                                              ^^^^ reference _root_/
-//                                                                                   ^^^^^^^^ definition local59
+//                                                                                   ^^^^^^^^ definition local19
 
   }
 
@@ -235,31 +235,31 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected void onSwiped(EpoxyViewHolder viewHolder, int direction) {
 //               ^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSwiped().
 //                        ^^^^^^^^^^^^^^^ reference _root_/
-//                                        ^^^^^^^^^^ definition local61
-//                                                        ^^^^^^^^^ definition local63
+//                                        ^^^^^^^^^^ definition local20
+//                                                        ^^^^^^^^^ definition local21
     EpoxyModel<?> model = viewHolder.getModel();
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local65
-//                        ^^^^^^^^^^ reference local67
+//                ^^^^^ definition local22
+//                        ^^^^^^^^^^ reference local20
 //                                   ^^^^^^^^ reference getModel#
     View view = viewHolder.itemView;
 //  ^^^^ reference _root_/
-//       ^^^^ definition local68
-//              ^^^^^^^^^^ reference local70
+//       ^^^^ definition local23
+//              ^^^^^^^^^^ reference local20
 //                         ^^^^^^^^ reference itemView#
     int position = viewHolder.getAdapterPosition();
-//      ^^^^^^^^ definition local71
-//                 ^^^^^^^^^^ reference local73
+//      ^^^^^^^^ definition local24
+//                 ^^^^^^^^^^ reference local20
 //                            ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
 
     if (!isTouchableModel(model)) {
 //       ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                        ^^^^^ reference local74
+//                        ^^^^^ reference local22
       throw new IllegalStateException(
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#`<init>`(+1). 1:79
 //              ^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#
           "A model was swiped that is not a valid target: " + model.getClass());
-//                                                            ^^^^^ reference local75
+//                                                            ^^^^^ reference local22
 //                                                                  ^^^^^^^^ reference `<any>`#getClass#
     }
 
@@ -267,10 +267,10 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
     onSwipeCompleted((T) model, view, position, direction);
 //  ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeCompleted().
 //                    ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                       ^^^^^ reference local76
-//                              ^^^^ reference local77
-//                                    ^^^^^^^^ reference local78
-//                                              ^^^^^^^^^ reference local79
+//                       ^^^^^ reference local22
+//                              ^^^^ reference local23
+//                                    ^^^^^^^^ reference local24
+//                                              ^^^^^^^^^ reference local21
   }
 
   @Override
@@ -278,11 +278,11 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onSwipeCompleted(T model, View itemView, int position, int direction) {
 //            ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeCompleted().
 //                             ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                               ^^^^^ definition local80
+//                               ^^^^^ definition local25
 //                                      ^^^^ reference _root_/
-//                                           ^^^^^^^^ definition local82
-//                                                         ^^^^^^^^ definition local84
-//                                                                       ^^^^^^^^^ definition local86
+//                                           ^^^^^^^^ definition local26
+//                                                         ^^^^^^^^ definition local27
+//                                                                       ^^^^^^^^^ definition local28
 
   }
 
@@ -292,70 +292,70 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
 //               ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSelectedChanged().
 //                                  ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                                           ^^^^^^^^^^ definition local88
-//                                                                           ^^^^^^^^^^^ definition local90
+//                                                           ^^^^^^^^^^ definition local29
+//                                                                           ^^^^^^^^^^^ definition local30
     super.onSelectedChanged(viewHolder, actionState);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^ reference onSelectedChanged#
-//                          ^^^^^^^^^^ reference local92
-//                                      ^^^^^^^^^^^ reference local93
+//                          ^^^^^^^^^^ reference local29
+//                                      ^^^^^^^^^^^ reference local30
 
     if (viewHolder != null) {
-//      ^^^^^^^^^^ reference local94
+//      ^^^^^^^^^^ reference local29
       EpoxyModel<?> model = viewHolder.getModel();
 //    ^^^^^^^^^^ reference _root_/
-//                  ^^^^^ definition local95
-//                          ^^^^^^^^^^ reference local97
+//                  ^^^^^ definition local31
+//                          ^^^^^^^^^^ reference local29
 //                                     ^^^^^^^^ reference getModel#
       if (!isTouchableModel(model)) {
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                          ^^^^^ reference local98
+//                          ^^^^^ reference local31
         throw new IllegalStateException(
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#`<init>`(+1). 1:83
 //                ^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#
             "A model was selected that is not a valid target: " + model.getClass());
-//                                                                ^^^^^ reference local99
+//                                                                ^^^^^ reference local31
 //                                                                      ^^^^^^^^ reference `<any>`#getClass#
       }
 
       markRecyclerViewHasSelection((RecyclerView) viewHolder.itemView.getParent());
 //    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#markRecyclerViewHasSelection().
 //                                  ^^^^^^^^^^^^ reference _root_/
-//                                                ^^^^^^^^^^ reference local100
+//                                                ^^^^^^^^^^ reference local29
 //                                                           ^^^^^^^^ reference itemView#
 //                                                                    ^^^^^^^^^ reference itemView#getParent#
 
       if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-//        ^^^^^^^^^^^ reference local101
+//        ^^^^^^^^^^^ reference local30
 //                       ^^^^^^^^^^^^^^^ reference _root_/
 //                                       ^^^^^^^^^^^^^^^^^^ reference ACTION_STATE_SWIPE#
         holderBeingSwiped = viewHolder;
 //      ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#holderBeingSwiped.
-//                          ^^^^^^^^^^ reference local102
+//                          ^^^^^^^^^^ reference local29
         //noinspection unchecked
         onSwipeStarted((T) model, viewHolder.itemView, viewHolder.getAdapterPosition());
 //      ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeStarted().
 //                      ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                         ^^^^^ reference local103
-//                                ^^^^^^^^^^ reference local104
+//                         ^^^^^ reference local31
+//                                ^^^^^^^^^^ reference local29
 //                                           ^^^^^^^^ reference itemView#
-//                                                     ^^^^^^^^^^ reference local105
+//                                                     ^^^^^^^^^^ reference local29
 //                                                                ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
       } else if (actionState == ItemTouchHelper.ACTION_STATE_DRAG) {
-//               ^^^^^^^^^^^ reference local106
+//               ^^^^^^^^^^^ reference local30
 //                              ^^^^^^^^^^^^^^^ reference _root_/
 //                                              ^^^^^^^^^^^^^^^^^ reference ACTION_STATE_DRAG#
         holderBeingDragged = viewHolder;
 //      ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#holderBeingDragged.
-//                           ^^^^^^^^^^ reference local107
+//                           ^^^^^^^^^^ reference local29
         //noinspection unchecked
         onDragStarted((T) model, viewHolder.itemView, viewHolder.getAdapterPosition());
 //      ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#onDragStarted().
 //                     ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                        ^^^^^ reference local108
-//                               ^^^^^^^^^^ reference local109
+//                        ^^^^^ reference local31
+//                               ^^^^^^^^^^ reference local29
 //                                          ^^^^^^^^ reference itemView#
-//                                                    ^^^^^^^^^^ reference local110
+//                                                    ^^^^^^^^^^ reference local29
 //                                                               ^^^^^^^^^^^^^^^^^^ reference getAdapterPosition#
       }
     } else if (holderBeingDragged != null) {
@@ -388,9 +388,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   private void markRecyclerViewHasSelection(RecyclerView recyclerView) {
 //             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#markRecyclerViewHasSelection().
 //                                          ^^^^^^^^^^^^ reference _root_/
-//                                                       ^^^^^^^^^^^^ definition local111
+//                                                       ^^^^^^^^^^^^ definition local32
     recyclerView.setTag(R.id.epoxy_touch_helper_selection_status, Boolean.TRUE);
-//  ^^^^^^^^^^^^ reference local113
+//  ^^^^^^^^^^^^ reference local32
 //               ^^^^^^ reference setTag#
 //                      ^ reference R/
 //                        ^^ reference R/id#
@@ -402,9 +402,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   private boolean recyclerViewHasSelection(RecyclerView recyclerView) {
 //                ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#recyclerViewHasSelection().
 //                                         ^^^^^^^^^^^^ reference _root_/
-//                                                      ^^^^^^^^^^^^ definition local114
+//                                                      ^^^^^^^^^^^^ definition local33
     return recyclerView.getTag(R.id.epoxy_touch_helper_selection_status) != null;
-//         ^^^^^^^^^^^^ reference local116
+//         ^^^^^^^^^^^^ reference local33
 //                      ^^^^^^ reference getTag#
 //                             ^ reference R/
 //                               ^^ reference R/id#
@@ -414,9 +414,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   private void clearRecyclerViewSelectionMarker(RecyclerView recyclerView) {
 //             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#clearRecyclerViewSelectionMarker().
 //                                              ^^^^^^^^^^^^ reference _root_/
-//                                                           ^^^^^^^^^^^^ definition local117
+//                                                           ^^^^^^^^^^^^ definition local34
     recyclerView.setTag(R.id.epoxy_touch_helper_selection_status, null);
-//  ^^^^^^^^^^^^ reference local119
+//  ^^^^^^^^^^^^ reference local34
 //               ^^^^^^ reference setTag#
 //                      ^ reference R/
 //                        ^^ reference R/id#
@@ -428,10 +428,10 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onSwipeStarted(T model, View itemView, int adapterPosition) {
 //            ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeStarted().
 //                           ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                             ^^^^^ definition local120
+//                             ^^^^^ definition local35
 //                                    ^^^^ reference _root_/
-//                                         ^^^^^^^^ definition local122
-//                                                       ^^^^^^^^^^^^^^^ definition local124
+//                                         ^^^^^^^^ definition local36
+//                                                       ^^^^^^^^^^^^^^^ definition local37
 
   }
 
@@ -440,9 +440,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onSwipeReleased(T model, View itemView) {
 //            ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeReleased().
 //                            ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                              ^^^^^ definition local126
+//                              ^^^^^ definition local38
 //                                     ^^^^ reference _root_/
-//                                          ^^^^^^^^ definition local128
+//                                          ^^^^^^^^ definition local39
 
   }
 
@@ -451,10 +451,10 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onDragStarted(T model, View itemView, int adapterPosition) {
 //            ^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onDragStarted().
 //                          ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                            ^^^^^ definition local130
+//                            ^^^^^ definition local40
 //                                   ^^^^ reference _root_/
-//                                        ^^^^^^^^ definition local132
-//                                                      ^^^^^^^^^^^^^^^ definition local134
+//                                        ^^^^^^^^ definition local41
+//                                                      ^^^^^^^^^^^^^^^ definition local42
 
   }
 
@@ -463,9 +463,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onDragReleased(T model, View itemView) {
 //            ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onDragReleased().
 //                           ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                             ^^^^^ definition local136
+//                             ^^^^^ definition local43
 //                                    ^^^^ reference _root_/
-//                                         ^^^^^^^^ definition local138
+//                                         ^^^^^^^^ definition local44
 
   }
 
@@ -474,21 +474,21 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected void clearView(final RecyclerView recyclerView, EpoxyViewHolder viewHolder) {
 //               ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#clearView().
 //                               ^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^^^^^^^ definition local140
+//                                            ^^^^^^^^^^^^ definition local45
 //                                                          ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                          ^^^^^^^^^^ definition local142
+//                                                                          ^^^^^^^^^^ definition local46
     super.clearView(recyclerView, viewHolder);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^ reference clearView#
-//                  ^^^^^^^^^^^^ reference local144
-//                                ^^^^^^^^^^ reference local145
+//                  ^^^^^^^^^^^^ reference local45
+//                                ^^^^^^^^^^ reference local46
     //noinspection unchecked
     clearView((T) viewHolder.getModel(), viewHolder.itemView);
 //  ^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#clearView().
 //             ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                ^^^^^^^^^^ reference local146
+//                ^^^^^^^^^^ reference local46
 //                           ^^^^^^^^ reference getModel#
-//                                       ^^^^^^^^^^ reference local147
+//                                       ^^^^^^^^^^ reference local46
 //                                                  ^^^^^^^^ reference itemView#
 
     // If multiple touch helpers are in use, one touch helper can pick up buffered touch inputs
@@ -497,7 +497,7 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
     // keep the recyclerview marked as having an active selection for a brief period after a
     // touch event ends.
     recyclerView.postDelayed(new Runnable() {
-//  ^^^^^^^^^^^^ reference local148
+//  ^^^^^^^^^^^^ reference local45
 //               ^^^^^^^^^^^ reference postDelayed#
 //                           ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#clearView().``#`<init>`(). 5:5
 //                               ^^^^^^^^ reference java/lang/Runnable#
@@ -509,7 +509,7 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
 //                ^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#clearView().``#run().
         clearRecyclerViewSelectionMarker(recyclerView);
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#clearRecyclerViewSelectionMarker().
-//                                       ^^^^^^^^^^^^ reference local149
+//                                       ^^^^^^^^^^^^ reference local45
       }
     }, TOUCH_DEBOUNCE_MILLIS);
 //     ^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#TOUCH_DEBOUNCE_MILLIS.
@@ -520,9 +520,9 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void clearView(T model, View itemView) {
 //            ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#clearView(+1).
 //                      ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                        ^^^^^ definition local150
+//                        ^^^^^ definition local47
 //                               ^^^^ reference _root_/
-//                                    ^^^^^^^^ definition local152
+//                                    ^^^^^^^^ definition local48
 
   }
 
@@ -531,88 +531,88 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   protected void onChildDraw(Canvas c, RecyclerView recyclerView, EpoxyViewHolder viewHolder,
 //               ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onChildDraw().
 //                           ^^^^^^ reference _root_/
-//                                  ^ definition local154
+//                                  ^ definition local49
 //                                     ^^^^^^^^^^^^ reference _root_/
-//                                                  ^^^^^^^^^^^^ definition local156
+//                                                  ^^^^^^^^^^^^ definition local50
 //                                                                ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                ^^^^^^^^^^ definition local158
+//                                                                                ^^^^^^^^^^ definition local51
       float dX, float dY, int actionState, boolean isCurrentlyActive) {
-//          ^^ definition local160
-//                    ^^ definition local162
-//                            ^^^^^^^^^^^ definition local164
-//                                                 ^^^^^^^^^^^^^^^^^ definition local166
+//          ^^ definition local52
+//                    ^^ definition local53
+//                            ^^^^^^^^^^^ definition local54
+//                                                 ^^^^^^^^^^^^^^^^^ definition local55
     super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^ reference onChildDraw#
-//                    ^ reference local168
-//                       ^^^^^^^^^^^^ reference local169
-//                                     ^^^^^^^^^^ reference local170
-//                                                 ^^ reference local171
-//                                                     ^^ reference local172
-//                                                         ^^^^^^^^^^^ reference local173
-//                                                                      ^^^^^^^^^^^^^^^^^ reference local174
+//                    ^ reference local49
+//                       ^^^^^^^^^^^^ reference local50
+//                                     ^^^^^^^^^^ reference local51
+//                                                 ^^ reference local52
+//                                                     ^^ reference local53
+//                                                         ^^^^^^^^^^^ reference local54
+//                                                                      ^^^^^^^^^^^^^^^^^ reference local55
 
     EpoxyModel<?> model = viewHolder.getModel();
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local175
-//                        ^^^^^^^^^^ reference local177
+//                ^^^^^ definition local56
+//                        ^^^^^^^^^^ reference local51
 //                                   ^^^^^^^^ reference getModel#
     if (!isTouchableModel(model)) {
 //       ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#isTouchableModel().
-//                        ^^^^^ reference local178
+//                        ^^^^^ reference local56
       throw new IllegalStateException(
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#`<init>`(+1). 1:81
 //              ^^^^^^^^^^^^^^^^^^^^^ reference java/lang/IllegalStateException#
           "A model was selected that is not a valid target: " + model.getClass());
-//                                                              ^^^^^ reference local179
+//                                                              ^^^^^ reference local56
 //                                                                    ^^^^^^^^ reference `<any>`#getClass#
     }
 
     View itemView = viewHolder.itemView;
 //  ^^^^ reference _root_/
-//       ^^^^^^^^ definition local180
-//                  ^^^^^^^^^^ reference local182
+//       ^^^^^^^^ definition local57
+//                  ^^^^^^^^^^ reference local51
 //                             ^^^^^^^^ reference itemView#
 
     float swipeProgress;
-//        ^^^^^^^^^^^^^ definition local183
+//        ^^^^^^^^^^^^^ definition local58
     if (Math.abs(dX) > Math.abs(dY)) {
 //      ^^^^ reference java/lang/Math#
 //           ^^^ reference java/lang/Math#abs(+2).
-//               ^^ reference local185
+//               ^^ reference local52
 //                     ^^^^ reference java/lang/Math#
 //                          ^^^ reference java/lang/Math#abs(+2).
-//                              ^^ reference local186
+//                              ^^ reference local53
       swipeProgress = dX / itemView.getWidth();
-//    ^^^^^^^^^^^^^ reference local187
-//                    ^^ reference local188
-//                         ^^^^^^^^ reference local189
+//    ^^^^^^^^^^^^^ reference local58
+//                    ^^ reference local52
+//                         ^^^^^^^^ reference local57
 //                                  ^^^^^^^^ reference getWidth#
     } else {
       swipeProgress = dY / itemView.getHeight();
-//    ^^^^^^^^^^^^^ reference local190
-//                    ^^ reference local191
-//                         ^^^^^^^^ reference local192
+//    ^^^^^^^^^^^^^ reference local58
+//                    ^^ reference local53
+//                         ^^^^^^^^ reference local57
 //                                  ^^^^^^^^^ reference getHeight#
     }
 
     // Clamp to 1/-1 in the case of side padding where the view can be swiped extra
     float clampedProgress = Math.max(-1f, Math.min(1f, swipeProgress));
-//        ^^^^^^^^^^^^^^^ definition local193
+//        ^^^^^^^^^^^^^^^ definition local59
 //                          ^^^^ reference java/lang/Math#
 //                               ^^^ reference java/lang/Math#max(+2).
 //                                        ^^^^ reference java/lang/Math#
 //                                             ^^^ reference java/lang/Math#min(+2).
-//                                                     ^^^^^^^^^^^^^ reference local195
+//                                                     ^^^^^^^^^^^^^ reference local58
 
     //noinspection unchecked
     onSwipeProgressChanged((T) model, itemView, clampedProgress, c);
 //  ^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeProgressChanged().
 //                          ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                             ^^^^^ reference local196
-//                                    ^^^^^^^^ reference local197
-//                                              ^^^^^^^^^^^^^^^ reference local198
-//                                                               ^ reference local199
+//                             ^^^^^ reference local56
+//                                    ^^^^^^^^ reference local57
+//                                              ^^^^^^^^^^^^^^^ reference local59
+//                                                               ^ reference local49
   }
 
   @Override
@@ -620,13 +620,13 @@ public abstract class EpoxyModelTouchCallback<T extends EpoxyModel>
   public void onSwipeProgressChanged(T model, View itemView, float swipeProgress,
 //            ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyModelTouchCallback#onSwipeProgressChanged().
 //                                   ^ reference com/airbnb/epoxy/EpoxyModelTouchCallback#[T]
-//                                     ^^^^^ definition local200
+//                                     ^^^^^ definition local60
 //                                            ^^^^ reference _root_/
-//                                                 ^^^^^^^^ definition local202
-//                                                                 ^^^^^^^^^^^^^ definition local204
+//                                                 ^^^^^^^^ definition local61
+//                                                                 ^^^^^^^^^^^^^ definition local62
       Canvas canvas) {
 //    ^^^^^^ reference _root_/
-//           ^^^^^^ definition local206
+//           ^^^^^^ definition local63
 
   }
 }

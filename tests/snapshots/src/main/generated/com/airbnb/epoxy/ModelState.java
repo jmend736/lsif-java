@@ -39,46 +39,46 @@ class ModelState {
 //                  ^^^^^ definition com/airbnb/epoxy/ModelState#build().
 //                        ^^^^^^^^^^ reference _root_/
 //                                      ^^^^^ definition local0
-//                                                 ^^^^^^^^ definition local2
-//                                                                   ^^^^^^^^^^^^^^ definition local4
+//                                                 ^^^^^^^^ definition local1
+//                                                                   ^^^^^^^^^^^^^^ definition local2
     ModelState state = new ModelState();
 //  ^^^^^^^^^^ reference com/airbnb/epoxy/ModelState#
-//             ^^^^^ definition local6
+//             ^^^^^ definition local3
 //                     ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ModelState#`<init>`().
 //                         ^^^^^^^^^^ reference com/airbnb/epoxy/ModelState#
 
     state.lastMoveOp = 0;
-//  ^^^^^ reference local8
+//  ^^^^^ reference local3
 //        ^^^^^^^^^^ reference com/airbnb/epoxy/ModelState#lastMoveOp.
     state.pair = null;
-//  ^^^^^ reference local9
+//  ^^^^^ reference local3
 //        ^^^^ reference com/airbnb/epoxy/ModelState#pair.
     state.id = model.id();
-//  ^^^^^ reference local10
+//  ^^^^^ reference local3
 //        ^^ reference com/airbnb/epoxy/ModelState#id.
-//             ^^^^^ reference local11
+//             ^^^^^ reference local0
 //                   ^^ reference `<any>`#id#
     state.position = position;
-//  ^^^^^ reference local12
+//  ^^^^^ reference local3
 //        ^^^^^^^^ reference com/airbnb/epoxy/ModelState#position.
-//                   ^^^^^^^^ reference local13
+//                   ^^^^^^^^ reference local1
 
     if (immutableModel) {
-//      ^^^^^^^^^^^^^^ reference local14
+//      ^^^^^^^^^^^^^^ reference local2
       state.model = model;
-//    ^^^^^ reference local15
+//    ^^^^^ reference local3
 //          ^^^^^ reference com/airbnb/epoxy/ModelState#model.
-//                  ^^^^^ reference local16
+//                  ^^^^^ reference local0
     } else {
       state.hashCode = model.hashCode();
-//    ^^^^^ reference local17
+//    ^^^^^ reference local3
 //          ^^^^^^^^ reference com/airbnb/epoxy/ModelState#hashCode.
-//                     ^^^^^ reference local18
+//                     ^^^^^ reference local0
 //                           ^^^^^^^^ reference `<any>`#hashCode#
     }
 
     return state;
-//         ^^^^^ reference local19
+//         ^^^^^ reference local3
   }
 
   /**

@@ -23,8 +23,8 @@ public interface OnModelClickListener<T extends EpoxyModel<?>, V> {
 //             ^ reference com/airbnb/epoxy/OnModelClickListener#[T]
 //               ^^^^^ definition local0
 //                      ^ reference com/airbnb/epoxy/OnModelClickListener#[V]
-//                        ^^^^^^^^^^ definition local2
+//                        ^^^^^^^^^^ definition local1
 //                                    ^^^^ reference _root_/
-//                                         ^^^^^^^^^^^ definition local4
-//                                                          ^^^^^^^^ definition local6
+//                                         ^^^^^^^^^^^ definition local2
+//                                                          ^^^^^^^^ definition local3
 }

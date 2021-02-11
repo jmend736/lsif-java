@@ -41,46 +41,46 @@ public class EpoxyDiffLogger extends AdapterDataObserver {
     this.tag = tag;
 //  ^^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#this.
 //       ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
-//             ^^^ reference local2
+//             ^^^ reference local0
   }
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeChanged(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeChanged().
-//                                   ^^^^^^^^^^^^^ definition local3
-//                                                      ^^^^^^^^^ definition local5
+//                                   ^^^^^^^^^^^^^ definition local1
+//                                                      ^^^^^^^^^ definition local2
     Log.d(tag, "Item range changed. Start: " + positionStart + " Count: " + itemCount);
 //  ^^^ reference _root_/
 //      ^ reference d#
 //        ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
-//                                             ^^^^^^^^^^^^^ reference local7
-//                                                                          ^^^^^^^^^ reference local8
+//                                             ^^^^^^^^^^^^^ reference local1
+//                                                                          ^^^^^^^^^ reference local2
   }
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeChanged(int positionStart, int itemCount, @Nullable Object payload) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeChanged(+1).
-//                                   ^^^^^^^^^^^^^ definition local9
-//                                                      ^^^^^^^^^ definition local11
+//                                   ^^^^^^^^^^^^^ definition local3
+//                                                      ^^^^^^^^^ definition local4
 //                                                                  ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                                                           ^^^^^^ reference java/lang/Object#
-//                                                                                  ^^^^^^^ definition local13
+//                                                                                  ^^^^^^^ definition local5
     if (payload == null) {
-//      ^^^^^^^ reference local15
+//      ^^^^^^^ reference local5
       onItemRangeChanged(positionStart, itemCount);
 //    ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeChanged().
-//                       ^^^^^^^^^^^^^ reference local16
-//                                      ^^^^^^^^^ reference local17
+//                       ^^^^^^^^^^^^^ reference local3
+//                                      ^^^^^^^^^ reference local4
     } else {
       Log.d(tag,
 //    ^^^ reference _root_/
 //        ^ reference d#
 //          ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
           "Item range changed with payloads. Start: " + positionStart + " Count: " + itemCount);
-//                                                      ^^^^^^^^^^^^^ reference local18
-//                                                                                   ^^^^^^^^^ reference local19
+//                                                      ^^^^^^^^^^^^^ reference local3
+//                                                                                   ^^^^^^^^^ reference local4
     }
   }
 
@@ -88,42 +88,42 @@ public class EpoxyDiffLogger extends AdapterDataObserver {
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeInserted(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeInserted().
-//                                    ^^^^^^^^^^^^^ definition local20
-//                                                       ^^^^^^^^^ definition local22
+//                                    ^^^^^^^^^^^^^ definition local6
+//                                                       ^^^^^^^^^ definition local7
     Log.d(tag, "Item range inserted. Start: " + positionStart + " Count: " + itemCount);
 //  ^^^ reference _root_/
 //      ^ reference d#
 //        ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
-//                                              ^^^^^^^^^^^^^ reference local24
-//                                                                           ^^^^^^^^^ reference local25
+//                                              ^^^^^^^^^^^^^ reference local6
+//                                                                           ^^^^^^^^^ reference local7
   }
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeRemoved(int positionStart, int itemCount) {
 //            ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeRemoved().
-//                                   ^^^^^^^^^^^^^ definition local26
-//                                                      ^^^^^^^^^ definition local28
+//                                   ^^^^^^^^^^^^^ definition local8
+//                                                      ^^^^^^^^^ definition local9
     Log.d(tag, "Item range removed. Start: " + positionStart + " Count: " + itemCount);
 //  ^^^ reference _root_/
 //      ^ reference d#
 //        ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
-//                                             ^^^^^^^^^^^^^ reference local30
-//                                                                          ^^^^^^^^^ reference local31
+//                                             ^^^^^^^^^^^^^ reference local8
+//                                                                          ^^^^^^^^^ reference local9
   }
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
 //            ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyDiffLogger#onItemRangeMoved().
-//                                 ^^^^^^^^^^^^ definition local32
-//                                                   ^^^^^^^^^^ definition local34
-//                                                                   ^^^^^^^^^ definition local36
+//                                 ^^^^^^^^^^^^ definition local10
+//                                                   ^^^^^^^^^^ definition local11
+//                                                                   ^^^^^^^^^ definition local12
     Log.d(tag, "Item moved. From: " + fromPosition + " To: " + toPosition);
 //  ^^^ reference _root_/
 //      ^ reference d#
 //        ^^^ reference com/airbnb/epoxy/EpoxyDiffLogger#tag.
-//                                    ^^^^^^^^^^^^ reference local38
-//                                                             ^^^^^^^^^^ reference local39
+//                                    ^^^^^^^^^^^^ reference local10
+//                                                             ^^^^^^^^^^ reference local11
   }
 }

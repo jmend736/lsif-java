@@ -81,7 +81,7 @@ public abstract class EpoxyTouchHelper {
     return new DragBuilder(controller);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#`<init>`().
 //             ^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#
-//                         ^^^^^^^^^^ reference local2
+//                         ^^^^^^^^^^ reference local0
   }
 
   public static class DragBuilder {
@@ -94,11 +94,11 @@ public abstract class EpoxyTouchHelper {
     private DragBuilder(EpoxyController controller) {
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#`<init>`().
 //                      ^^^^^^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^ definition local3
+//                                      ^^^^^^^^^^ definition local1
       this.controller = controller;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#this.
 //         ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#controller.
-//                      ^^^^^^^^^^ reference local5
+//                      ^^^^^^^^^^ reference local1
     }
 
     /**
@@ -110,12 +110,12 @@ public abstract class EpoxyTouchHelper {
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#
 //                      ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#withRecyclerView().
 //                                       ^^^^^^^^^^^^ reference _root_/
-//                                                    ^^^^^^^^^^^^ definition local6
+//                                                    ^^^^^^^^^^^^ definition local2
       return new DragBuilder2(controller, recyclerView);
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#`<init>`().
 //               ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#
 //                            ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder#controller.
-//                                        ^^^^^^^^^^^^ reference local8
+//                                        ^^^^^^^^^^^^ reference local2
     }
   }
 
@@ -132,17 +132,17 @@ public abstract class EpoxyTouchHelper {
     private DragBuilder2(EpoxyController controller, RecyclerView recyclerView) {
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#`<init>`().
 //                       ^^^^^^^^^^^^^^^ reference _root_/
-//                                       ^^^^^^^^^^ definition local9
+//                                       ^^^^^^^^^^ definition local3
 //                                                   ^^^^^^^^^^^^ reference _root_/
-//                                                                ^^^^^^^^^^^^ definition local11
+//                                                                ^^^^^^^^^^^^ definition local4
       this.controller = controller;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#this.
 //         ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#controller.
-//                      ^^^^^^^^^^ reference local13
+//                      ^^^^^^^^^^ reference local3
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#recyclerView.
-//                        ^^^^^^^^^^^^ reference local14
+//                        ^^^^^^^^^^^^ reference local4
     }
 
     /** Enable dragging vertically, up and down. */
@@ -198,14 +198,14 @@ public abstract class EpoxyTouchHelper {
     public DragBuilder3 withDirections(int directionFlags) {
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#
 //                      ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#withDirections().
-//                                         ^^^^^^^^^^^^^^ definition local15
+//                                         ^^^^^^^^^^^^^^ definition local5
       return new DragBuilder3(controller, recyclerView, makeMovementFlags(directionFlags, 0));
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#`<init>`().
 //               ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#
 //                            ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#controller.
 //                                        ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#recyclerView.
 //                                                      ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder2#makeMovementFlags#
-//                                                                        ^^^^^^^^^^^^^^ reference local17
+//                                                                        ^^^^^^^^^^^^^^ reference local5
     }
   }
 
@@ -224,22 +224,22 @@ public abstract class EpoxyTouchHelper {
     private DragBuilder3(EpoxyController controller, RecyclerView recyclerView, int movementFlags) {
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#`<init>`().
 //                       ^^^^^^^^^^^^^^^ reference _root_/
-//                                       ^^^^^^^^^^ definition local18
+//                                       ^^^^^^^^^^ definition local6
 //                                                   ^^^^^^^^^^^^ reference _root_/
-//                                                                ^^^^^^^^^^^^ definition local20
-//                                                                                  ^^^^^^^^^^^^^ definition local22
+//                                                                ^^^^^^^^^^^^ definition local7
+//                                                                                  ^^^^^^^^^^^^^ definition local8
       this.controller = controller;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#this.
 //         ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#controller.
-//                      ^^^^^^^^^^ reference local24
+//                      ^^^^^^^^^^ reference local6
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#recyclerView.
-//                        ^^^^^^^^^^^^ reference local25
+//                        ^^^^^^^^^^^^ reference local7
       this.movementFlags = movementFlags;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#this.
 //         ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#movementFlags.
-//                         ^^^^^^^^^^^^^ reference local26
+//                         ^^^^^^^^^^^^^ reference local8
     }
 
     /**
@@ -253,18 +253,18 @@ public abstract class EpoxyTouchHelper {
 //                                                ^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#withTarget().
 //                                                           ^^^^^ reference java/lang/Class#
 //                                                                 ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#withTarget().[U]
-//                                                                    ^^^^^^^^^^^^^^^^ definition local27
+//                                                                    ^^^^^^^^^^^^^^^^ definition local9
       List<Class<? extends EpoxyModel>> targetClasses = new ArrayList<>(1);
 //    ^^^^ reference java/util/List#
 //         ^^^^^ reference java/lang/Class#
 //                         ^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^^^^ definition local29
+//                                      ^^^^^^^^^^^^^ definition local10
 //                                                      ^^^^^^^^^^^^^^^^^^ reference java/util/ArrayList#`<init>`().
 //                                                          ^^^^^^^^^ reference java/util/ArrayList#
       targetClasses.add(targetModelClass);
-//    ^^^^^^^^^^^^^ reference local31
+//    ^^^^^^^^^^^^^ reference local10
 //                  ^^^ reference java/util/List#add().
-//                      ^^^^^^^^^^^^^^^^ reference local32
+//                      ^^^^^^^^^^^^^^^^ reference local9
 
       return new DragBuilder4<>(controller, recyclerView, movementFlags, targetModelClass,
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#`<init>`(). 1:24
@@ -272,9 +272,9 @@ public abstract class EpoxyTouchHelper {
 //                              ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#controller.
 //                                          ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#recyclerView.
 //                                                        ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#movementFlags.
-//                                                                       ^^^^^^^^^^^^^^^^ reference local33
+//                                                                       ^^^^^^^^^^^^^^^^ reference local9
           targetClasses);
-//        ^^^^^^^^^^^^^ reference local34
+//        ^^^^^^^^^^^^^ reference local10
     }
 
     /**
@@ -289,7 +289,7 @@ public abstract class EpoxyTouchHelper {
 //                                  ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder3#withTargets().
 //                                              ^^^^^ reference java/lang/Class#
 //                                                              ^^^^^^^^^^ reference _root_/
-//                                                                             ^^^^^^^^^^^^^^^^^^ definition local35
+//                                                                             ^^^^^^^^^^^^^^^^^^ definition local11
       return new DragBuilder4<>(controller, recyclerView, movementFlags, EpoxyModel.class,
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#`<init>`(). 1:44
 //               ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#
@@ -301,7 +301,7 @@ public abstract class EpoxyTouchHelper {
           Arrays.asList(targetModelClasses));
 //        ^^^^^^ reference java/util/Arrays#
 //               ^^^^^^ reference java/util/Arrays#asList().
-//                      ^^^^^^^^^^^^^^^^^^ reference local37
+//                      ^^^^^^^^^^^^^^^^^^ reference local11
     }
 
     /**
@@ -346,40 +346,40 @@ public abstract class EpoxyTouchHelper {
     private DragBuilder4(EpoxyController controller,
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#`<init>`().
 //                       ^^^^^^^^^^^^^^^ reference _root_/
-//                                       ^^^^^^^^^^ definition local38
+//                                       ^^^^^^^^^^ definition local12
         RecyclerView recyclerView, int movementFlags,
 //      ^^^^^^^^^^^^ reference _root_/
-//                   ^^^^^^^^^^^^ definition local40
-//                                     ^^^^^^^^^^^^^ definition local42
+//                   ^^^^^^^^^^^^ definition local13
+//                                     ^^^^^^^^^^^^^ definition local14
         Class<U> targetModelClass, List<Class<? extends EpoxyModel>> targetModelClasses) {
 //      ^^^^^ reference java/lang/Class#
 //            ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#[U]
-//               ^^^^^^^^^^^^^^^^ definition local44
+//               ^^^^^^^^^^^^^^^^ definition local15
 //                                 ^^^^ reference java/util/List#
 //                                      ^^^^^ reference java/lang/Class#
 //                                                      ^^^^^^^^^^ reference _root_/
-//                                                                   ^^^^^^^^^^^^^^^^^^ definition local46
+//                                                                   ^^^^^^^^^^^^^^^^^^ definition local16
 
       this.controller = controller;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#this.
 //         ^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#controller.
-//                      ^^^^^^^^^^ reference local48
+//                      ^^^^^^^^^^ reference local12
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#recyclerView.
-//                        ^^^^^^^^^^^^ reference local49
+//                        ^^^^^^^^^^^^ reference local13
       this.movementFlags = movementFlags;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#this.
 //         ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#movementFlags.
-//                         ^^^^^^^^^^^^^ reference local50
+//                         ^^^^^^^^^^^^^ reference local14
       this.targetModelClass = targetModelClass;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#this.
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#targetModelClass.
-//                            ^^^^^^^^^^^^^^^^ reference local51
+//                            ^^^^^^^^^^^^^^^^ reference local15
       this.targetModelClasses = targetModelClasses;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#this.
 //         ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#targetModelClasses.
-//                              ^^^^^^^^^^^^^^^^^^ reference local52
+//                              ^^^^^^^^^^^^^^^^^^ reference local16
     }
 
     /**
@@ -401,10 +401,10 @@ public abstract class EpoxyTouchHelper {
 //                         ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#andCallbacks().
 //                                            ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#
 //                                                          ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#[U]
-//                                                             ^^^^^^^^^ definition local53
+//                                                             ^^^^^^^^^ definition local17
       ItemTouchHelper itemTouchHelper =
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^^^^^^^^^^ definition local55
+//                    ^^^^^^^^^^^^^^^ definition local18
           new ItemTouchHelper(new EpoxyModelTouchCallback<U>(controller, targetModelClass) {
 //            ^^^^^^^^^^^^^^^ reference _root_/
 //                                ^^^^^^^^^^^^^^^^^^^^^^^ reference _root_/
@@ -450,12 +450,12 @@ public abstract class EpoxyTouchHelper {
           });
 
       itemTouchHelper.attachToRecyclerView(recyclerView);
-//    ^^^^^^^^^^^^^^^ reference local57
+//    ^^^^^^^^^^^^^^^ reference local18
 //                    ^^^^^^^^^^^^^^^^^^^^ reference attachToRecyclerView#
 //                                         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragBuilder4#recyclerView.
 
       return itemTouchHelper;
-//           ^^^^^^^^^^^^^^^ reference local58
+//           ^^^^^^^^^^^^^^^ reference local18
     }
   }
 
@@ -472,10 +472,10 @@ public abstract class EpoxyTouchHelper {
     public void onDragStarted(T model, View itemView, int adapterPosition) {
 //              ^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#onDragStarted().
 //                            ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                              ^^^^^ definition local59
+//                              ^^^^^ definition local19
 //                                     ^^^^ reference _root_/
-//                                          ^^^^^^^^ definition local61
-//                                                        ^^^^^^^^^^^^^^^ definition local63
+//                                          ^^^^^^^^ definition local20
+//                                                        ^^^^^^^^^^^^^^^ definition local21
 
     }
 
@@ -484,9 +484,9 @@ public abstract class EpoxyTouchHelper {
     public void onDragReleased(T model, View itemView) {
 //              ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#onDragReleased().
 //                             ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                               ^^^^^ definition local65
+//                               ^^^^^ definition local22
 //                                      ^^^^ reference _root_/
-//                                           ^^^^^^^^ definition local67
+//                                           ^^^^^^^^ definition local23
 
     }
 
@@ -494,22 +494,22 @@ public abstract class EpoxyTouchHelper {
 //   ^^^^^^^^ reference java/lang/Override#
     public abstract void onModelMoved(int fromPosition, int toPosition, T modelBeingMoved,
 //                       ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#onModelMoved().
-//                                        ^^^^^^^^^^^^ definition local69
-//                                                          ^^^^^^^^^^ definition local71
+//                                        ^^^^^^^^^^^^ definition local24
+//                                                          ^^^^^^^^^^ definition local25
 //                                                                      ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                                                                        ^^^^^^^^^^^^^^^ definition local73
+//                                                                        ^^^^^^^^^^^^^^^ definition local26
         View itemView);
 //      ^^^^ reference _root_/
-//           ^^^^^^^^ definition local75
+//           ^^^^^^^^ definition local27
 
     @Override
 //   ^^^^^^^^ reference java/lang/Override#
     public void clearView(T model, View itemView) {
 //              ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#clearView().
 //                        ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                          ^^^^^ definition local77
+//                          ^^^^^ definition local28
 //                                 ^^^^ reference _root_/
-//                                      ^^^^^^^^ definition local79
+//                                      ^^^^^^^^ definition local29
 
     }
 
@@ -521,7 +521,7 @@ public abstract class EpoxyTouchHelper {
     public boolean isDragEnabledForModel(T model) {
 //                 ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#isDragEnabledForModel().
 //                                       ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                                         ^^^^^ definition local81
+//                                         ^^^^^ definition local30
       return true;
     }
 
@@ -530,8 +530,8 @@ public abstract class EpoxyTouchHelper {
     public final int getMovementFlagsForModel(T model, int adapterPosition) {
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#getMovementFlagsForModel().
 //                                            ^ reference com/airbnb/epoxy/EpoxyTouchHelper#DragCallbacks#[T]
-//                                              ^^^^^ definition local83
-//                                                         ^^^^^^^^^^^^^^^ definition local85
+//                                              ^^^^^ definition local31
+//                                                         ^^^^^^^^^^^^^^^ definition local32
       // No-Op this is not used
       return 0;
     }
@@ -545,11 +545,11 @@ public abstract class EpoxyTouchHelper {
 //              ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#
 //                           ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#initSwiping().
 //                                       ^^^^^^^^^^^^ reference _root_/
-//                                                    ^^^^^^^^^^^^ definition local87
+//                                                    ^^^^^^^^^^^^ definition local33
     return new SwipeBuilder(recyclerView);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#`<init>`().
 //             ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#
-//                          ^^^^^^^^^^^^ reference local89
+//                          ^^^^^^^^^^^^ reference local33
   }
 
   public static class SwipeBuilder {
@@ -562,11 +562,11 @@ public abstract class EpoxyTouchHelper {
     private SwipeBuilder(RecyclerView recyclerView) {
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#`<init>`().
 //                       ^^^^^^^^^^^^ reference _root_/
-//                                    ^^^^^^^^^^^^ definition local90
+//                                    ^^^^^^^^^^^^ definition local34
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#recyclerView.
-//                        ^^^^^^^^^^^^ reference local92
+//                        ^^^^^^^^^^^^ reference local34
     }
 
     /** Enable swiping right. */
@@ -613,13 +613,13 @@ public abstract class EpoxyTouchHelper {
     public SwipeBuilder2 withDirections(int directionFlags) {
 //         ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#
 //                       ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#withDirections().
-//                                          ^^^^^^^^^^^^^^ definition local93
+//                                          ^^^^^^^^^^^^^^ definition local35
       return new SwipeBuilder2(recyclerView, makeMovementFlags(0, directionFlags));
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#`<init>`().
 //               ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#
 //                             ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#recyclerView.
 //                                           ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder#makeMovementFlags#
-//                                                                ^^^^^^^^^^^^^^ reference local95
+//                                                                ^^^^^^^^^^^^^^ reference local35
     }
   }
 
@@ -635,17 +635,17 @@ public abstract class EpoxyTouchHelper {
     private SwipeBuilder2(RecyclerView recyclerView,
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#`<init>`().
 //                        ^^^^^^^^^^^^ reference _root_/
-//                                     ^^^^^^^^^^^^ definition local96
+//                                     ^^^^^^^^^^^^ definition local36
         int movementFlags) {
-//          ^^^^^^^^^^^^^ definition local98
+//          ^^^^^^^^^^^^^ definition local37
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#recyclerView.
-//                        ^^^^^^^^^^^^ reference local100
+//                        ^^^^^^^^^^^^ reference local36
       this.movementFlags = movementFlags;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#this.
 //         ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#movementFlags.
-//                         ^^^^^^^^^^^^^ reference local101
+//                         ^^^^^^^^^^^^^ reference local37
     }
 
     /**
@@ -659,27 +659,27 @@ public abstract class EpoxyTouchHelper {
 //                                                 ^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#withTarget().
 //                                                            ^^^^^ reference java/lang/Class#
 //                                                                  ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#withTarget().[U]
-//                                                                     ^^^^^^^^^^^^^^^^ definition local102
+//                                                                     ^^^^^^^^^^^^^^^^ definition local38
       List<Class<? extends EpoxyModel>> targetClasses = new ArrayList<>(1);
 //    ^^^^ reference java/util/List#
 //         ^^^^^ reference java/lang/Class#
 //                         ^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^^^^ definition local104
+//                                      ^^^^^^^^^^^^^ definition local39
 //                                                      ^^^^^^^^^^^^^^^^^^ reference java/util/ArrayList#`<init>`().
 //                                                          ^^^^^^^^^ reference java/util/ArrayList#
       targetClasses.add(targetModelClass);
-//    ^^^^^^^^^^^^^ reference local106
+//    ^^^^^^^^^^^^^ reference local39
 //                  ^^^ reference java/util/List#add().
-//                      ^^^^^^^^^^^^^^^^ reference local107
+//                      ^^^^^^^^^^^^^^^^ reference local38
 
       return new SwipeBuilder3<>(recyclerView, movementFlags, targetModelClass,
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#`<init>`(). 1:24
 //               ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#
 //                               ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#recyclerView.
 //                                             ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder2#movementFlags.
-//                                                            ^^^^^^^^^^^^^^^^ reference local108
+//                                                            ^^^^^^^^^^^^^^^^ reference local38
           targetClasses);
-//        ^^^^^^^^^^^^^ reference local109
+//        ^^^^^^^^^^^^^ reference local39
     }
 
     /**
@@ -695,7 +695,7 @@ public abstract class EpoxyTouchHelper {
         Class<? extends EpoxyModel>... targetModelClasses) {
 //      ^^^^^ reference java/lang/Class#
 //                      ^^^^^^^^^^ reference _root_/
-//                                     ^^^^^^^^^^^^^^^^^^ definition local110
+//                                     ^^^^^^^^^^^^^^^^^^ definition local40
       return new SwipeBuilder3<>(recyclerView, movementFlags, EpoxyModel.class,
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#`<init>`(). 1:44
 //               ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#
@@ -706,7 +706,7 @@ public abstract class EpoxyTouchHelper {
           Arrays.asList(targetModelClasses));
 //        ^^^^^^ reference java/util/Arrays#
 //               ^^^^^^ reference java/util/Arrays#asList().
-//                      ^^^^^^^^^^^^^^^^^^ reference local112
+//                      ^^^^^^^^^^^^^^^^^^ reference local40
     }
 
     /**
@@ -749,33 +749,33 @@ public abstract class EpoxyTouchHelper {
 //          ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#`<init>`().
         RecyclerView recyclerView, int movementFlags,
 //      ^^^^^^^^^^^^ reference _root_/
-//                   ^^^^^^^^^^^^ definition local113
-//                                     ^^^^^^^^^^^^^ definition local115
+//                   ^^^^^^^^^^^^ definition local41
+//                                     ^^^^^^^^^^^^^ definition local42
         Class<U> targetModelClass, List<Class<? extends EpoxyModel>> targetModelClasses) {
 //      ^^^^^ reference java/lang/Class#
 //            ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#[U]
-//               ^^^^^^^^^^^^^^^^ definition local117
+//               ^^^^^^^^^^^^^^^^ definition local43
 //                                 ^^^^ reference java/util/List#
 //                                      ^^^^^ reference java/lang/Class#
 //                                                      ^^^^^^^^^^ reference _root_/
-//                                                                   ^^^^^^^^^^^^^^^^^^ definition local119
+//                                                                   ^^^^^^^^^^^^^^^^^^ definition local44
 
       this.recyclerView = recyclerView;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#this.
 //         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#recyclerView.
-//                        ^^^^^^^^^^^^ reference local121
+//                        ^^^^^^^^^^^^ reference local41
       this.movementFlags = movementFlags;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#this.
 //         ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#movementFlags.
-//                         ^^^^^^^^^^^^^ reference local122
+//                         ^^^^^^^^^^^^^ reference local42
       this.targetModelClass = targetModelClass;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#this.
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#targetModelClass.
-//                            ^^^^^^^^^^^^^^^^ reference local123
+//                            ^^^^^^^^^^^^^^^^ reference local43
       this.targetModelClasses = targetModelClasses;
 //    ^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#this.
 //         ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#targetModelClasses.
-//                              ^^^^^^^^^^^^^^^^^^ reference local124
+//                              ^^^^^^^^^^^^^^^^^^ reference local44
     }
 
     /**
@@ -796,10 +796,10 @@ public abstract class EpoxyTouchHelper {
 //                         ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#andCallbacks().
 //                                            ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#
 //                                                           ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#[U]
-//                                                              ^^^^^^^^^ definition local125
+//                                                              ^^^^^^^^^ definition local45
       ItemTouchHelper itemTouchHelper =
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^^^^^^^^^^ definition local127
+//                    ^^^^^^^^^^^^^^^ definition local46
           new ItemTouchHelper(new EpoxyModelTouchCallback<U>(null, targetModelClass) {
 //            ^^^^^^^^^^^^^^^ reference _root_/
 //                                ^^^^^^^^^^^^^^^^^^^^^^^ reference _root_/
@@ -849,12 +849,12 @@ public abstract class EpoxyTouchHelper {
           });
 
       itemTouchHelper.attachToRecyclerView(recyclerView);
-//    ^^^^^^^^^^^^^^^ reference local129
+//    ^^^^^^^^^^^^^^^ reference local46
 //                    ^^^^^^^^^^^^^^^^^^^^ reference attachToRecyclerView#
 //                                         ^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeBuilder3#recyclerView.
 
       return itemTouchHelper;
-//           ^^^^^^^^^^^^^^^ reference local130
+//           ^^^^^^^^^^^^^^^ reference local46
     }
   }
 
@@ -871,10 +871,10 @@ public abstract class EpoxyTouchHelper {
     public void onSwipeStarted(T model, View itemView, int adapterPosition) {
 //              ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#onSwipeStarted().
 //                             ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                               ^^^^^ definition local131
+//                               ^^^^^ definition local47
 //                                      ^^^^ reference _root_/
-//                                           ^^^^^^^^ definition local133
-//                                                         ^^^^^^^^^^^^^^^ definition local135
+//                                           ^^^^^^^^ definition local48
+//                                                         ^^^^^^^^^^^^^^^ definition local49
 
     }
 
@@ -883,13 +883,13 @@ public abstract class EpoxyTouchHelper {
     public void onSwipeProgressChanged(T model, View itemView, float swipeProgress,
 //              ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#onSwipeProgressChanged().
 //                                     ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                                       ^^^^^ definition local137
+//                                       ^^^^^ definition local50
 //                                              ^^^^ reference _root_/
-//                                                   ^^^^^^^^ definition local139
-//                                                                   ^^^^^^^^^^^^^ definition local141
+//                                                   ^^^^^^^^ definition local51
+//                                                                   ^^^^^^^^^^^^^ definition local52
         Canvas canvas) {
 //      ^^^^^^ reference _root_/
-//             ^^^^^^ definition local143
+//             ^^^^^^ definition local53
 
     }
 
@@ -898,20 +898,20 @@ public abstract class EpoxyTouchHelper {
     public abstract void onSwipeCompleted(T model, View itemView, int position, int direction);
 //                       ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#onSwipeCompleted().
 //                                        ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                                          ^^^^^ definition local145
+//                                          ^^^^^ definition local54
 //                                                 ^^^^ reference _root_/
-//                                                      ^^^^^^^^ definition local147
-//                                                                    ^^^^^^^^ definition local149
-//                                                                                  ^^^^^^^^^ definition local151
+//                                                      ^^^^^^^^ definition local55
+//                                                                    ^^^^^^^^ definition local56
+//                                                                                  ^^^^^^^^^ definition local57
 
     @Override
 //   ^^^^^^^^ reference java/lang/Override#
     public void onSwipeReleased(T model, View itemView) {
 //              ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#onSwipeReleased().
 //                              ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                                ^^^^^ definition local153
+//                                ^^^^^ definition local58
 //                                       ^^^^ reference _root_/
-//                                            ^^^^^^^^ definition local155
+//                                            ^^^^^^^^ definition local59
 
     }
 
@@ -920,9 +920,9 @@ public abstract class EpoxyTouchHelper {
     public void clearView(T model, View itemView) {
 //              ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#clearView().
 //                        ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                          ^^^^^ definition local157
+//                          ^^^^^ definition local60
 //                                 ^^^^ reference _root_/
-//                                      ^^^^^^^^ definition local159
+//                                      ^^^^^^^^ definition local61
 
     }
 
@@ -934,7 +934,7 @@ public abstract class EpoxyTouchHelper {
     public boolean isSwipeEnabledForModel(T model) {
 //                 ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#isSwipeEnabledForModel().
 //                                        ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                                          ^^^^^ definition local161
+//                                          ^^^^^ definition local62
       return true;
     }
 
@@ -943,8 +943,8 @@ public abstract class EpoxyTouchHelper {
     public final int getMovementFlagsForModel(T model, int adapterPosition) {
 //                   ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#getMovementFlagsForModel().
 //                                            ^ reference com/airbnb/epoxy/EpoxyTouchHelper#SwipeCallbacks#[T]
-//                                              ^^^^^ definition local163
-//                                                         ^^^^^^^^^^^^^^^ definition local165
+//                                              ^^^^^ definition local63
+//                                                         ^^^^^^^^^^^^^^^ definition local64
       // Not used
       return 0;
     }

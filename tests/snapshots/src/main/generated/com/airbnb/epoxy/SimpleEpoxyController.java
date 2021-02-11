@@ -31,7 +31,7 @@ public class SimpleEpoxyController extends EpoxyController {
 //                                                    ^^^^^^ definition local0
     currentModels = models;
 //  ^^^^^^^^^^^^^ reference com/airbnb/epoxy/SimpleEpoxyController#currentModels.
-//                  ^^^^^^ reference local2
+//                  ^^^^^^ reference local0
     insideSetModels = true;
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/SimpleEpoxyController#insideSetModels.
     requestModelBuild();

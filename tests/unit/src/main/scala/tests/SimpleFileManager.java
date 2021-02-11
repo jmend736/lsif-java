@@ -1,7 +1,5 @@
 package tests;
 
-import com.sourcegraph.semanticdb_javac.Printers;
-
 import javax.tools.FileObject;
 import javax.tools.ForwardingJavaFileManager;
 import javax.tools.JavaFileObject;

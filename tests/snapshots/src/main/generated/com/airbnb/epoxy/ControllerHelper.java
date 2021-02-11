@@ -24,40 +24,40 @@ public abstract class ControllerHelper<T extends EpoxyController> {
     List<EpoxyModel<?>> currentModels = controller.getAdapter().getCopyOfModels();
 //  ^^^^ reference java/util/List#
 //       ^^^^^^^^^^ reference _root_/
-//                      ^^^^^^^^^^^^^ definition local2
-//                                      ^^^^^^^^^^ reference local4
+//                      ^^^^^^^^^^^^^ definition local1
+//                                      ^^^^^^^^^^ reference local0
 //                                                 ^^^^^^^^^^ reference getAdapter#
 //                                                              ^^^^^^^^^^^^^^^ reference getAdapter#getCopyOfModels#
 
     for (int i = 0; i < currentModels.size(); i++) {
-//           ^ definition local5
-//                  ^ reference local7
-//                      ^^^^^^^^^^^^^ reference local8
+//           ^ definition local2
+//                  ^ reference local2
+//                      ^^^^^^^^^^^^^ reference local1
 //                                    ^^^^ reference java/util/List#size().
-//                                            ^ reference local9
+//                                            ^ reference local2
       EpoxyModel model = currentModels.get(i);
 //    ^^^^^^^^^^ reference _root_/
-//               ^^^^^ definition local10
-//                       ^^^^^^^^^^^^^ reference local12
+//               ^^^^^ definition local3
+//                       ^^^^^^^^^^^^^ reference local1
 //                                     ^^^ reference java/util/List#get().
-//                                         ^ reference local13
+//                                         ^ reference local2
       model.validateStateHasNotChangedSinceAdded(
-//    ^^^^^ reference local14
+//    ^^^^^ reference local3
 //          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference validateStateHasNotChangedSinceAdded#
           "Model has changed since it was added to the controller.", i);
-//                                                                   ^ reference local15
+//                                                                   ^ reference local2
     }
   }
 
   protected void setControllerToStageTo(EpoxyModel<?> model, T controller) {
 //               ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/ControllerHelper#setControllerToStageTo().
 //                                      ^^^^^^^^^^ reference _root_/
-//                                                    ^^^^^ definition local16
+//                                                    ^^^^^ definition local4
 //                                                           ^ reference com/airbnb/epoxy/ControllerHelper#[T]
-//                                                             ^^^^^^^^^^ definition local18
+//                                                             ^^^^^^^^^^ definition local5
     model.controllerToStageTo = controller;
-//  ^^^^^ reference local20
+//  ^^^^^ reference local4
 //        ^^^^^^^^^^^^^^^^^^^ reference `<any>`#controllerToStageTo#
-//                              ^^^^^^^^^^ reference local21
+//                              ^^^^^^^^^^ reference local5
   }
 }

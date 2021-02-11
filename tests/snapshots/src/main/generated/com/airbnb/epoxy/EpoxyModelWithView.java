@@ -86,7 +86,7 @@ public abstract class EpoxyModelWithView<T extends View> extends EpoxyModel<T> {
 //                  ^ reference com/airbnb/epoxy/EpoxyModelWithView#[T]
 //                     ^^^^^^ definition com/airbnb/epoxy/EpoxyModelWithView#layout().
 //                             ^^^^^^^^^ reference androidx/annotation/LayoutRes#
-//                                           ^^^^^^^^^ definition local2
+//                                           ^^^^^^^^^ definition local1
     throw new UnsupportedOperationException(
 //        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/UnsupportedOperationException#`<init>`(+1). 1:83
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/lang/UnsupportedOperationException#

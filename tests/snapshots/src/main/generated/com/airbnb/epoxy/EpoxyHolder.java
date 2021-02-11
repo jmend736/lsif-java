@@ -46,5 +46,5 @@ public abstract class EpoxyHolder {
 //                        ^^^^^^^^ definition com/airbnb/epoxy/EpoxyHolder#bindView().
 //                                  ^^^^^^^ reference androidx/annotation/NonNull#
 //                                          ^^^^ reference _root_/
-//                                               ^^^^^^^^ definition local2
+//                                               ^^^^^^^^ definition local1
 }

@@ -9,6 +9,6 @@ public class IllegalEpoxyUsage extends RuntimeException {
 //                                ^^^^^^^ definition local0
     super(message);
 //  ^^^^^ reference java/lang/RuntimeException#`<init>`(+1).
-//        ^^^^^^^ reference local2
+//        ^^^^^^^ reference local0
   }
 }

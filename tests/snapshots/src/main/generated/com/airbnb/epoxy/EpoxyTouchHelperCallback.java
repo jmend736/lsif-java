@@ -44,12 +44,12 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
 //                                  ^^^^^^^^^^^^ reference _root_/
 //                                               ^^^^^^^^^^^^ definition local0
 //                                                             ^^^^^^^^^^ reference _root_/
-//                                                                        ^^^^^^^^^^ definition local2
+//                                                                        ^^^^^^^^^^ definition local1
     return getMovementFlags(recyclerView, (EpoxyViewHolder) viewHolder);
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#getMovementFlags().
-//                          ^^^^^^^^^^^^ reference local4
+//                          ^^^^^^^^^^^^ reference local0
 //                                         ^^^^^^^^^^^^^^^ reference _root_/
-//                                                          ^^^^^^^^^^ reference local5
+//                                                          ^^^^^^^^^^ reference local1
   }
 
   /**
@@ -58,27 +58,27 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected abstract int getMovementFlags(RecyclerView recyclerView, EpoxyViewHolder viewHolder);
 //                       ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#getMovementFlags(+1).
 //                                        ^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^^^^^^^ definition local6
+//                                                     ^^^^^^^^^^^^ definition local2
 //                                                                   ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                   ^^^^^^^^^^ definition local8
+//                                                                                   ^^^^^^^^^^ definition local3
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public final boolean onMove(RecyclerView recyclerView, ViewHolder viewHolder, ViewHolder target) {
 //                     ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onMove().
 //                            ^^^^^^^^^^^^ reference _root_/
-//                                         ^^^^^^^^^^^^ definition local10
+//                                         ^^^^^^^^^^^^ definition local4
 //                                                       ^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^^^ definition local12
+//                                                                  ^^^^^^^^^^ definition local5
 //                                                                              ^^^^^^^^^^ reference _root_/
-//                                                                                         ^^^^^^ definition local14
+//                                                                                         ^^^^^^ definition local6
     return onMove(recyclerView, (EpoxyViewHolder) viewHolder, (EpoxyViewHolder) target);
 //         ^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onMove().
-//                ^^^^^^^^^^^^ reference local16
+//                ^^^^^^^^^^^^ reference local4
 //                               ^^^^^^^^^^^^^^^ reference _root_/
-//                                                ^^^^^^^^^^ reference local17
+//                                                ^^^^^^^^^^ reference local5
 //                                                             ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                              ^^^^^^ reference local18
+//                                                                              ^^^^^^ reference local6
   }
 
   /**
@@ -87,25 +87,25 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected abstract boolean onMove(RecyclerView recyclerView, EpoxyViewHolder viewHolder,
 //                           ^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onMove(+1).
 //                                  ^^^^^^^^^^^^ reference _root_/
-//                                               ^^^^^^^^^^^^ definition local19
+//                                               ^^^^^^^^^^^^ definition local7
 //                                                             ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                             ^^^^^^^^^^ definition local21
+//                                                                             ^^^^^^^^^^ definition local8
       EpoxyViewHolder target);
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^ definition local23
+//                    ^^^^^^ definition local9
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public final void onSwiped(ViewHolder viewHolder, int direction) {
 //                  ^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onSwiped().
 //                           ^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^ definition local25
-//                                                      ^^^^^^^^^ definition local27
+//                                      ^^^^^^^^^^ definition local10
+//                                                      ^^^^^^^^^ definition local11
     onSwiped((EpoxyViewHolder) viewHolder, direction);
 //  ^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onSwiped().
 //            ^^^^^^^^^^^^^^^ reference _root_/
-//                             ^^^^^^^^^^ reference local29
-//                                         ^^^^^^^^^ reference local30
+//                             ^^^^^^^^^^ reference local10
+//                                         ^^^^^^^^^ reference local11
   }
 
   /**
@@ -114,27 +114,27 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected abstract void onSwiped(EpoxyViewHolder viewHolder, int direction);
 //                        ^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onSwiped(+1).
 //                                 ^^^^^^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^^^^^^ definition local31
-//                                                                 ^^^^^^^^^ definition local33
+//                                                 ^^^^^^^^^^ definition local12
+//                                                                 ^^^^^^^^^ definition local13
 
   @Override
    ^^^^^^^^ reference java/lang/Override#
   public final boolean canDropOver(RecyclerView recyclerView, ViewHolder current,
 //                     ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#canDropOver().
 //                                 ^^^^^^^^^^^^ reference _root_/
-//                                              ^^^^^^^^^^^^ definition local35
+//                                              ^^^^^^^^^^^^ definition local14
 //                                                            ^^^^^^^^^^ reference _root_/
-//                                                                       ^^^^^^^ definition local37
+//                                                                       ^^^^^^^ definition local15
       ViewHolder target) {
 //    ^^^^^^^^^^ reference _root_/
-//               ^^^^^^ definition local39
+//               ^^^^^^ definition local16
     return canDropOver(recyclerView, (EpoxyViewHolder) current, (EpoxyViewHolder) target);
 //         ^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#canDropOver().
-//                     ^^^^^^^^^^^^ reference local41
+//                     ^^^^^^^^^^^^ reference local14
 //                                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^^ reference local42
+//                                                     ^^^^^^^ reference local15
 //                                                               ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                ^^^^^^ reference local43
+//                                                                                ^^^^^^ reference local16
   }
 
   /**
@@ -143,18 +143,18 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected boolean canDropOver(RecyclerView recyclerView, EpoxyViewHolder current,
 //                  ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#canDropOver(+1).
 //                              ^^^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^^^^ definition local44
+//                                           ^^^^^^^^^^^^ definition local17
 //                                                         ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                         ^^^^^^^ definition local46
+//                                                                         ^^^^^^^ definition local18
       EpoxyViewHolder target) {
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^ definition local48
+//                    ^^^^^^ definition local19
     return super.canDropOver(recyclerView, current, target);
 //         ^^^^^ reference _root_/
 //               ^^^^^^^^^^^ reference canDropOver#
-//                           ^^^^^^^^^^^^ reference local50
-//                                         ^^^^^^^ reference local51
-//                                                  ^^^^^^ reference local52
+//                           ^^^^^^^^^^^^ reference local17
+//                                         ^^^^^^^ reference local18
+//                                                  ^^^^^^ reference local19
   }
 
   @Override
@@ -162,11 +162,11 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final float getSwipeThreshold(ViewHolder viewHolder) {
 //                   ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#getSwipeThreshold().
 //                                     ^^^^^^^^^^ reference _root_/
-//                                                ^^^^^^^^^^ definition local53
+//                                                ^^^^^^^^^^ definition local20
     return getSwipeThreshold((EpoxyViewHolder) viewHolder);
 //         ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#getSwipeThreshold().
 //                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                             ^^^^^^^^^^ reference local55
+//                                             ^^^^^^^^^^ reference local20
   }
 
   /**
@@ -175,11 +175,11 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected float getSwipeThreshold(EpoxyViewHolder viewHolder) {
 //                ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#getSwipeThreshold(+1).
 //                                  ^^^^^^^^^^^^^^^ reference _root_/
-//                                                  ^^^^^^^^^^ definition local56
+//                                                  ^^^^^^^^^^ definition local21
     return super.getSwipeThreshold(viewHolder);
 //         ^^^^^ reference _root_/
 //               ^^^^^^^^^^^^^^^^^ reference getSwipeThreshold#
-//                                 ^^^^^^^^^^ reference local58
+//                                 ^^^^^^^^^^ reference local21
   }
 
   @Override
@@ -187,11 +187,11 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final float getMoveThreshold(ViewHolder viewHolder) {
 //                   ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#getMoveThreshold().
 //                                    ^^^^^^^^^^ reference _root_/
-//                                               ^^^^^^^^^^ definition local59
+//                                               ^^^^^^^^^^ definition local22
     return getMoveThreshold((EpoxyViewHolder) viewHolder);
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#getMoveThreshold().
 //                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^^^^^ reference local61
+//                                            ^^^^^^^^^^ reference local22
   }
 
   /**
@@ -200,11 +200,11 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected float getMoveThreshold(EpoxyViewHolder viewHolder) {
 //                ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#getMoveThreshold(+1).
 //                                 ^^^^^^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^^^^^^ definition local62
+//                                                 ^^^^^^^^^^ definition local23
     return super.getMoveThreshold(viewHolder);
 //         ^^^^^ reference _root_/
 //               ^^^^^^^^^^^^^^^^ reference getMoveThreshold#
-//                                ^^^^^^^^^^ reference local64
+//                                ^^^^^^^^^^ reference local23
   }
 
   @Override
@@ -213,23 +213,23 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
 //             ^^^^^^^^^^ reference _root_/
 //                        ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#chooseDropTarget().
 //                                         ^^^^^^^^^^ reference _root_/
-//                                                    ^^^^^^^^ definition local65
+//                                                    ^^^^^^^^ definition local24
 //                                                              ^^^^ reference java/util/List#
-//                                                                   ^^^^^^^^^^^ definition local67
-//                                                                                    ^^^^ definition local69
+//                                                                   ^^^^^^^^^^^ definition local25
+//                                                                                    ^^^^ definition local26
       int curY) {
-//        ^^^^ definition local71
+//        ^^^^ definition local27
     //noinspection unchecked
     return chooseDropTarget((EpoxyViewHolder) selected, (List<EpoxyViewHolder>) dropTargets, curX,
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#chooseDropTarget(+1).
 //                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^^^ reference local73
+//                                            ^^^^^^^^ reference local24
 //                                                       ^^^^ reference java/util/List#
 //                                                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                              ^^^^^^^^^^^ reference local74
-//                                                                                           ^^^^ reference local75
+//                                                                              ^^^^^^^^^^^ reference local25
+//                                                                                           ^^^^ reference local26
         curY);
-//      ^^^^ reference local76
+//      ^^^^ reference local27
   }
 
   /**
@@ -239,24 +239,24 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
 //          ^^^^^^^^^^^^^^^ reference _root_/
 //                          ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#chooseDropTarget(+1).
 //                                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                                           ^^^^^^^^ definition local77
+//                                                           ^^^^^^^^ definition local28
       List<EpoxyViewHolder> dropTargets, int curX, int curY) {
 //    ^^^^ reference java/util/List#
 //         ^^^^^^^^^^^^^^^ reference _root_/
-//                          ^^^^^^^^^^^ definition local79
-//                                           ^^^^ definition local81
-//                                                     ^^^^ definition local83
+//                          ^^^^^^^^^^^ definition local29
+//                                           ^^^^ definition local30
+//                                                     ^^^^ definition local31
 
     //noinspection unchecked
     return (EpoxyViewHolder) super.chooseDropTarget(selected, (List) dropTargets, curX, curY);
 //          ^^^^^^^^^^^^^^^ reference _root_/
 //                           ^^^^^ reference _root_/
 //                                 ^^^^^^^^^^^^^^^^ reference chooseDropTarget#
-//                                                  ^^^^^^^^ reference local85
+//                                                  ^^^^^^^^ reference local28
 //                                                             ^^^^ reference java/util/List#
-//                                                                   ^^^^^^^^^^^ reference local86
-//                                                                                ^^^^ reference local87
-//                                                                                      ^^^^ reference local88
+//                                                                   ^^^^^^^^^^^ reference local29
+//                                                                                ^^^^ reference local30
+//                                                                                      ^^^^ reference local31
   }
 
   @Override
@@ -264,13 +264,13 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final void onSelectedChanged(ViewHolder viewHolder, int actionState) {
 //                  ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onSelectedChanged().
 //                                    ^^^^^^^^^^ reference _root_/
-//                                               ^^^^^^^^^^ definition local89
-//                                                               ^^^^^^^^^^^ definition local91
+//                                               ^^^^^^^^^^ definition local32
+//                                                               ^^^^^^^^^^^ definition local33
     onSelectedChanged((EpoxyViewHolder) viewHolder, actionState);
 //  ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onSelectedChanged().
 //                     ^^^^^^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^ reference local93
-//                                                  ^^^^^^^^^^^ reference local94
+//                                      ^^^^^^^^^^ reference local32
+//                                                  ^^^^^^^^^^^ reference local33
   }
 
   /**
@@ -279,13 +279,13 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected void onSelectedChanged(EpoxyViewHolder viewHolder, int actionState) {
 //               ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onSelectedChanged(+1).
 //                                 ^^^^^^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^^^^^^ definition local95
-//                                                                 ^^^^^^^^^^^ definition local97
+//                                                 ^^^^^^^^^^ definition local34
+//                                                                 ^^^^^^^^^^^ definition local35
     super.onSelectedChanged(viewHolder, actionState);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^ reference onSelectedChanged#
-//                          ^^^^^^^^^^ reference local99
-//                                      ^^^^^^^^^^^ reference local100
+//                          ^^^^^^^^^^ reference local34
+//                                      ^^^^^^^^^^^ reference local35
   }
 
   @Override
@@ -293,29 +293,29 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final void onMoved(RecyclerView recyclerView, ViewHolder viewHolder, int fromPos,
 //                  ^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onMoved().
 //                          ^^^^^^^^^^^^ reference _root_/
-//                                       ^^^^^^^^^^^^ definition local101
+//                                       ^^^^^^^^^^^^ definition local36
 //                                                     ^^^^^^^^^^ reference _root_/
-//                                                                ^^^^^^^^^^ definition local103
-//                                                                                ^^^^^^^ definition local105
+//                                                                ^^^^^^^^^^ definition local37
+//                                                                                ^^^^^^^ definition local38
       ViewHolder target, int toPos, int x, int y) {
 //    ^^^^^^^^^^ reference _root_/
-//               ^^^^^^ definition local107
-//                           ^^^^^ definition local109
-//                                      ^ definition local111
-//                                             ^ definition local113
+//               ^^^^^^ definition local39
+//                           ^^^^^ definition local40
+//                                      ^ definition local41
+//                                             ^ definition local42
 
     onMoved(recyclerView, (EpoxyViewHolder) viewHolder, fromPos, (EpoxyViewHolder) target, toPos, x,
 //  ^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onMoved().
-//          ^^^^^^^^^^^^ reference local115
+//          ^^^^^^^^^^^^ reference local36
 //                         ^^^^^^^^^^^^^^^ reference _root_/
-//                                          ^^^^^^^^^^ reference local116
-//                                                      ^^^^^^^ reference local117
+//                                          ^^^^^^^^^^ reference local37
+//                                                      ^^^^^^^ reference local38
 //                                                                ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                 ^^^^^^ reference local118
-//                                                                                         ^^^^^ reference local119
-//                                                                                                ^ reference local120
+//                                                                                 ^^^^^^ reference local39
+//                                                                                         ^^^^^ reference local40
+//                                                                                                ^ reference local41
         y);
-//      ^ reference local121
+//      ^ reference local42
   }
 
   /**
@@ -324,26 +324,26 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected void onMoved(RecyclerView recyclerView, EpoxyViewHolder viewHolder, int fromPos,
 //               ^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onMoved(+1).
 //                       ^^^^^^^^^^^^ reference _root_/
-//                                    ^^^^^^^^^^^^ definition local122
+//                                    ^^^^^^^^^^^^ definition local43
 //                                                  ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^^^ definition local124
-//                                                                                  ^^^^^^^ definition local126
+//                                                                  ^^^^^^^^^^ definition local44
+//                                                                                  ^^^^^^^ definition local45
       EpoxyViewHolder target, int toPos, int x, int y) {
 //    ^^^^^^^^^^^^^^^ reference _root_/
-//                    ^^^^^^ definition local128
-//                                ^^^^^ definition local130
-//                                           ^ definition local132
-//                                                  ^ definition local134
+//                    ^^^^^^ definition local46
+//                                ^^^^^ definition local47
+//                                           ^ definition local48
+//                                                  ^ definition local49
     super.onMoved(recyclerView, viewHolder, fromPos, target, toPos, x, y);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^ reference onMoved#
-//                ^^^^^^^^^^^^ reference local136
-//                              ^^^^^^^^^^ reference local137
-//                                          ^^^^^^^ reference local138
-//                                                   ^^^^^^ reference local139
-//                                                           ^^^^^ reference local140
-//                                                                  ^ reference local141
-//                                                                     ^ reference local142
+//                ^^^^^^^^^^^^ reference local43
+//                              ^^^^^^^^^^ reference local44
+//                                          ^^^^^^^ reference local45
+//                                                   ^^^^^^ reference local46
+//                                                           ^^^^^ reference local47
+//                                                                  ^ reference local48
+//                                                                     ^ reference local49
   }
 
   @Override
@@ -351,14 +351,14 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final void clearView(RecyclerView recyclerView, ViewHolder viewHolder) {
 //                  ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#clearView().
 //                            ^^^^^^^^^^^^ reference _root_/
-//                                         ^^^^^^^^^^^^ definition local143
+//                                         ^^^^^^^^^^^^ definition local50
 //                                                       ^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^^^ definition local145
+//                                                                  ^^^^^^^^^^ definition local51
     clearView(recyclerView, (EpoxyViewHolder) viewHolder);
 //  ^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#clearView().
-//            ^^^^^^^^^^^^ reference local147
+//            ^^^^^^^^^^^^ reference local50
 //                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^^^^^ reference local148
+//                                            ^^^^^^^^^^ reference local51
   }
 
   /**
@@ -367,14 +367,14 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected void clearView(RecyclerView recyclerView, EpoxyViewHolder viewHolder) {
 //               ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#clearView(+1).
 //                         ^^^^^^^^^^^^ reference _root_/
-//                                      ^^^^^^^^^^^^ definition local149
+//                                      ^^^^^^^^^^^^ definition local52
 //                                                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                    ^^^^^^^^^^ definition local151
+//                                                                    ^^^^^^^^^^ definition local53
     super.clearView(recyclerView, viewHolder);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^ reference clearView#
-//                  ^^^^^^^^^^^^ reference local153
-//                                ^^^^^^^^^^ reference local154
+//                  ^^^^^^^^^^^^ reference local52
+//                                ^^^^^^^^^^ reference local53
   }
 
   @Override
@@ -382,29 +382,29 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final void onChildDraw(Canvas c, RecyclerView recyclerView, ViewHolder viewHolder,
 //                  ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDraw().
 //                              ^^^^^^ reference _root_/
-//                                     ^ definition local155
+//                                     ^ definition local54
 //                                        ^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^^^^^^^ definition local157
+//                                                     ^^^^^^^^^^^^ definition local55
 //                                                                   ^^^^^^^^^^ reference _root_/
-//                                                                              ^^^^^^^^^^ definition local159
+//                                                                              ^^^^^^^^^^ definition local56
       float dX,
-//          ^^ definition local161
+//          ^^ definition local57
       float dY, int actionState, boolean isCurrentlyActive) {
-//          ^^ definition local163
-//                  ^^^^^^^^^^^ definition local165
-//                                       ^^^^^^^^^^^^^^^^^ definition local167
+//          ^^ definition local58
+//                  ^^^^^^^^^^^ definition local59
+//                                       ^^^^^^^^^^^^^^^^^ definition local60
 
     onChildDraw(c, recyclerView, (EpoxyViewHolder) viewHolder, dX, dY, actionState,
 //  ^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDraw().
-//              ^ reference local169
-//                 ^^^^^^^^^^^^ reference local170
+//              ^ reference local54
+//                 ^^^^^^^^^^^^ reference local55
 //                                ^^^^^^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^^^^^^ reference local171
-//                                                             ^^ reference local172
-//                                                                 ^^ reference local173
-//                                                                     ^^^^^^^^^^^ reference local174
+//                                                 ^^^^^^^^^^ reference local56
+//                                                             ^^ reference local57
+//                                                                 ^^ reference local58
+//                                                                     ^^^^^^^^^^^ reference local59
         isCurrentlyActive);
-//      ^^^^^^^^^^^^^^^^^ reference local175
+//      ^^^^^^^^^^^^^^^^^ reference local60
   }
 
   /**
@@ -413,26 +413,26 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected void onChildDraw(Canvas c, RecyclerView recyclerView, EpoxyViewHolder viewHolder,
 //               ^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDraw(+1).
 //                           ^^^^^^ reference _root_/
-//                                  ^ definition local176
+//                                  ^ definition local61
 //                                     ^^^^^^^^^^^^ reference _root_/
-//                                                  ^^^^^^^^^^^^ definition local178
+//                                                  ^^^^^^^^^^^^ definition local62
 //                                                                ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                ^^^^^^^^^^ definition local180
+//                                                                                ^^^^^^^^^^ definition local63
       float dX, float dY, int actionState, boolean isCurrentlyActive) {
-//          ^^ definition local182
-//                    ^^ definition local184
-//                            ^^^^^^^^^^^ definition local186
-//                                                 ^^^^^^^^^^^^^^^^^ definition local188
+//          ^^ definition local64
+//                    ^^ definition local65
+//                            ^^^^^^^^^^^ definition local66
+//                                                 ^^^^^^^^^^^^^^^^^ definition local67
     super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^ reference onChildDraw#
-//                    ^ reference local190
-//                       ^^^^^^^^^^^^ reference local191
-//                                     ^^^^^^^^^^ reference local192
-//                                                 ^^ reference local193
-//                                                     ^^ reference local194
-//                                                         ^^^^^^^^^^^ reference local195
-//                                                                      ^^^^^^^^^^^^^^^^^ reference local196
+//                    ^ reference local61
+//                       ^^^^^^^^^^^^ reference local62
+//                                     ^^^^^^^^^^ reference local63
+//                                                 ^^ reference local64
+//                                                     ^^ reference local65
+//                                                         ^^^^^^^^^^^ reference local66
+//                                                                      ^^^^^^^^^^^^^^^^^ reference local67
   }
 
   @Override
@@ -440,29 +440,29 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   public final void onChildDrawOver(Canvas c, RecyclerView recyclerView, ViewHolder viewHolder,
 //                  ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDrawOver().
 //                                  ^^^^^^ reference _root_/
-//                                         ^ definition local197
+//                                         ^ definition local68
 //                                            ^^^^^^^^^^^^ reference _root_/
-//                                                         ^^^^^^^^^^^^ definition local199
+//                                                         ^^^^^^^^^^^^ definition local69
 //                                                                       ^^^^^^^^^^ reference _root_/
-//                                                                                  ^^^^^^^^^^ definition local201
+//                                                                                  ^^^^^^^^^^ definition local70
       float dX,
-//          ^^ definition local203
+//          ^^ definition local71
       float dY, int actionState, boolean isCurrentlyActive) {
-//          ^^ definition local205
-//                  ^^^^^^^^^^^ definition local207
-//                                       ^^^^^^^^^^^^^^^^^ definition local209
+//          ^^ definition local72
+//                  ^^^^^^^^^^^ definition local73
+//                                       ^^^^^^^^^^^^^^^^^ definition local74
 
     onChildDrawOver(c, recyclerView, (EpoxyViewHolder) viewHolder, dX, dY, actionState,
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDrawOver().
-//                  ^ reference local211
-//                     ^^^^^^^^^^^^ reference local212
+//                  ^ reference local68
+//                     ^^^^^^^^^^^^ reference local69
 //                                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^^^^^ reference local213
-//                                                                 ^^ reference local214
-//                                                                     ^^ reference local215
-//                                                                         ^^^^^^^^^^^ reference local216
+//                                                     ^^^^^^^^^^ reference local70
+//                                                                 ^^ reference local71
+//                                                                     ^^ reference local72
+//                                                                         ^^^^^^^^^^^ reference local73
         isCurrentlyActive);
-//      ^^^^^^^^^^^^^^^^^ reference local217
+//      ^^^^^^^^^^^^^^^^^ reference local74
   }
 
   /**
@@ -471,26 +471,26 @@ public abstract class EpoxyTouchHelperCallback extends ItemTouchHelper.Callback 
   protected void onChildDrawOver(Canvas c, RecyclerView recyclerView, EpoxyViewHolder viewHolder,
 //               ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyTouchHelperCallback#onChildDrawOver(+1).
 //                               ^^^^^^ reference _root_/
-//                                      ^ definition local218
+//                                      ^ definition local75
 //                                         ^^^^^^^^^^^^ reference _root_/
-//                                                      ^^^^^^^^^^^^ definition local220
+//                                                      ^^^^^^^^^^^^ definition local76
 //                                                                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                                                                    ^^^^^^^^^^ definition local222
+//                                                                                    ^^^^^^^^^^ definition local77
       float dX, float dY, int actionState, boolean isCurrentlyActive) {
-//          ^^ definition local224
-//                    ^^ definition local226
-//                            ^^^^^^^^^^^ definition local228
-//                                                 ^^^^^^^^^^^^^^^^^ definition local230
+//          ^^ definition local78
+//                    ^^ definition local79
+//                            ^^^^^^^^^^^ definition local80
+//                                                 ^^^^^^^^^^^^^^^^^ definition local81
 
     super.onChildDrawOver(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^ reference onChildDrawOver#
-//                        ^ reference local232
-//                           ^^^^^^^^^^^^ reference local233
-//                                         ^^^^^^^^^^ reference local234
-//                                                     ^^ reference local235
-//                                                         ^^ reference local236
-//                                                             ^^^^^^^^^^^ reference local237
-//                                                                          ^^^^^^^^^^^^^^^^^ reference local238
+//                        ^ reference local75
+//                           ^^^^^^^^^^^^ reference local76
+//                                         ^^^^^^^^^^ reference local77
+//                                                     ^^ reference local78
+//                                                         ^^ reference local79
+//                                                             ^^^^^^^^^^^ reference local80
+//                                                                          ^^^^^^^^^^^^^^^^^ reference local81
   }
 }

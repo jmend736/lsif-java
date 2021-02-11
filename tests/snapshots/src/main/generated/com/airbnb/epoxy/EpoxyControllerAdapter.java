@@ -84,16 +84,16 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //                                ^^^^^^^^^^^^^^^ reference _root_/
 //                                                ^^^^^^^^^^^^^^^ definition local0
 //                                                                 ^^^^^^^ reference _root_/
-//                                                                         ^^^^^^^^^^^^^^ definition local2
+//                                                                         ^^^^^^^^^^^^^^ definition local1
     this.epoxyController = epoxyController;
 //  ^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#this.
 //       ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
-//                         ^^^^^^^^^^^^^^^ reference local4
+//                         ^^^^^^^^^^^^^^^ reference local0
     differ = new AsyncEpoxyDiffer(
 //  ^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#differ.
 //               ^^^^^^^^^^^^^^^^ reference _root_/
         diffingHandler,
-//      ^^^^^^^^^^^^^^ reference local5
+//      ^^^^^^^^^^^^^^ reference local1
         this,
 //      ^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#this.
         ITEM_CALLBACK
@@ -110,11 +110,11 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //               ^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onExceptionSwallowed().
 //                                     ^^^^^^^ reference androidx/annotation/NonNull#
 //                                             ^^^^^^^^^^^^^^^^ reference java/lang/RuntimeException#
-//                                                              ^^^^^^^^^ definition local6
+//                                                              ^^^^^^^^^ definition local2
     epoxyController.onExceptionSwallowed(exception);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^ reference onExceptionSwallowed#
-//                                       ^^^^^^^^^ reference local8
+//                                       ^^^^^^^^^ reference local2
   }
 
   @NonNull
@@ -146,7 +146,7 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //     ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#setModels().
 //                ^^^^^^^ reference androidx/annotation/NonNull#
 //                        ^^^^^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^ definition local9
+//                                            ^^^^^^ definition local3
     // If debug model validations are on then we should help detect the error case where models
     // were incorrectly mutated once they were added. That check is also done before and after
     // bind, but there is no other check after that to see if a model is incorrectly
@@ -159,32 +159,32 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
     List<? extends EpoxyModel<?>> currentModels = getCurrentModels();
 //  ^^^^ reference java/util/List#
 //                 ^^^^^^^^^^ reference _root_/
-//                                ^^^^^^^^^^^^^ definition local11
+//                                ^^^^^^^^^^^^^ definition local4
 //                                                ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
     if (!currentModels.isEmpty() && currentModels.get(0).isDebugValidationEnabled()) {
-//       ^^^^^^^^^^^^^ reference local13
+//       ^^^^^^^^^^^^^ reference local4
 //                     ^^^^^^^ reference java/util/List#isEmpty().
-//                                  ^^^^^^^^^^^^^ reference local14
+//                                  ^^^^^^^^^^^^^ reference local4
 //                                                ^^^ reference java/util/List#get().
 //                                                       ^^^^^^^^^^^^^^^^^^^^^^^^ reference `<any>`#isDebugValidationEnabled#
       for (int i = 0; i < currentModels.size(); i++) {
-//             ^ definition local15
-//                    ^ reference local17
-//                        ^^^^^^^^^^^^^ reference local18
+//             ^ definition local5
+//                    ^ reference local5
+//                        ^^^^^^^^^^^^^ reference local4
 //                                      ^^^^ reference java/util/List#size().
-//                                              ^ reference local19
+//                                              ^ reference local5
         EpoxyModel<?> model = currentModels.get(i);
 //      ^^^^^^^^^^ reference _root_/
-//                    ^^^^^ definition local20
-//                            ^^^^^^^^^^^^^ reference local22
+//                    ^^^^^ definition local6
+//                            ^^^^^^^^^^^^^ reference local4
 //                                          ^^^ reference java/util/List#get().
-//                                              ^ reference local23
+//                                              ^ reference local5
         model.validateStateHasNotChangedSinceAdded(
-//      ^^^^^ reference local24
+//      ^^^^^ reference local6
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference `<any>`#validateStateHasNotChangedSinceAdded#
             "The model was changed between being bound and when models were rebuilt",
             i
-//          ^ reference local25
+//          ^ reference local5
         );
       }
     }
@@ -192,7 +192,7 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
     differ.submitList(models);
 //  ^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#differ.
 //         ^^^^^^^^^^ reference submitList#
-//                    ^^^^^^ reference local26
+//                    ^^^^^^ reference local3
   }
 
   /**
@@ -212,17 +212,17 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onResult().
 //                      ^^^^^^^ reference androidx/annotation/NonNull#
 //                              ^^^^^^^^^^ reference _root_/
-//                                         ^^^^^^ definition local27
+//                                         ^^^^^^ definition local7
     itemCount = result.newModels.size();
 //  ^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#itemCount.
-//              ^^^^^^ reference local29
+//              ^^^^^^ reference local7
 //                     ^^^^^^^^^ reference newModels#
 //                               ^^^^ reference newModels#size#
     notifyBlocker.allowChanges();
 //  ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyBlocker.
 //                ^^^^^^^^^^^^ reference allowChanges#
     result.dispatchTo(this);
-//  ^^^^^^ reference local30
+//  ^^^^^^ reference local7
 //         ^^^^^^^^^^ reference dispatchTo#
 //                    ^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#this.
     notifyBlocker.blockChanges();
@@ -230,38 +230,38 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //                ^^^^^^^^^^^^ reference blockChanges#
 
     for (int i = modelBuildListeners.size() - 1; i >= 0; i--) {
-//           ^ definition local31
+//           ^ definition local8
 //               ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#modelBuildListeners.
 //                                   ^^^^ reference java/util/List#size().
-//                                               ^ reference local33
-//                                                       ^ reference local34
+//                                               ^ reference local8
+//                                                       ^ reference local8
       modelBuildListeners.get(i).onModelBuildFinished(result);
 //    ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#modelBuildListeners.
 //                        ^^^ reference java/util/List#get().
-//                            ^ reference local35
+//                            ^ reference local8
 //                               ^^^^^^^^^^^^^^^^^^^^ reference onModelBuildFinished#
-//                                                    ^^^^^^ reference local36
+//                                                    ^^^^^^ reference local7
     }
   }
 
   public void addModelBuildListener(OnModelBuildFinishedListener listener) {
 //            ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#addModelBuildListener().
 //                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference _root_/
-//                                                               ^^^^^^^^ definition local37
+//                                                               ^^^^^^^^ definition local9
     modelBuildListeners.add(listener);
 //  ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#modelBuildListeners.
 //                      ^^^ reference java/util/List#add().
-//                          ^^^^^^^^ reference local39
+//                          ^^^^^^^^ reference local9
   }
 
   public void removeModelBuildListener(OnModelBuildFinishedListener listener) {
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#removeModelBuildListener().
 //                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^ definition local40
+//                                                                  ^^^^^^^^ definition local10
     modelBuildListeners.remove(listener);
 //  ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#modelBuildListeners.
 //                      ^^^^^^ reference java/util/List#remove().
-//                             ^^^^^^^^ reference local42
+//                             ^^^^^^^^ reference local10
   }
 
   @Override
@@ -277,15 +277,15 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onAttachedToRecyclerView().
 //                                      ^^^^^^^ reference androidx/annotation/NonNull#
 //                                              ^^^^^^^^^^^^ reference _root_/
-//                                                           ^^^^^^^^^^^^ definition local43
+//                                                           ^^^^^^^^^^^^ definition local11
     super.onAttachedToRecyclerView(recyclerView);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^^^^^^^^ reference onAttachedToRecyclerView#
-//                                 ^^^^^^^^^^^^ reference local45
+//                                 ^^^^^^^^^^^^ reference local11
     epoxyController.onAttachedToRecyclerViewInternal(recyclerView);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference onAttachedToRecyclerViewInternal#
-//                                                   ^^^^^^^^^^^^ reference local46
+//                                                   ^^^^^^^^^^^^ reference local11
   }
 
   @Override
@@ -294,15 +294,15 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onDetachedFromRecyclerView().
 //                                        ^^^^^^^ reference androidx/annotation/NonNull#
 //                                                ^^^^^^^^^^^^ reference _root_/
-//                                                             ^^^^^^^^^^^^ definition local47
+//                                                             ^^^^^^^^^^^^ definition local12
     super.onDetachedFromRecyclerView(recyclerView);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference onDetachedFromRecyclerView#
-//                                   ^^^^^^^^^^^^ reference local49
+//                                   ^^^^^^^^^^^^ reference local12
     epoxyController.onDetachedFromRecyclerViewInternal(recyclerView);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference onDetachedFromRecyclerViewInternal#
-//                                                     ^^^^^^^^^^^^ reference local50
+//                                                     ^^^^^^^^^^^^ reference local12
   }
 
   @Override
@@ -311,16 +311,16 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onViewAttachedToWindow().
 //                                    ^^^^^^^ reference androidx/annotation/NonNull#
 //                                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                                            ^^^^^^ definition local51
+//                                                            ^^^^^^ definition local13
     super.onViewAttachedToWindow(holder);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^^^^^^ reference onViewAttachedToWindow#
-//                               ^^^^^^ reference local53
+//                               ^^^^^^ reference local13
     epoxyController.onViewAttachedToWindow(holder, holder.getModel());
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^^ reference onViewAttachedToWindow#
-//                                         ^^^^^^ reference local54
-//                                                 ^^^^^^ reference local55
+//                                         ^^^^^^ reference local13
+//                                                 ^^^^^^ reference local13
 //                                                        ^^^^^^^^ reference getModel#
   }
 
@@ -330,16 +330,16 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onViewDetachedFromWindow().
 //                                      ^^^^^^^ reference androidx/annotation/NonNull#
 //                                              ^^^^^^^^^^^^^^^ reference _root_/
-//                                                              ^^^^^^ definition local56
+//                                                              ^^^^^^ definition local14
     super.onViewDetachedFromWindow(holder);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^^^^^^^^ reference onViewDetachedFromWindow#
-//                                 ^^^^^^ reference local58
+//                                 ^^^^^^ reference local14
     epoxyController.onViewDetachedFromWindow(holder, holder.getModel());
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^ reference onViewDetachedFromWindow#
-//                                           ^^^^^^ reference local59
-//                                                   ^^^^^^ reference local60
+//                                           ^^^^^^ reference local14
+//                                                   ^^^^^^ reference local14
 //                                                          ^^^^^^^^ reference getModel#
   }
 
@@ -349,22 +349,22 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //               ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onModelBound().
 //                             ^^^^^^^ reference androidx/annotation/NonNull#
 //                                     ^^^^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^ definition local61
+//                                                     ^^^^^^ definition local15
 //                                                              ^^^^^^^ reference androidx/annotation/NonNull#
 //                                                                      ^^^^^^^^^^ reference _root_/
-//                                                                                    ^^^^^ definition local63
+//                                                                                    ^^^^^ definition local16
       int position, @Nullable EpoxyModel<?> previouslyBoundModel) {
-//        ^^^^^^^^ definition local65
+//        ^^^^^^^^ definition local17
 //                   ^^^^^^^^ reference androidx/annotation/Nullable#
 //                            ^^^^^^^^^^ reference _root_/
-//                                          ^^^^^^^^^^^^^^^^^^^^ definition local67
+//                                          ^^^^^^^^^^^^^^^^^^^^ definition local18
     epoxyController.onModelBound(holder, model, position, previouslyBoundModel);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^ reference onModelBound#
-//                               ^^^^^^ reference local69
-//                                       ^^^^^ reference local70
-//                                              ^^^^^^^^ reference local71
-//                                                        ^^^^^^^^^^^^^^^^^^^^ reference local72
+//                               ^^^^^^ reference local15
+//                                       ^^^^^ reference local16
+//                                              ^^^^^^^^ reference local17
+//                                                        ^^^^^^^^^^^^^^^^^^^^ reference local18
   }
 
   @Override
@@ -373,15 +373,15 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //               ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#onModelUnbound().
 //                               ^^^^^^^ reference androidx/annotation/NonNull#
 //                                       ^^^^^^^^^^^^^^^ reference _root_/
-//                                                       ^^^^^^ definition local73
+//                                                       ^^^^^^ definition local19
 //                                                                ^^^^^^^ reference androidx/annotation/NonNull#
 //                                                                        ^^^^^^^^^^ reference _root_/
-//                                                                                      ^^^^^ definition local75
+//                                                                                      ^^^^^ definition local20
     epoxyController.onModelUnbound(holder, model);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^ reference onModelUnbound#
-//                                 ^^^^^^ reference local77
-//                                         ^^^^^ reference local78
+//                                 ^^^^^^ reference local19
+//                                         ^^^^^ reference local20
   }
 
   /** Get an unmodifiable copy of the current models set on the adapter. */
@@ -407,11 +407,11 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
   public EpoxyModel<?> getModelAtPosition(int position) {
 //       ^^^^^^^^^^ reference _root_/
 //                     ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#getModelAtPosition().
-//                                            ^^^^^^^^ definition local79
+//                                            ^^^^^^^^ definition local21
     return getCurrentModels().get(position);
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
 //                            ^^^ reference java/util/List#get().
-//                                ^^^^^^^^ reference local81
+//                                ^^^^^^^^ reference local21
   }
 
   /**
@@ -423,17 +423,17 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
   public EpoxyModel<?> getModelById(long id) {
 //       ^^^^^^^^^^ reference _root_/
 //                     ^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#getModelById().
-//                                       ^^ definition local82
+//                                       ^^ definition local22
     for (EpoxyModel<?> model : getCurrentModels()) {
 //       ^^^^^^^^^^ reference _root_/
-//                     ^^^^^ definition local84
+//                     ^^^^^ definition local23
 //                             ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
       if (model.id() == id) {
-//        ^^^^^ reference local86
+//        ^^^^^ reference local23
 //              ^^ reference `<any>`#id#
-//                      ^^ reference local87
+//                      ^^ reference local22
         return model;
-//             ^^^^^ reference local88
+//             ^^^^^ reference local23
       }
     }
 
@@ -446,29 +446,29 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //           ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#getModelPosition().
 //                             ^^^^^^^ reference androidx/annotation/NonNull#
 //                                     ^^^^^^^^^^ reference _root_/
-//                                                   ^^^^^^^^^^^ definition local89
+//                                                   ^^^^^^^^^^^ definition local24
     int size = getCurrentModels().size();
-//      ^^^^ definition local91
+//      ^^^^ definition local25
 //             ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
 //                                ^^^^ reference java/util/List#size().
     for (int i = 0; i < size; i++) {
-//           ^ definition local93
-//                  ^ reference local95
-//                      ^^^^ reference local96
-//                            ^ reference local97
+//           ^ definition local26
+//                  ^ reference local26
+//                      ^^^^ reference local25
+//                            ^ reference local26
       EpoxyModel<?> model = getCurrentModels().get(i);
 //    ^^^^^^^^^^ reference _root_/
-//                  ^^^^^ definition local98
+//                  ^^^^^ definition local27
 //                          ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
 //                                             ^^^ reference java/util/List#get().
-//                                                 ^ reference local100
+//                                                 ^ reference local26
       if (model.id() == targetModel.id()) {
-//        ^^^^^ reference local101
+//        ^^^^^ reference local27
 //              ^^ reference `<any>`#id#
-//                      ^^^^^^^^^^^ reference local102
+//                      ^^^^^^^^^^^ reference local24
 //                                  ^^ reference `<any>`#id#
         return i;
-//             ^ reference local103
+//             ^ reference local26
       }
     }
 
@@ -491,42 +491,42 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
    ^^^^^^^^ reference androidx/annotation/UiThread#
   void moveModel(int fromPosition, int toPosition) {
 //     ^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#moveModel().
-//                   ^^^^^^^^^^^^ definition local104
-//                                     ^^^^^^^^^^ definition local106
+//                   ^^^^^^^^^^^^ definition local28
+//                                     ^^^^^^^^^^ definition local29
     ArrayList<EpoxyModel<?>> updatedList = new ArrayList<>(getCurrentModels());
 //  ^^^^^^^^^ reference java/util/ArrayList#
 //            ^^^^^^^^^^ reference _root_/
-//                           ^^^^^^^^^^^ definition local108
+//                           ^^^^^^^^^^^ definition local30
 //                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/util/ArrayList#`<init>`(+2).
 //                                             ^^^^^^^^^ reference java/util/ArrayList#
 //                                                         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
 
     updatedList.add(toPosition, updatedList.remove(fromPosition));
-//  ^^^^^^^^^^^ reference local110
+//  ^^^^^^^^^^^ reference local30
 //              ^^^ reference java/util/ArrayList#add(+1).
-//                  ^^^^^^^^^^ reference local111
-//                              ^^^^^^^^^^^ reference local112
+//                  ^^^^^^^^^^ reference local29
+//                              ^^^^^^^^^^^ reference local30
 //                                          ^^^^^^ reference java/util/ArrayList#remove().
-//                                                 ^^^^^^^^^^^^ reference local113
+//                                                 ^^^^^^^^^^^^ reference local28
     notifyBlocker.allowChanges();
 //  ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyBlocker.
 //                ^^^^^^^^^^^^ reference allowChanges#
     notifyItemMoved(fromPosition, toPosition);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyItemMoved#
-//                  ^^^^^^^^^^^^ reference local114
-//                                ^^^^^^^^^^ reference local115
+//                  ^^^^^^^^^^^^ reference local28
+//                                ^^^^^^^^^^ reference local29
     notifyBlocker.blockChanges();
 //  ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyBlocker.
 //                ^^^^^^^^^^^^ reference blockChanges#
 
     boolean interruptedDiff = differ.forceListOverride(updatedList);
-//          ^^^^^^^^^^^^^^^ definition local116
+//          ^^^^^^^^^^^^^^^ definition local31
 //                            ^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#differ.
 //                                   ^^^^^^^^^^^^^^^^^ reference forceListOverride#
-//                                                     ^^^^^^^^^^^ reference local118
+//                                                     ^^^^^^^^^^^ reference local30
 
     if (interruptedDiff) {
-//      ^^^^^^^^^^^^^^^ reference local119
+//      ^^^^^^^^^^^^^^^ reference local31
       // The move interrupted a model rebuild/diff that was in progress,
       // so models may be out of date and we should force them to rebuilt
       epoxyController.requestModelBuild();
@@ -539,11 +539,11 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
    ^^^^^^^^ reference androidx/annotation/UiThread#
   void notifyModelChanged(int position) {
 //     ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#notifyModelChanged().
-//                            ^^^^^^^^ definition local120
+//                            ^^^^^^^^ definition local32
     ArrayList<EpoxyModel<?>> updatedList = new ArrayList<>(getCurrentModels());
 //  ^^^^^^^^^ reference java/util/ArrayList#
 //            ^^^^^^^^^^ reference _root_/
-//                           ^^^^^^^^^^^ definition local122
+//                           ^^^^^^^^^^^ definition local33
 //                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference java/util/ArrayList#`<init>`(+2).
 //                                             ^^^^^^^^^ reference java/util/ArrayList#
 //                                                         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#getCurrentModels().
@@ -553,19 +553,19 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //                ^^^^^^^^^^^^ reference allowChanges#
     notifyItemChanged(position);
 //  ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyItemChanged#
-//                    ^^^^^^^^ reference local124
+//                    ^^^^^^^^ reference local32
     notifyBlocker.blockChanges();
 //  ^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#notifyBlocker.
 //                ^^^^^^^^^^^^ reference blockChanges#
 
     boolean interruptedDiff = differ.forceListOverride(updatedList);
-//          ^^^^^^^^^^^^^^^ definition local125
+//          ^^^^^^^^^^^^^^^ definition local34
 //                            ^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#differ.
 //                                   ^^^^^^^^^^^^^^^^^ reference forceListOverride#
-//                                                     ^^^^^^^^^^^ reference local127
+//                                                     ^^^^^^^^^^^ reference local33
 
     if (interruptedDiff) {
-//      ^^^^^^^^^^^^^^^ reference local128
+//      ^^^^^^^^^^^^^^^ reference local34
       // The move interrupted a model rebuild/diff that was in progress,
       // so models may be out of date and we should force them to rebuilt
       epoxyController.requestModelBuild();
@@ -605,11 +605,11 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
    ^^^^^^^^ reference java/lang/Override#
   public boolean isStickyHeader(int position) {
 //               ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#isStickyHeader().
-//                                  ^^^^^^^^ definition local129
+//                                  ^^^^^^^^ definition local35
     return epoxyController.isStickyHeader(position);
 //         ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                         ^^^^^^^^^^^^^^ reference isStickyHeader#
-//                                        ^^^^^^^^ reference local131
+//                                        ^^^^^^^^ reference local35
   }
 
   /**
@@ -622,11 +622,11 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#setupStickyHeaderView().
 //                                   ^^^^^^^ reference org/jetbrains/annotations/NotNull#
 //                                           ^^^^ reference _root_/
-//                                                ^^^^^^^^^^^^ definition local132
+//                                                ^^^^^^^^^^^^ definition local36
     epoxyController.setupStickyHeaderView(stickyHeader);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^ reference setupStickyHeaderView#
-//                                        ^^^^^^^^^^^^ reference local134
+//                                        ^^^^^^^^^^^^ reference local36
   }
 
   /**
@@ -639,10 +639,10 @@ public final class EpoxyControllerAdapter extends BaseEpoxyAdapter implements Re
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyControllerAdapter#teardownStickyHeaderView().
 //                                      ^^^^^^^ reference org/jetbrains/annotations/NotNull#
 //                                              ^^^^ reference _root_/
-//                                                   ^^^^^^^^^^^^ definition local135
+//                                                   ^^^^^^^^^^^^ definition local37
     epoxyController.teardownStickyHeaderView(stickyHeader);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/EpoxyControllerAdapter#epoxyController.
 //                  ^^^^^^^^^^^^^^^^^^^^^^^^ reference teardownStickyHeaderView#
-//                                           ^^^^^^^^^^^^ reference local137
+//                                           ^^^^^^^^^^^^ reference local37
   }
 }

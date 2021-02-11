@@ -72,7 +72,7 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
 //                            ^^^^ definition local0
     super(size);
 //  ^^^^^ reference androidx/collection/LongSparseArray#`<init>`(+1).
-//        ^^^^ reference local2
+//        ^^^^ reference local0
   }
 
   @Override
@@ -87,30 +87,30 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
   public void writeToParcel(Parcel dest, int flags) {
 //            ^^^^^^^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#writeToParcel().
 //                          ^^^^^^ reference _root_/
-//                                 ^^^^ definition local3
-//                                           ^^^^^ definition local5
+//                                 ^^^^ definition local1
+//                                           ^^^^^ definition local2
     final int size = size();
-//            ^^^^ definition local7
+//            ^^^^ definition local3
 //                   ^^^^ reference androidx/collection/LongSparseArray#size().
     dest.writeInt(size);
-//  ^^^^ reference local9
+//  ^^^^ reference local1
 //       ^^^^^^^^ reference writeInt#
-//                ^^^^ reference local10
+//                ^^^^ reference local3
     for (int i = 0; i < size; i++) {
-//           ^ definition local11
-//                  ^ reference local13
-//                      ^^^^ reference local14
-//                            ^ reference local15
+//           ^ definition local4
+//                  ^ reference local4
+//                      ^^^^ reference local3
+//                            ^ reference local4
       dest.writeLong(keyAt(i));
-//    ^^^^ reference local16
+//    ^^^^ reference local1
 //         ^^^^^^^^^ reference writeLong#
 //                   ^^^^^ reference androidx/collection/LongSparseArray#keyAt().
-//                         ^ reference local17
+//                         ^ reference local4
       dest.writeParcelable(valueAt(i), 0);
-//    ^^^^ reference local18
+//    ^^^^ reference local1
 //         ^^^^^^^^^^^^^^^ reference writeParcelable#
 //                         ^^^^^^^ reference androidx/collection/LongSparseArray#valueAt().
-//                                 ^ reference local19
+//                                 ^ reference local4
     }
   }
 
@@ -142,10 +142,10 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
   public boolean hasStateForHolder(EpoxyViewHolder holder) {
 //               ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#hasStateForHolder().
 //                                 ^^^^^^^^^^^^^^^ reference _root_/
-//                                                 ^^^^^^ definition local20
+//                                                 ^^^^^^ definition local5
     return get(holder.getItemId()) != null;
 //         ^^^ reference androidx/collection/LongSparseArray#get().
-//             ^^^^^^ reference local22
+//             ^^^^^^ reference local5
 //                    ^^^^^^^^^ reference getItemId#
   }
 
@@ -153,14 +153,14 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
 //            ^^^^ definition com/airbnb/epoxy/ViewHolderState#save().
 //                 ^^^^^^^^^^ reference java/util/Collection#
 //                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                             ^^^^^^^ definition local23
+//                                             ^^^^^^^ definition local6
     for (EpoxyViewHolder holder : holders) {
 //       ^^^^^^^^^^^^^^^ reference _root_/
-//                       ^^^^^^ definition local25
-//                                ^^^^^^^ reference local27
+//                       ^^^^^^ definition local7
+//                                ^^^^^^^ reference local6
       save(holder);
 //    ^^^^ reference com/airbnb/epoxy/ViewHolderState#save().
-//         ^^^^^^ reference local28
+//         ^^^^^^ reference local7
     }
   }
 
@@ -168,9 +168,9 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
   public void save(EpoxyViewHolder holder) {
 //            ^^^^ definition com/airbnb/epoxy/ViewHolderState#save(+1).
 //                 ^^^^^^^^^^^^^^^ reference _root_/
-//                                 ^^^^^^ definition local29
+//                                 ^^^^^^ definition local8
     if (!holder.getModel().shouldSaveViewState()) {
-//       ^^^^^^ reference local31
+//       ^^^^^^ reference local8
 //              ^^^^^^^^ reference getModel#
 //                         ^^^^^^^^^^^^^^^^^^^ reference getModel#shouldSaveViewState#
       return;
@@ -181,28 +181,28 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
     // should have identical ids for all its views, and will just overwrite the previous state.
     ViewState state = get(holder.getItemId());
 //  ^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#
-//            ^^^^^ definition local32
+//            ^^^^^ definition local9
 //                    ^^^ reference androidx/collection/LongSparseArray#get().
-//                        ^^^^^^ reference local34
+//                        ^^^^^^ reference local8
 //                               ^^^^^^^^^ reference getItemId#
     if (state == null) {
-//      ^^^^^ reference local35
+//      ^^^^^ reference local9
       state = new ViewState();
-//    ^^^^^ reference local36
+//    ^^^^^ reference local9
 //            ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#`<init>`().
 //                ^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#
     }
 
     state.save(holder.itemView);
-//  ^^^^^ reference local37
+//  ^^^^^ reference local9
 //        ^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#save().
-//             ^^^^^^ reference local38
+//             ^^^^^^ reference local8
 //                    ^^^^^^^^ reference itemView#
     put(holder.getItemId(), state);
 //  ^^^ reference androidx/collection/LongSparseArray#put().
-//      ^^^^^^ reference local39
+//      ^^^^^^ reference local8
 //             ^^^^^^^^^ reference getItemId#
-//                          ^^^^^ reference local40
+//                          ^^^^^ reference local9
   }
 
   /**
@@ -212,9 +212,9 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
   public void restore(EpoxyViewHolder holder) {
 //            ^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#restore().
 //                    ^^^^^^^^^^^^^^^ reference _root_/
-//                                    ^^^^^^ definition local41
+//                                    ^^^^^^ definition local10
     if (!holder.getModel().shouldSaveViewState()) {
-//       ^^^^^^ reference local43
+//       ^^^^^^ reference local10
 //              ^^^^^^^^ reference getModel#
 //                         ^^^^^^^^^^^^^^^^^^^ reference getModel#shouldSaveViewState#
       return;
@@ -222,22 +222,22 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
 
     ViewState state = get(holder.getItemId());
 //  ^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#
-//            ^^^^^ definition local44
+//            ^^^^^ definition local11
 //                    ^^^ reference androidx/collection/LongSparseArray#get().
-//                        ^^^^^^ reference local46
+//                        ^^^^^^ reference local10
 //                               ^^^^^^^^^ reference getItemId#
     if (state != null) {
-//      ^^^^^ reference local47
+//      ^^^^^ reference local11
       state.restore(holder.itemView);
-//    ^^^^^ reference local48
+//    ^^^^^ reference local11
 //          ^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#restore().
-//                  ^^^^^^ reference local49
+//                  ^^^^^^ reference local10
 //                         ^^^^^^^^ reference itemView#
     } else {
       // The first time a model is bound it won't have previous state. We need to make sure
       // the view is reset to its initial state to clear any changes from previously bound models
       holder.restoreInitialViewState();
-//    ^^^^^^ reference local50
+//    ^^^^^^ reference local10
 //           ^^^^^^^^^^^^^^^^^^^^^^^ reference restoreInitialViewState#
     }
   }
@@ -258,68 +258,68 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
 
     private ViewState(int size, int[] keys, Parcelable[] values) {
 //          ^^^^^^ definition com/airbnb/epoxy/ViewHolderState#ViewState#`<init>`(+1).
-//                        ^^^^ definition local51
-//                                    ^^^^ definition local53
+//                        ^^^^ definition local12
+//                                    ^^^^ definition local13
 //                                          ^^^^^^^^^^ reference _root_/
-//                                                       ^^^^^^ definition local55
+//                                                       ^^^^^^ definition local14
       super(size);
-//          ^^^^ reference local57
+//          ^^^^ reference local12
       for (int i = 0; i < size; ++i) {
-//             ^ definition local58
-//                    ^ reference local60
-//                        ^^^^ reference local61
-//                                ^ reference local62
+//             ^ definition local15
+//                    ^ reference local15
+//                        ^^^^ reference local12
+//                                ^ reference local15
         put(keys[i], values[i]);
 //      ^^^ reference androidx/collection/LongSparseArray#put().
-//          ^^^^ reference local63
-//               ^ reference local64
-//                   ^^^^^^ reference local65
-//                          ^ reference local66
+//          ^^^^ reference local13
+//               ^ reference local15
+//                   ^^^^^^ reference local14
+//                          ^ reference local15
       }
     }
 
     public void save(View view) {
 //              ^^^^ definition com/airbnb/epoxy/ViewHolderState#ViewState#save().
 //                   ^^^^ reference _root_/
-//                        ^^^^ definition local67
+//                        ^^^^ definition local16
       int originalId = view.getId();
-//        ^^^^^^^^^^ definition local69
-//                     ^^^^ reference local71
+//        ^^^^^^^^^^ definition local17
+//                     ^^^^ reference local16
 //                          ^^^^^ reference getId#
       setIdIfNoneExists(view);
 //    ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#setIdIfNoneExists().
-//                      ^^^^ reference local72
+//                      ^^^^ reference local16
 
       view.saveHierarchyState(this);
-//    ^^^^ reference local73
+//    ^^^^ reference local16
 //         ^^^^^^^^^^^^^^^^^^ reference saveHierarchyState#
 //                            ^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#this.
       view.setId(originalId);
-//    ^^^^ reference local74
+//    ^^^^ reference local16
 //         ^^^^^ reference setId#
-//               ^^^^^^^^^^ reference local75
+//               ^^^^^^^^^^ reference local17
     }
 
     public void restore(View view) {
 //              ^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#ViewState#restore().
 //                      ^^^^ reference _root_/
-//                           ^^^^ definition local76
+//                           ^^^^ definition local18
       int originalId = view.getId();
-//        ^^^^^^^^^^ definition local78
-//                     ^^^^ reference local80
+//        ^^^^^^^^^^ definition local19
+//                     ^^^^ reference local18
 //                          ^^^^^ reference getId#
       setIdIfNoneExists(view);
 //    ^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#setIdIfNoneExists().
-//                      ^^^^ reference local81
+//                      ^^^^ reference local18
 
       view.restoreHierarchyState(this);
-//    ^^^^ reference local82
+//    ^^^^ reference local18
 //         ^^^^^^^^^^^^^^^^^^^^^ reference restoreHierarchyState#
 //                               ^^^^ reference com/airbnb/epoxy/ViewHolderState#ViewState#this.
       view.setId(originalId);
-//    ^^^^ reference local83
+//    ^^^^ reference local18
 //         ^^^^^ reference setId#
-//               ^^^^^^^^^^ reference local84
+//               ^^^^^^^^^^ reference local19
     }
 
     /**
@@ -331,14 +331,14 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
     private void setIdIfNoneExists(View view) {
 //               ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#ViewState#setIdIfNoneExists().
 //                                 ^^^^ reference _root_/
-//                                      ^^^^ definition local85
+//                                      ^^^^ definition local20
       if (view.getId() == View.NO_ID) {
-//        ^^^^ reference local87
+//        ^^^^ reference local20
 //             ^^^^^ reference getId#
 //                        ^^^^ reference _root_/
 //                             ^^^^^ reference NO_ID#
         view.setId(R.id.view_model_state_saving_id);
-//      ^^^^ reference local88
+//      ^^^^ reference local20
 //           ^^^^^ reference setId#
 //                 ^ reference R/
 //                   ^^ reference R/id#
@@ -358,48 +358,48 @@ class ViewHolderState extends LongSparseArray<ViewState> implements Parcelable {
     public void writeToParcel(Parcel parcel, int flags) {
 //              ^^^^^^^^^^^^^ definition com/airbnb/epoxy/ViewHolderState#ViewState#writeToParcel().
 //                            ^^^^^^ reference _root_/
-//                                   ^^^^^^ definition local89
-//                                               ^^^^^ definition local91
+//                                   ^^^^^^ definition local21
+//                                               ^^^^^ definition local22
       int size = size();
-//        ^^^^ definition local93
+//        ^^^^ definition local23
 //               ^^^^ reference androidx/collection/LongSparseArray#size().
       int[] keys = new int[size];
-//          ^^^^ definition local95
-//                         ^^^^ reference local97
+//          ^^^^ definition local24
+//                         ^^^^ reference local23
       Parcelable[] values = new Parcelable[size];
 //    ^^^^^^^^^^ reference _root_/
-//                 ^^^^^^ definition local98
+//                 ^^^^^^ definition local25
 //                              ^^^^^^^^^^ reference _root_/
-//                                         ^^^^ reference local100
+//                                         ^^^^ reference local23
       for (int i = 0; i < size; ++i) {
-//             ^ definition local101
-//                    ^ reference local103
-//                        ^^^^ reference local104
-//                                ^ reference local105
+//             ^ definition local26
+//                    ^ reference local26
+//                        ^^^^ reference local23
+//                                ^ reference local26
         keys[i] = keyAt(i);
-//      ^^^^ reference local106
-//           ^ reference local107
+//      ^^^^ reference local24
+//           ^ reference local26
 //                ^^^^^ reference androidx/collection/LongSparseArray#keyAt().
-//                      ^ reference local108
+//                      ^ reference local26
         values[i] = valueAt(i);
-//      ^^^^^^ reference local109
-//             ^ reference local110
+//      ^^^^^^ reference local25
+//             ^ reference local26
 //                  ^^^^^^^ reference androidx/collection/LongSparseArray#valueAt().
-//                          ^ reference local111
+//                          ^ reference local26
       }
       parcel.writeInt(size);
-//    ^^^^^^ reference local112
+//    ^^^^^^ reference local21
 //           ^^^^^^^^ reference writeInt#
-//                    ^^^^ reference local113
+//                    ^^^^ reference local23
       parcel.writeIntArray(keys);
-//    ^^^^^^ reference local114
+//    ^^^^^^ reference local21
 //           ^^^^^^^^^^^^^ reference writeIntArray#
-//                         ^^^^ reference local115
+//                         ^^^^ reference local24
       parcel.writeParcelableArray(values, flags);
-//    ^^^^^^ reference local116
+//    ^^^^^^ reference local21
 //           ^^^^^^^^^^^^^^^^^^^^ reference writeParcelableArray#
-//                                ^^^^^^ reference local117
-//                                        ^^^^^ reference local118
+//                                ^^^^^^ reference local25
+//                                        ^^^^^ reference local22
     }
 
     public static final Creator<ViewState> CREATOR =

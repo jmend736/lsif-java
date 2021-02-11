@@ -40,8 +40,8 @@ public interface EpoxySwipeCallback<T extends EpoxyModel> extends BaseEpoxyTouch
 //                    ^ reference com/airbnb/epoxy/EpoxySwipeCallback#[T]
 //                      ^^^^^ definition local0
 //                             ^^^^ reference _root_/
-//                                  ^^^^^^^^ definition local2
-//                                                ^^^^^^^^^^^^^^^ definition local4
+//                                  ^^^^^^^^ definition local1
+//                                                ^^^^^^^^^^^^^^^ definition local2
 
   /**
    * Once a view has begun swiping with {@link #onSwipeStarted(EpoxyModel, View, int)} it will
@@ -60,13 +60,13 @@ public interface EpoxySwipeCallback<T extends EpoxyModel> extends BaseEpoxyTouch
   void onSwipeProgressChanged(T model, View itemView, float swipeProgress,
 //     ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxySwipeCallback#onSwipeProgressChanged().
 //                            ^ reference com/airbnb/epoxy/EpoxySwipeCallback#[T]
-//                              ^^^^^ definition local6
+//                              ^^^^^ definition local3
 //                                     ^^^^ reference _root_/
-//                                          ^^^^^^^^ definition local8
-//                                                          ^^^^^^^^^^^^^ definition local10
+//                                          ^^^^^^^^ definition local4
+//                                                          ^^^^^^^^^^^^^ definition local5
       Canvas canvas);
 //    ^^^^^^ reference _root_/
-//           ^^^^^^ definition local12
+//           ^^^^^^ definition local6
 
   /**
    * Called when the user has released their touch on the view. If the displacement passed the swipe
@@ -80,9 +80,9 @@ public interface EpoxySwipeCallback<T extends EpoxyModel> extends BaseEpoxyTouch
   void onSwipeReleased(T model, View itemView);
 //     ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxySwipeCallback#onSwipeReleased().
 //                     ^ reference com/airbnb/epoxy/EpoxySwipeCallback#[T]
-//                       ^^^^^ definition local14
+//                       ^^^^^ definition local7
 //                              ^^^^ reference _root_/
-//                                   ^^^^^^^^ definition local16
+//                                   ^^^^^^^^ definition local8
 
   /**
    * Called after {@link #onSwipeReleased(EpoxyModel, View)} if the swipe surpassed the threshold to
@@ -104,9 +104,9 @@ public interface EpoxySwipeCallback<T extends EpoxyModel> extends BaseEpoxyTouch
   void onSwipeCompleted(T model, View itemView, int position, int direction);
 //     ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxySwipeCallback#onSwipeCompleted().
 //                      ^ reference com/airbnb/epoxy/EpoxySwipeCallback#[T]
-//                        ^^^^^ definition local18
+//                        ^^^^^ definition local9
 //                               ^^^^ reference _root_/
-//                                    ^^^^^^^^ definition local20
-//                                                  ^^^^^^^^ definition local22
-//                                                                ^^^^^^^^^ definition local24
+//                                    ^^^^^^^^ definition local10
+//                                                  ^^^^^^^^ definition local11
+//                                                                ^^^^^^^^^ definition local12
 }

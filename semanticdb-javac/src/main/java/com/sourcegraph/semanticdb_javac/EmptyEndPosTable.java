@@ -5,7 +5,7 @@ import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.util.Position;
 
 /** A fallback implementation of EndPosTable when it's missing from the compiler. */
-public class EmptyEndPosTable implements EndPosTable {
+public final class EmptyEndPosTable implements EndPosTable {
 
   @Override
   public int getEndPos(JCTree tree) {

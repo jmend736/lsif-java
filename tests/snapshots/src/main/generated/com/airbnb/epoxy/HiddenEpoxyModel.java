@@ -37,8 +37,8 @@ class HiddenEpoxyModel extends EpoxyModel<Space> {
   public int getSpanSize(int spanCount, int position, int itemCount) {
 //           ^^^^^^^^^^^ definition com/airbnb/epoxy/HiddenEpoxyModel#getSpanSize().
 //                           ^^^^^^^^^ definition local0
-//                                          ^^^^^^^^ definition local2
-//                                                        ^^^^^^^^^ definition local4
+//                                          ^^^^^^^^ definition local1
+//                                                        ^^^^^^^^^ definition local2
     return 0;
   }
 }

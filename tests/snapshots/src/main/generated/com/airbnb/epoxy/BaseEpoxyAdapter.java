@@ -164,14 +164,14 @@ public abstract class BaseEpoxyAdapter
    ^^^^^^^^ reference java/lang/Override#
   public long getItemId(int position) {
 //            ^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#getItemId().
-//                          ^^^^^^^^ definition local2
+//                          ^^^^^^^^ definition local1
     // This does not call getModelForPosition so that we don't use the id of the empty model when
     // hidden,
     // so that the id stays constant when gone vs shown
     return getCurrentModels().get(position).id();
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getCurrentModels().
 //                            ^^^ reference java/util/List#get().
-//                                ^^^^^^^^ reference local4
+//                                ^^^^^^^^ reference local1
 //                                          ^^ reference `<any>`#id#
   }
 
@@ -179,12 +179,12 @@ public abstract class BaseEpoxyAdapter
    ^^^^^^^^ reference java/lang/Override#
   public int getItemViewType(int position) {
 //           ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#getItemViewType().
-//                               ^^^^^^^^ definition local5
+//                               ^^^^^^^^ definition local2
     return viewTypeManager.getViewTypeAndRememberModel(getModelForPosition(position));
 //         ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewTypeManager.
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference getViewTypeAndRememberModel#
 //                                                     ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getModelForPosition().
-//                                                                         ^^^^^^^^ reference local7
+//                                                                         ^^^^^^^^ reference local2
   }
 
   @Override
@@ -193,26 +193,26 @@ public abstract class BaseEpoxyAdapter
 //       ^^^^^^^^^^^^^^^ reference _root_/
 //                       ^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onCreateViewHolder().
 //                                          ^^^^^^^^^ reference _root_/
-//                                                    ^^^^^^ definition local8
-//                                                                ^^^^^^^^ definition local10
+//                                                    ^^^^^^ definition local3
+//                                                                ^^^^^^^^ definition local4
     EpoxyModel<?> model = viewTypeManager.getModelForViewType(this, viewType);
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local12
+//                ^^^^^ definition local5
 //                        ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewTypeManager.
 //                                        ^^^^^^^^^^^^^^^^^^^ reference getModelForViewType#
 //                                                            ^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#this.
-//                                                                  ^^^^^^^^ reference local14
+//                                                                  ^^^^^^^^ reference local4
     View view = model.buildView(parent);
 //  ^^^^ reference _root_/
-//       ^^^^ definition local15
-//              ^^^^^ reference local17
+//       ^^^^ definition local6
+//              ^^^^^ reference local5
 //                    ^^^^^^^^^ reference `<any>`#buildView#
-//                              ^^^^^^ reference local18
+//                              ^^^^^^ reference local3
     return new EpoxyViewHolder(parent, view, model.shouldSaveViewState());
 //             ^^^^^^^^^^^^^^^ reference _root_/
-//                             ^^^^^^ reference local19
-//                                     ^^^^ reference local20
-//                                           ^^^^^ reference local21
+//                             ^^^^^^ reference local3
+//                                     ^^^^ reference local6
+//                                           ^^^^^ reference local5
 //                                                 ^^^^^^^^^^^^^^^^^^^ reference `<any>`#shouldSaveViewState#
   }
 
@@ -221,12 +221,12 @@ public abstract class BaseEpoxyAdapter
   public void onBindViewHolder(EpoxyViewHolder holder, int position) {
 //            ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onBindViewHolder().
 //                             ^^^^^^^^^^^^^^^ reference _root_/
-//                                             ^^^^^^ definition local22
-//                                                         ^^^^^^^^ definition local24
+//                                             ^^^^^^ definition local7
+//                                                         ^^^^^^^^ definition local8
     onBindViewHolder(holder, position, Collections.emptyList());
 //  ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onBindViewHolder(+1).
-//                   ^^^^^^ reference local26
-//                           ^^^^^^^^ reference local27
+//                   ^^^^^^ reference local7
+//                           ^^^^^^^^ reference local8
 //                                     ^^^^^^^^^^^ reference java/util/Collections#
 //                                                 ^^^^^^^^^ reference java/util/Collections#emptyList().
   }
@@ -236,41 +236,41 @@ public abstract class BaseEpoxyAdapter
   public void onBindViewHolder(EpoxyViewHolder holder, int position, List<Object> payloads) {
 //            ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onBindViewHolder(+1).
 //                             ^^^^^^^^^^^^^^^ reference _root_/
-//                                             ^^^^^^ definition local28
-//                                                         ^^^^^^^^ definition local30
+//                                             ^^^^^^ definition local9
+//                                                         ^^^^^^^^ definition local10
 //                                                                   ^^^^ reference java/util/List#
 //                                                                        ^^^^^^ reference java/lang/Object#
-//                                                                                ^^^^^^^^ definition local32
+//                                                                                ^^^^^^^^ definition local11
     EpoxyModel<?> modelToShow = getModelForPosition(position);
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^^^^^^^ definition local34
+//                ^^^^^^^^^^^ definition local12
 //                              ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getModelForPosition().
-//                                                  ^^^^^^^^ reference local36
+//                                                  ^^^^^^^^ reference local10
 
     EpoxyModel<?> previouslyBoundModel = null;
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^^^^^^^^^^^^^^^^ definition local37
+//                ^^^^^^^^^^^^^^^^^^^^ definition local13
     if (diffPayloadsEnabled()) {
 //      ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#diffPayloadsEnabled().
       previouslyBoundModel = DiffPayload.getModelFromPayload(payloads, getItemId(position));
-//    ^^^^^^^^^^^^^^^^^^^^ reference local39
+//    ^^^^^^^^^^^^^^^^^^^^ reference local13
 //                           ^^^^^^^^^^^ reference _root_/
 //                                       ^^^^^^^^^^^^^^^^^^^ reference getModelFromPayload#
-//                                                           ^^^^^^^^ reference local40
+//                                                           ^^^^^^^^ reference local11
 //                                                                     ^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getItemId().
-//                                                                               ^^^^^^^^ reference local41
+//                                                                               ^^^^^^^^ reference local10
     }
 
     holder.bind(modelToShow, previouslyBoundModel, payloads, position);
-//  ^^^^^^ reference local42
+//  ^^^^^^ reference local9
 //         ^^^^ reference bind#
-//              ^^^^^^^^^^^ reference local43
-//                           ^^^^^^^^^^^^^^^^^^^^ reference local44
-//                                                 ^^^^^^^^ reference local45
-//                                                           ^^^^^^^^ reference local46
+//              ^^^^^^^^^^^ reference local12
+//                           ^^^^^^^^^^^^^^^^^^^^ reference local13
+//                                                 ^^^^^^^^ reference local11
+//                                                           ^^^^^^^^ reference local10
 
     if (payloads.isEmpty()) {
-//      ^^^^^^^^ reference local47
+//      ^^^^^^^^ reference local11
 //               ^^^^^^^ reference java/util/List#isEmpty().
       // We only apply saved state to the view on initial bind, not on model updates.
       // Since view state should be independent of model props, we should not need to apply state
@@ -278,29 +278,29 @@ public abstract class BaseEpoxyAdapter
       viewHolderState.restore(holder);
 //    ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewHolderState.
 //                    ^^^^^^^ reference restore#
-//                            ^^^^^^ reference local48
+//                            ^^^^^^ reference local9
     }
 
     boundViewHolders.put(holder);
 //  ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#boundViewHolders.
 //                   ^^^ reference put#
-//                       ^^^^^^ reference local49
+//                       ^^^^^^ reference local9
 
     if (diffPayloadsEnabled()) {
 //      ^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#diffPayloadsEnabled().
       onModelBound(holder, modelToShow, position, previouslyBoundModel);
 //    ^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound().
-//                 ^^^^^^ reference local50
-//                         ^^^^^^^^^^^ reference local51
-//                                      ^^^^^^^^ reference local52
-//                                                ^^^^^^^^^^^^^^^^^^^^ reference local53
+//                 ^^^^^^ reference local9
+//                         ^^^^^^^^^^^ reference local12
+//                                      ^^^^^^^^ reference local10
+//                                                ^^^^^^^^^^^^^^^^^^^^ reference local13
     } else {
       onModelBound(holder, modelToShow, position, payloads);
 //    ^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound().
-//                 ^^^^^^ reference local54
-//                         ^^^^^^^^^^^ reference local55
-//                                      ^^^^^^^^ reference local56
-//                                                ^^^^^^^^ reference local57
+//                 ^^^^^^ reference local9
+//                         ^^^^^^^^^^^ reference local12
+//                                      ^^^^^^^^ reference local10
+//                                                ^^^^^^^^ reference local11
     }
   }
 
@@ -316,38 +316,38 @@ public abstract class BaseEpoxyAdapter
   protected void onModelBound(EpoxyViewHolder holder, EpoxyModel<?> model, int position,
 //               ^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound().
 //                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^ definition local58
+//                                            ^^^^^^ definition local14
 //                                                    ^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^ definition local60
-//                                                                             ^^^^^^^^ definition local62
+//                                                                  ^^^^^ definition local15
+//                                                                             ^^^^^^^^ definition local16
       @Nullable List<Object> payloads) {
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //              ^^^^ reference java/util/List#
 //                   ^^^^^^ reference java/lang/Object#
-//                           ^^^^^^^^ definition local64
+//                           ^^^^^^^^ definition local17
     onModelBound(holder, model, position);
 //  ^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound(+2).
-//               ^^^^^^ reference local66
-//                       ^^^^^ reference local67
-//                              ^^^^^^^^ reference local68
+//               ^^^^^^ reference local14
+//                       ^^^^^ reference local15
+//                              ^^^^^^^^ reference local16
   }
 
   void onModelBound(EpoxyViewHolder holder, EpoxyModel<?> model, int position,
 //     ^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound(+1).
 //                  ^^^^^^^^^^^^^^^ reference _root_/
-//                                  ^^^^^^ definition local69
+//                                  ^^^^^^ definition local18
 //                                          ^^^^^^^^^^ reference _root_/
-//                                                        ^^^^^ definition local71
-//                                                                   ^^^^^^^^ definition local73
+//                                                        ^^^^^ definition local19
+//                                                                   ^^^^^^^^ definition local20
       @Nullable EpoxyModel<?> previouslyBoundModel) {
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //              ^^^^^^^^^^ reference _root_/
-//                            ^^^^^^^^^^^^^^^^^^^^ definition local75
+//                            ^^^^^^^^^^^^^^^^^^^^ definition local21
     onModelBound(holder, model, position);
 //  ^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound(+2).
-//               ^^^^^^ reference local77
-//                       ^^^^^ reference local78
-//                              ^^^^^^^^ reference local79
+//               ^^^^^^ reference local18
+//                       ^^^^^ reference local19
+//                              ^^^^^^^^ reference local20
   }
 
   /**
@@ -357,10 +357,10 @@ public abstract class BaseEpoxyAdapter
   protected void onModelBound(EpoxyViewHolder holder, EpoxyModel<?> model, int position) {
 //               ^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onModelBound(+2).
 //                            ^^^^^^^^^^^^^^^ reference _root_/
-//                                            ^^^^^^ definition local80
+//                                            ^^^^^^ definition local22
 //                                                    ^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^ definition local82
-//                                                                             ^^^^^^^^ definition local84
+//                                                                  ^^^^^ definition local23
+//                                                                             ^^^^^^^^ definition local24
 
   }
 
@@ -379,11 +379,11 @@ public abstract class BaseEpoxyAdapter
   EpoxyModel<?> getModelForPosition(int position) {
   ^^^^^^^^^^ reference _root_/
 //              ^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#getModelForPosition().
-//                                      ^^^^^^^^ definition local86
+//                                      ^^^^^^^^ definition local25
     return getCurrentModels().get(position);
 //         ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getCurrentModels().
 //                            ^^^ reference java/util/List#get().
-//                                ^^^^^^^^ reference local88
+//                                ^^^^^^^^ reference local25
   }
 
   @Override
@@ -391,28 +391,28 @@ public abstract class BaseEpoxyAdapter
   public void onViewRecycled(EpoxyViewHolder holder) {
 //            ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onViewRecycled().
 //                           ^^^^^^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^ definition local89
+//                                           ^^^^^^ definition local26
     viewHolderState.save(holder);
 //  ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewHolderState.
 //                  ^^^^ reference save#
-//                       ^^^^^^ reference local91
+//                       ^^^^^^ reference local26
     boundViewHolders.remove(holder);
 //  ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#boundViewHolders.
 //                   ^^^^^^ reference remove#
-//                          ^^^^^^ reference local92
+//                          ^^^^^^ reference local26
 
     EpoxyModel<?> model = holder.getModel();
 //  ^^^^^^^^^^ reference _root_/
-//                ^^^^^ definition local93
-//                        ^^^^^^ reference local95
+//                ^^^^^ definition local27
+//                        ^^^^^^ reference local26
 //                               ^^^^^^^^ reference getModel#
     holder.unbind();
-//  ^^^^^^ reference local96
+//  ^^^^^^ reference local26
 //         ^^^^^^ reference unbind#
     onModelUnbound(holder, model);
 //  ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#onModelUnbound().
-//                 ^^^^^^ reference local97
-//                         ^^^^^ reference local98
+//                 ^^^^^^ reference local26
+//                         ^^^^^ reference local27
   }
 
   @CallSuper
@@ -423,7 +423,7 @@ public abstract class BaseEpoxyAdapter
 //            ^^^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onDetachedFromRecyclerView().
 //                                        ^^^^^^^ reference androidx/annotation/NonNull#
 //                                                ^^^^^^^^^^^^ reference _root_/
-//                                                             ^^^^^^^^^^^^ definition local99
+//                                                             ^^^^^^^^^^^^ definition local28
     // The last model is saved for optimization, but holding onto it can leak anything saved inside
     // the model (like a click listener that references a Fragment). This is only needed during
     // the viewholder creation phase, so it is safe to clear now.
@@ -439,9 +439,9 @@ public abstract class BaseEpoxyAdapter
   protected void onModelUnbound(EpoxyViewHolder holder, EpoxyModel<?> model) {
 //               ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onModelUnbound().
 //                              ^^^^^^^^^^^^^^^ reference _root_/
-//                                              ^^^^^^ definition local101
+//                                              ^^^^^^ definition local29
 //                                                      ^^^^^^^^^^ reference _root_/
-//                                                                    ^^^^^ definition local103
+//                                                                    ^^^^^ definition local30
 
   }
 
@@ -452,14 +452,14 @@ public abstract class BaseEpoxyAdapter
   public boolean onFailedToRecycleView(EpoxyViewHolder holder) {
 //               ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onFailedToRecycleView().
 //                                     ^^^^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^ definition local105
+//                                                     ^^^^^^ definition local31
     //noinspection unchecked,rawtypes
     return ((EpoxyModel) holder.getModel()).onFailedToRecycleView(holder.objectToBind());
 //           ^^^^^^^^^^ reference _root_/
-//                       ^^^^^^ reference local107
+//                       ^^^^^^ reference local31
 //                              ^^^^^^^^ reference getModel#
 //                                          ^^^^^^^^^^^^^^^^^^^^^ reference onFailedToRecycleView#
-//                                                                ^^^^^^ reference local108
+//                                                                ^^^^^^ reference local31
 //                                                                       ^^^^^^^^^^^^ reference objectToBind#
   }
 
@@ -470,14 +470,14 @@ public abstract class BaseEpoxyAdapter
   public void onViewAttachedToWindow(EpoxyViewHolder holder) {
 //            ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onViewAttachedToWindow().
 //                                   ^^^^^^^^^^^^^^^ reference _root_/
-//                                                   ^^^^^^ definition local109
+//                                                   ^^^^^^ definition local32
     //noinspection unchecked,rawtypes
     ((EpoxyModel) holder.getModel()).onViewAttachedToWindow(holder.objectToBind());
 //    ^^^^^^^^^^ reference _root_/
-//                ^^^^^^ reference local111
+//                ^^^^^^ reference local32
 //                       ^^^^^^^^ reference getModel#
 //                                   ^^^^^^^^^^^^^^^^^^^^^^ reference onViewAttachedToWindow#
-//                                                          ^^^^^^ reference local112
+//                                                          ^^^^^^ reference local32
 //                                                                 ^^^^^^^^^^^^ reference objectToBind#
   }
 
@@ -488,32 +488,32 @@ public abstract class BaseEpoxyAdapter
   public void onViewDetachedFromWindow(EpoxyViewHolder holder) {
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onViewDetachedFromWindow().
 //                                     ^^^^^^^^^^^^^^^ reference _root_/
-//                                                     ^^^^^^ definition local113
+//                                                     ^^^^^^ definition local33
     //noinspection unchecked,rawtypes
     ((EpoxyModel) holder.getModel()).onViewDetachedFromWindow(holder.objectToBind());
 //    ^^^^^^^^^^ reference _root_/
-//                ^^^^^^ reference local115
+//                ^^^^^^ reference local33
 //                       ^^^^^^^^ reference getModel#
 //                                   ^^^^^^^^^^^^^^^^^^^^^^^^ reference onViewDetachedFromWindow#
-//                                                            ^^^^^^ reference local116
+//                                                            ^^^^^^ reference local33
 //                                                                   ^^^^^^^^^^^^ reference objectToBind#
   }
 
   public void onSaveInstanceState(Bundle outState) {
 //            ^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onSaveInstanceState().
 //                                ^^^^^^ reference _root_/
-//                                       ^^^^^^^^ definition local117
+//                                       ^^^^^^^^ definition local34
     // Save the state of currently bound views first so they are included. Views that were
     // scrolled off and unbound will already have had
     // their state saved.
     for (EpoxyViewHolder holder : boundViewHolders) {
 //       ^^^^^^^^^^^^^^^ reference _root_/
-//                       ^^^^^^ definition local119
+//                       ^^^^^^ definition local35
 //                                ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#boundViewHolders.
       viewHolderState.save(holder);
 //    ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewHolderState.
 //                    ^^^^ reference save#
-//                         ^^^^^^ reference local121
+//                         ^^^^^^ reference local35
     }
 
     if (viewHolderState.size() > 0 && !hasStableIds()) {
@@ -526,7 +526,7 @@ public abstract class BaseEpoxyAdapter
     }
 
     outState.putParcelable(SAVED_STATE_ARG_VIEW_HOLDERS, viewHolderState);
-//  ^^^^^^^^ reference local122
+//  ^^^^^^^^ reference local34
 //           ^^^^^^^^^^^^^ reference putParcelable#
 //                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#SAVED_STATE_ARG_VIEW_HOLDERS.
 //                                                       ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewHolderState.
@@ -536,7 +536,7 @@ public abstract class BaseEpoxyAdapter
 //            ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#onRestoreInstanceState().
 //                                    ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                             ^^^^^^ reference _root_/
-//                                                    ^^^^^^^ definition local123
+//                                                    ^^^^^^^ definition local36
     // To simplify things we enforce that state is restored before views are bound, otherwise it
     // is more difficult to update view state once they are bound
     if (boundViewHolders.size() > 0) {
@@ -550,10 +550,10 @@ public abstract class BaseEpoxyAdapter
     }
 
     if (inState != null) {
-//      ^^^^^^^ reference local125
+//      ^^^^^^^ reference local36
       viewHolderState = inState.getParcelable(SAVED_STATE_ARG_VIEW_HOLDERS);
 //    ^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#viewHolderState.
-//                      ^^^^^^^ reference local126
+//                      ^^^^^^^ reference local36
 //                              ^^^^^^^^^^^^^ reference getParcelable#
 //                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#SAVED_STATE_ARG_VIEW_HOLDERS.
       if (viewHolderState == null) {
@@ -576,23 +576,23 @@ public abstract class BaseEpoxyAdapter
   protected int getModelPosition(EpoxyModel<?> model) {
 //              ^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#getModelPosition().
 //                               ^^^^^^^^^^ reference _root_/
-//                                             ^^^^^ definition local127
+//                                             ^^^^^ definition local37
     int size = getCurrentModels().size();
-//      ^^^^ definition local129
+//      ^^^^ definition local38
 //             ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getCurrentModels().
 //                                ^^^^ reference java/util/List#size().
     for (int i = 0; i < size; i++) {
-//           ^ definition local131
-//                  ^ reference local133
-//                      ^^^^ reference local134
-//                            ^ reference local135
+//           ^ definition local39
+//                  ^ reference local39
+//                      ^^^^ reference local38
+//                            ^ reference local39
       if (model == getCurrentModels().get(i)) {
-//        ^^^^^ reference local136
+//        ^^^^^ reference local37
 //                 ^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#getCurrentModels().
 //                                    ^^^ reference java/util/List#get().
-//                                        ^ reference local137
+//                                        ^ reference local39
         return i;
-//             ^ reference local138
+//             ^ reference local39
       }
     }
 
@@ -621,11 +621,11 @@ public abstract class BaseEpoxyAdapter
    */
   public void setSpanCount(int spanCount) {
 //            ^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#setSpanCount().
-//                             ^^^^^^^^^ definition local139
+//                             ^^^^^^^^^ definition local40
     this.spanCount = spanCount;
 //  ^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#this.
 //       ^^^^^^^^^ reference com/airbnb/epoxy/BaseEpoxyAdapter#spanCount.
-//                   ^^^^^^^^^ reference local141
+//                   ^^^^^^^^^ reference local40
   }
 
   public int getSpanCount() {
@@ -655,7 +655,7 @@ public abstract class BaseEpoxyAdapter
 //            ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#setupStickyHeaderView().
 //                                   ^^^^^^^ reference org/jetbrains/annotations/NotNull#
 //                                           ^^^^ reference _root_/
-//                                                ^^^^^^^^^^^^ definition local142
+//                                                ^^^^^^^^^^^^ definition local41
     // no-op
   }
 
@@ -672,7 +672,7 @@ public abstract class BaseEpoxyAdapter
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#teardownStickyHeaderView().
 //                                      ^^^^^^^ reference org/jetbrains/annotations/NotNull#
 //                                              ^^^^ reference _root_/
-//                                                   ^^^^^^^^^^^^ definition local144
+//                                                   ^^^^^^^^^^^^ definition local42
     // no-op
   }
 
@@ -687,7 +687,7 @@ public abstract class BaseEpoxyAdapter
    ^^^^^^^^ reference java/lang/Override#
   public boolean isStickyHeader(int position) {
 //               ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyAdapter#isStickyHeader().
-//                                  ^^^^^^^^ definition local146
+//                                  ^^^^^^^^ definition local43
     return false;
   }
 

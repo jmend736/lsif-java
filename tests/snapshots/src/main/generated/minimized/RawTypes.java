@@ -14,9 +14,9 @@ import java.util.List;
 public class RawTypes {
 //     ^^^^^^ definition minimized/RawTypes#`<init>`().
 //     ^^^^^^^^ definition minimized/RawTypes#
-    public final static List x = Collections.singletonList(42);
-//                      ^^^^ reference java/util/List#
-//                           ^ definition minimized/RawTypes#x.
-//                               ^^^^^^^^^^^ reference java/util/Collections#
-//                                           ^^^^^^^^^^^^^ reference java/util/Collections#singletonList().
+  public static final List x = Collections.singletonList(42);
+//                    ^^^^ reference java/util/List#
+//                         ^ definition minimized/RawTypes#x.
+//                             ^^^^^^^^^^^ reference java/util/Collections#
+//                                         ^^^^^^^^^^^^^ reference java/util/Collections#singletonList().
 }

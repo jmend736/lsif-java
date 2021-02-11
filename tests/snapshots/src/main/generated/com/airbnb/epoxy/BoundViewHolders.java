@@ -44,30 +44,30 @@ public class BoundViewHolders implements Iterable<EpoxyViewHolder> {
     return holders.get(holder.getItemId());
 //         ^^^^^^^ reference com/airbnb/epoxy/BoundViewHolders#holders.
 //                 ^^^ reference androidx/collection/LongSparseArray#get().
-//                     ^^^^^^ reference local2
+//                     ^^^^^^ reference local0
 //                            ^^^^^^^^^ reference getItemId#
   }
 
   public void put(EpoxyViewHolder holder) {
 //            ^^^ definition com/airbnb/epoxy/BoundViewHolders#put().
 //                ^^^^^^^^^^^^^^^ reference _root_/
-//                                ^^^^^^ definition local3
+//                                ^^^^^^ definition local1
     holders.put(holder.getItemId(), holder);
 //  ^^^^^^^ reference com/airbnb/epoxy/BoundViewHolders#holders.
 //          ^^^ reference androidx/collection/LongSparseArray#put().
-//              ^^^^^^ reference local5
+//              ^^^^^^ reference local1
 //                     ^^^^^^^^^ reference getItemId#
-//                                  ^^^^^^ reference local6
+//                                  ^^^^^^ reference local1
   }
 
   public void remove(EpoxyViewHolder holder) {
 //            ^^^^^^ definition com/airbnb/epoxy/BoundViewHolders#remove().
 //                   ^^^^^^^^^^^^^^^ reference _root_/
-//                                   ^^^^^^ definition local7
+//                                   ^^^^^^ definition local2
     holders.remove(holder.getItemId());
 //  ^^^^^^^ reference com/airbnb/epoxy/BoundViewHolders#holders.
 //          ^^^^^^ reference androidx/collection/LongSparseArray#remove().
-//                 ^^^^^^ reference local9
+//                 ^^^^^^ reference local2
 //                        ^^^^^^^^^ reference getItemId#
   }
 
@@ -95,11 +95,11 @@ public class BoundViewHolders implements Iterable<EpoxyViewHolder> {
 //       ^^^^^^^^^^^^^^^ reference _root_/
 //                       ^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BoundViewHolders#getHolderForModel().
 //                                         ^^^^^^^^^^ reference _root_/
-//                                                       ^^^^^ definition local10
+//                                                       ^^^^^ definition local3
     return holders.get(model.id());
 //         ^^^^^^^ reference com/airbnb/epoxy/BoundViewHolders#holders.
 //                 ^^^ reference androidx/collection/LongSparseArray#get().
-//                     ^^^^^ reference local12
+//                     ^^^^^ reference local3
 //                           ^^ reference `<any>`#id#
   }
 

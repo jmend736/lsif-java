@@ -35,20 +35,20 @@ public interface OnModelVisibilityChangedListener<T extends EpoxyModel<V>, V> {
 //                         ^ reference com/airbnb/epoxy/OnModelVisibilityChangedListener#[T]
 //                           ^^^^^ definition local0
 //                                  ^ reference com/airbnb/epoxy/OnModelVisibilityChangedListener#[V]
-//                                    ^^^^ definition local2
+//                                    ^^^^ definition local1
       @FloatRange(from = 0, to = 100) float percentVisibleHeight,
 //     ^^^^^^^^^^ reference androidx/annotation/FloatRange#
 //                ^^^^ reference androidx/annotation/FloatRange#from().
 //                          ^^ reference androidx/annotation/FloatRange#to().
-//                                          ^^^^^^^^^^^^^^^^^^^^ definition local4
+//                                          ^^^^^^^^^^^^^^^^^^^^ definition local2
       @FloatRange(from = 0, to = 100) float percentVisibleWidth,
 //     ^^^^^^^^^^ reference androidx/annotation/FloatRange#
 //                ^^^^ reference androidx/annotation/FloatRange#from().
 //                          ^^ reference androidx/annotation/FloatRange#to().
-//                                          ^^^^^^^^^^^^^^^^^^^ definition local6
+//                                          ^^^^^^^^^^^^^^^^^^^ definition local3
       @Px int heightVisible, @Px int widthVisible);
 //     ^^ reference androidx/annotation/Px#
-//            ^^^^^^^^^^^^^ definition local8
+//            ^^^^^^^^^^^^^ definition local4
 //                            ^^ reference androidx/annotation/Px#
-//                                   ^^^^^^^^^^^^ definition local10
+//                                   ^^^^^^^^^^^^ definition local5
 }

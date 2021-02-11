@@ -23,7 +23,7 @@ interface BaseEpoxyTouchCallback<T extends EpoxyModel> {
 //    ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyTouchCallback#getMovementFlagsForModel().
 //                             ^ reference com/airbnb/epoxy/BaseEpoxyTouchCallback#[T]
 //                               ^^^^^ definition local0
-//                                          ^^^^^^^^^^^^^^^ definition local2
+//                                          ^^^^^^^^^^^^^^^ definition local1
 
   /**
    * Called when the user interaction with a view is over and the view has
@@ -38,7 +38,7 @@ interface BaseEpoxyTouchCallback<T extends EpoxyModel> {
   void clearView(T model, View itemView);
 //     ^^^^^^^^^ definition com/airbnb/epoxy/BaseEpoxyTouchCallback#clearView().
 //               ^ reference com/airbnb/epoxy/BaseEpoxyTouchCallback#[T]
-//                 ^^^^^ definition local4
+//                 ^^^^^ definition local2
 //                        ^^^^ reference _root_/
-//                             ^^^^^^^^ definition local6
+//                             ^^^^^^^^ definition local3
 }

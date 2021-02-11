@@ -62,11 +62,11 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   }
 
   private void emitOccurrence(Symbol sym, JCDiagnostic.DiagnosticPosition pos, Role role) {
-    emitOccurrence(sym, pos, role, PositionKind.FROM_START);
+    emitOccurrence(sym, pos, role, CompilerRange.FROM_START);
   }
 
   private void emitOccurrence(
-      Symbol sym, JCDiagnostic.DiagnosticPosition pos, Role role, PositionKind kind) {
+      Symbol sym, JCDiagnostic.DiagnosticPosition pos, Role role, CompilerRange kind) {
     Optional<Semanticdb.SymbolOccurrence> occ = semanticdbOccurrence(sym, pos, kind, role);
     occ.ifPresent(occurrences::add);
     if (role == Role.DEFINITION) {
@@ -80,7 +80,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
             .setSymbol(semanticdbSymbol(sym))
             .setDocumentation(semanticdbDocumentation(sym))
             .build();
-    if (Symbols.isGlobal(info.getSymbol())) {
+    if (SemanticdbSymbols.isGlobal(info.getSymbol())) {
       symbolInfos.add(info);
     }
   }
@@ -89,7 +89,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitClass(ClassTree node, Void unused) {
     if (node instanceof JCTree.JCClassDecl) {
       JCTree.JCClassDecl cls = (JCTree.JCClassDecl) node;
-      emitOccurrence(cls.sym, cls, Role.DEFINITION, PositionKind.FROM_POINT);
+      emitOccurrence(cls.sym, cls, Role.DEFINITION, CompilerRange.FROM_POINT);
     }
     return super.visitClass(node, unused);
   }
@@ -98,7 +98,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitMethod(MethodTree node, Void unused) {
     if (node instanceof JCTree.JCMethodDecl) {
       JCTree.JCMethodDecl meth = (JCTree.JCMethodDecl) node;
-      emitOccurrence(meth.sym, meth, Role.DEFINITION, PositionKind.FROM_POINT);
+      emitOccurrence(meth.sym, meth, Role.DEFINITION, CompilerRange.FROM_POINT);
     }
     return super.visitMethod(node, unused);
   }
@@ -107,7 +107,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitVariable(VariableTree node, Void unused) {
     if (node instanceof JCTree.JCVariableDecl) {
       JCTree.JCVariableDecl decl = (JCTree.JCVariableDecl) node;
-      emitOccurrence(decl.sym, decl, Role.DEFINITION, PositionKind.FROM_POINT);
+      emitOccurrence(decl.sym, decl, Role.DEFINITION, CompilerRange.FROM_POINT);
     }
     return super.visitVariable(node, unused);
   }
@@ -134,7 +134,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitMemberSelect(MemberSelectTree node, Void unused) {
     if (node instanceof JCTree.JCFieldAccess) {
       JCTree.JCFieldAccess select = (JCTree.JCFieldAccess) node;
-      emitOccurrence(select.sym, select, Role.REFERENCE, PositionKind.FROM_POINT_PLUS_ONE);
+      emitOccurrence(select.sym, select, Role.REFERENCE, CompilerRange.FROM_POINT_PLUS_ONE);
     }
     return super.visitMemberSelect(node, unused);
   }
@@ -153,11 +153,11 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   }
 
   private Optional<Semanticdb.Range> semanticdbRange(
-      JCDiagnostic.DiagnosticPosition pos, PositionKind kind, Symbol sym) {
+          JCDiagnostic.DiagnosticPosition pos, CompilerRange kind, Symbol sym) {
     int start, end;
     if (kind.isFromPoint() && sym != null && sym.name != null) {
       start = pos.getPreferredPosition();
-      if (kind == PositionKind.FROM_POINT_PLUS_ONE) {
+      if (kind == CompilerRange.FROM_POINT_PLUS_ONE) {
         start++;
       }
       end = start + sym.name.length();
@@ -181,11 +181,11 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   }
 
   private Optional<Semanticdb.SymbolOccurrence> semanticdbOccurrence(
-      Symbol sym, JCDiagnostic.DiagnosticPosition pos, PositionKind kind, Role role) {
+          Symbol sym, JCDiagnostic.DiagnosticPosition pos, CompilerRange kind, Role role) {
     Optional<Semanticdb.Range> range = semanticdbRange(pos, kind, sym);
     if (range.isPresent()) {
       String ssym = semanticdbSymbol(sym);
-      if (!ssym.equals(Symbols.NONE)) {
+      if (!ssym.equals(SemanticdbSymbols.NONE)) {
         Semanticdb.SymbolOccurrence occ =
             Semanticdb.SymbolOccurrence.newBuilder()
                 .setSymbol(ssym)

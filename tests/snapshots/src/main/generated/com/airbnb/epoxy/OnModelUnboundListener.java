@@ -13,5 +13,5 @@ public interface OnModelUnboundListener<T extends EpoxyModel<?>, V> {
 //                    ^ reference com/airbnb/epoxy/OnModelUnboundListener#[T]
 //                      ^^^^^ definition local0
 //                             ^ reference com/airbnb/epoxy/OnModelUnboundListener#[V]
-//                               ^^^^ definition local2
+//                               ^^^^ definition local1
 }

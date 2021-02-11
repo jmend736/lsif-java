@@ -103,12 +103,12 @@ public final class EpoxyAsyncUtil {
 //                      ^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyAsyncUtil#createHandler().
 //                                    ^^^^^^ reference _root_/
 //                                           ^^^^^^ definition local0
-//                                                           ^^^^^ definition local2
+//                                                           ^^^^^ definition local1
     if (!async) {
-//       ^^^^^ reference local4
+//       ^^^^^ reference local1
       return new Handler(looper);
 //               ^^^^^^^ reference _root_/
-//                       ^^^^^^ reference local5
+//                       ^^^^^^ reference local0
     }
 
     // Standard way of exposing async handler on older api's from the support library
@@ -121,7 +121,7 @@ public final class EpoxyAsyncUtil {
       return Handler.createAsync(looper);
 //           ^^^^^^^ reference _root_/
 //                   ^^^^^^^^^^^ reference createAsync#
-//                               ^^^^^^ reference local6
+//                               ^^^^^^ reference local0
     }
     if (Build.VERSION.SDK_INT >= 16) {
 //      ^^^^^ reference Build/
@@ -140,16 +140,16 @@ public final class EpoxyAsyncUtil {
 //                                                                                        ^^^^^ reference boolean#class.
             .newInstance(looper, null, true);
 //           ^^^^^^^^^^^ reference `<any>`#newInstance#
-//                       ^^^^^^ reference local7
+//                       ^^^^^^ reference local0
       } catch (Throwable ignored) {
 //             ^^^^^^^^^ reference java/lang/Throwable#
-//                       ^^^^^^^ definition local8
+//                       ^^^^^^^ definition local2
       }
     }
 
     return new Handler(looper);
 //             ^^^^^^^ reference _root_/
-//                     ^^^^^^ reference local10
+//                     ^^^^^^ reference local0
   }
 
   /**
@@ -159,17 +159,17 @@ public final class EpoxyAsyncUtil {
 //              ^^^^^^ reference _root_/
 //                     ^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/EpoxyAsyncUtil#buildBackgroundLooper().
 //                                           ^^^^^^ reference java/lang/String#
-//                                                  ^^^^^^^^^^ definition local11
+//                                                  ^^^^^^^^^^ definition local3
     HandlerThread handlerThread = new HandlerThread(threadName);
 //  ^^^^^^^^^^^^^ reference _root_/
-//                ^^^^^^^^^^^^^ definition local13
+//                ^^^^^^^^^^^^^ definition local4
 //                                    ^^^^^^^^^^^^^ reference _root_/
-//                                                  ^^^^^^^^^^ reference local15
+//                                                  ^^^^^^^^^^ reference local3
     handlerThread.start();
-//  ^^^^^^^^^^^^^ reference local16
+//  ^^^^^^^^^^^^^ reference local4
 //                ^^^^^ reference start#
     return handlerThread.getLooper();
-//         ^^^^^^^^^^^^^ reference local17
+//         ^^^^^^^^^^^^^ reference local4
 //                       ^^^^^^^^^ reference getLooper#
   }
 }

@@ -32,7 +32,7 @@ class ControllerModelList extends ModelList {
   ^^^^^^ definition com/airbnb/epoxy/ControllerModelList#`<init>`().
 //                        ^^^^^^^^^^^^^^^^^^ definition local0
     super(expectedModelCount);
-//        ^^^^^^^^^^^^^^^^^^ reference local2
+//        ^^^^^^^^^^^^^^^^^^ reference local0
     pauseNotifications();
 //  ^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ControllerModelList#pauseNotifications#
   }

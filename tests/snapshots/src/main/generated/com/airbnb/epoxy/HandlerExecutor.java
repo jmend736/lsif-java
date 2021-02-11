@@ -40,7 +40,7 @@ class HandlerExecutor implements Executor {
     this.handler = handler;
 //  ^^^^ reference com/airbnb/epoxy/HandlerExecutor#this.
 //       ^^^^^^^ reference com/airbnb/epoxy/HandlerExecutor#handler.
-//                 ^^^^^^^ reference local2
+//                 ^^^^^^^ reference local0
   }
 
   @Override
@@ -49,7 +49,7 @@ class HandlerExecutor implements Executor {
 //            ^^^^^^^ definition com/airbnb/epoxy/HandlerExecutor#execute().
 //                     ^^^^^^^ reference androidx/annotation/NonNull#
 //                             ^^^^^^^^ reference java/lang/Runnable#
-//                                      ^^^^^^^ definition local3
+//                                      ^^^^^^^ definition local1
     // If we're already on the same thread then we can execute this synchronously
     if (Looper.myLooper() == handler.getLooper()) {
 //      ^^^^^^ reference _root_/
@@ -57,13 +57,13 @@ class HandlerExecutor implements Executor {
 //                           ^^^^^^^ reference com/airbnb/epoxy/HandlerExecutor#handler.
 //                                   ^^^^^^^^^ reference getLooper#
       command.run();
-//    ^^^^^^^ reference local5
+//    ^^^^^^^ reference local1
 //            ^^^ reference java/lang/Runnable#run().
     } else {
       handler.post(command);
 //    ^^^^^^^ reference com/airbnb/epoxy/HandlerExecutor#handler.
 //            ^^^^ reference post#
-//                 ^^^^^^^ reference local6
+//                 ^^^^^^^ reference local1
     }
   }
 }

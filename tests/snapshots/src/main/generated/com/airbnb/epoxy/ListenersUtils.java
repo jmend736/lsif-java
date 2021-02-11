@@ -38,34 +38,34 @@ public class ListenersUtils {
 //                                                       ^ definition local0
     RecyclerView recyclerView = findParentRecyclerView(v);
 //  ^^^^^^^^^^^^ reference _root_/
-//               ^^^^^^^^^^^^ definition local2
+//               ^^^^^^^^^^^^ definition local1
 //                              ^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ListenersUtils#findParentRecyclerView().
-//                                                     ^ reference local4
+//                                                     ^ reference local0
     if (recyclerView == null) {
-//      ^^^^^^^^^^^^ reference local5
+//      ^^^^^^^^^^^^ reference local1
       return null;
     }
 
     ViewHolder viewHolder = recyclerView.findContainingViewHolder(v);
 //  ^^^^^^^^^^ reference _root_/
-//             ^^^^^^^^^^ definition local6
-//                          ^^^^^^^^^^^^ reference local8
+//             ^^^^^^^^^^ definition local2
+//                          ^^^^^^^^^^^^ reference local1
 //                                       ^^^^^^^^^^^^^^^^^^^^^^^^ reference findContainingViewHolder#
-//                                                                ^ reference local9
+//                                                                ^ reference local0
     if (viewHolder == null) {
-//      ^^^^^^^^^^ reference local10
+//      ^^^^^^^^^^ reference local2
       return null;
     }
 
     if (!(viewHolder instanceof EpoxyViewHolder)) {
-//        ^^^^^^^^^^ reference local11
+//        ^^^^^^^^^^ reference local2
 //                              ^^^^^^^^^^^^^^^ reference _root_/
       return null;
     }
 
     return (EpoxyViewHolder) viewHolder;
 //          ^^^^^^^^^^^^^^^ reference _root_/
-//                           ^^^^^^^^^^ reference local12
+//                           ^^^^^^^^^^ reference local2
   }
 
   @Nullable
@@ -75,32 +75,32 @@ public class ListenersUtils {
 //                            ^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/ListenersUtils#findParentRecyclerView().
 //                                                    ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                                             ^^^^ reference _root_/
-//                                                                  ^ definition local13
+//                                                                  ^ definition local3
     if (v == null) {
-//      ^ reference local15
+//      ^ reference local3
       return null;
     }
 
     ViewParent parent = v.getParent();
 //  ^^^^^^^^^^ reference _root_/
-//             ^^^^^^ definition local16
-//                      ^ reference local18
+//             ^^^^^^ definition local4
+//                      ^ reference local3
 //                        ^^^^^^^^^ reference getParent#
     if (parent instanceof RecyclerView) {
-//      ^^^^^^ reference local19
+//      ^^^^^^ reference local4
 //                        ^^^^^^^^^^^^ reference _root_/
       return (RecyclerView) parent;
 //            ^^^^^^^^^^^^ reference _root_/
-//                          ^^^^^^ reference local20
+//                          ^^^^^^ reference local4
     }
 
     if (parent instanceof View) {
-//      ^^^^^^ reference local21
+//      ^^^^^^ reference local4
 //                        ^^^^ reference _root_/
       return findParentRecyclerView((View) parent);
 //           ^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/ListenersUtils#findParentRecyclerView().
 //                                   ^^^^ reference _root_/
-//                                         ^^^^^^ reference local22
+//                                         ^^^^^^ reference local4
     }
 
     return null;

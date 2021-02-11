@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 
-import static com.sourcegraph.semanticdb_javac.Printers.pprint;
+import static com.sourcegraph.semanticdb_javac.Debugging.pprint;
 
-public class GlobalSymbolsCache {
+/** Cache of SemanticDB symbols that can be referenced between files. */
+public final class GlobalSymbolsCache {
+
   private final IdentityHashMap<Symbol, String> globals = new IdentityHashMap<>();
   private final SemanticdbOptions options;
 
@@ -24,7 +26,7 @@ public class GlobalSymbolsCache {
     String localResult = locals.get(sym);
     if (localResult != null) return localResult;
     result = uncachedSemanticdbSymbol(sym, locals);
-    if (Symbols.isGlobal(result)) {
+    if (SemanticdbSymbols.isGlobal(result)) {
       globals.put(sym, result);
     }
     return result;
@@ -35,40 +37,40 @@ public class GlobalSymbolsCache {
   }
 
   private String uncachedSemanticdbSymbol(Symbol sym, LocalSymbolsCache locals) {
-    if (isNone(sym)) return Symbols.NONE;
+    if (isNone(sym)) return SemanticdbSymbols.NONE;
     String owner = semanticdbSymbol(sym.owner, locals);
-    if (owner.equals(Symbols.NONE)) {
-      return Symbols.ROOT_PACKAGE;
+    if (owner.equals(SemanticdbSymbols.NONE)) {
+      return SemanticdbSymbols.ROOT_PACKAGE;
     } else if (sym instanceof Symbol.VarSymbol && sym.isLocal()) {
       return locals.put(sym);
     }
-    Symbols.Descriptor desc = semanticdbDescriptor(sym);
-    if (options.verboseEnabled && desc.kind == Symbols.Descriptor.Kind.None) {
+    SemanticdbSymbols.Descriptor desc = semanticdbDescriptor(sym);
+    if (options.verboseEnabled && desc.kind == SemanticdbSymbols.Descriptor.Kind.None) {
       pprint(sym.name.toString());
       pprint(sym.kind);
       pprint(
           String.format(
               "sym: %s (%s - superclass %s)", sym, sym.getClass(), sym.getClass().getSuperclass()));
     }
-    return Symbols.global(owner, desc);
+    return SemanticdbSymbols.global(owner, desc);
   }
 
-  private Symbols.Descriptor semanticdbDescriptor(Symbol sym) {
+  private SemanticdbSymbols.Descriptor semanticdbDescriptor(Symbol sym) {
     if (sym instanceof Symbol.ClassSymbol) {
-      return new Symbols.Descriptor(Symbols.Descriptor.Kind.Type, sym.name.toString());
+      return new SemanticdbSymbols.Descriptor(SemanticdbSymbols.Descriptor.Kind.Type, sym.name.toString());
     } else if (sym instanceof Symbol.MethodSymbol) {
-      return new Symbols.Descriptor(
-          Symbols.Descriptor.Kind.Method,
+      return new SemanticdbSymbols.Descriptor(
+          SemanticdbSymbols.Descriptor.Kind.Method,
           sym.name.toString(),
           methodDisambiguator((Symbol.MethodSymbol) sym));
     } else if (sym instanceof Symbol.PackageSymbol) {
-      return new Symbols.Descriptor(Symbols.Descriptor.Kind.Package, sym.name.toString());
+      return new SemanticdbSymbols.Descriptor(SemanticdbSymbols.Descriptor.Kind.Package, sym.name.toString());
     } else if (sym instanceof Symbol.TypeVariableSymbol) {
-      return new Symbols.Descriptor(Symbols.Descriptor.Kind.TypeParameter, sym.name.toString());
+      return new SemanticdbSymbols.Descriptor(SemanticdbSymbols.Descriptor.Kind.TypeParameter, sym.name.toString());
     } else if (sym instanceof Symbol.VarSymbol) {
-      return new Symbols.Descriptor(Symbols.Descriptor.Kind.Term, sym.name.toString());
+      return new SemanticdbSymbols.Descriptor(SemanticdbSymbols.Descriptor.Kind.Term, sym.name.toString());
     } else {
-      return Symbols.Descriptor.NONE;
+      return SemanticdbSymbols.Descriptor.NONE;
     }
   }
 

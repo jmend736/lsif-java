@@ -41,19 +41,19 @@ public abstract class TypedEpoxyController<T> extends EpoxyController {
 //                            ^^^^^^^ reference _root_/
 //                                    ^^^^^^^^^^^^^^^^^^^^ definition local0
 //                                                          ^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^^^^^^^ definition local2
+//                                                                  ^^^^^^^^^^^^^^ definition local1
     super(modelBuildingHandler, diffingHandler);
-//        ^^^^^^^^^^^^^^^^^^^^ reference local4
-//                              ^^^^^^^^^^^^^^ reference local5
+//        ^^^^^^^^^^^^^^^^^^^^ reference local0
+//                              ^^^^^^^^^^^^^^ reference local1
   }
 
   public final void setData(T data) {
 //                  ^^^^^^^ definition com/airbnb/epoxy/TypedEpoxyController#setData().
 //                          ^ reference com/airbnb/epoxy/TypedEpoxyController#[T]
-//                            ^^^^ definition local6
+//                            ^^^^ definition local2
     currentData = data;
 //  ^^^^^^^^^^^ reference com/airbnb/epoxy/TypedEpoxyController#currentData.
-//                ^^^^ reference local8
+//                ^^^^ reference local2
     allowModelBuildRequests = true;
 //  ^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/TypedEpoxyController#allowModelBuildRequests.
     requestModelBuild();
@@ -83,15 +83,15 @@ public abstract class TypedEpoxyController<T> extends EpoxyController {
    ^^^^^^^^ reference java/lang/Override#
   public void moveModel(int fromPosition, int toPosition) {
 //            ^^^^^^^^^ definition com/airbnb/epoxy/TypedEpoxyController#moveModel().
-//                          ^^^^^^^^^^^^ definition local9
-//                                            ^^^^^^^^^^ definition local11
+//                          ^^^^^^^^^^^^ definition local3
+//                                            ^^^^^^^^^^ definition local4
     allowModelBuildRequests = true;
 //  ^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/TypedEpoxyController#allowModelBuildRequests.
     super.moveModel(fromPosition, toPosition);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^ reference moveModel#
-//                  ^^^^^^^^^^^^ reference local13
-//                                ^^^^^^^^^^ reference local14
+//                  ^^^^^^^^^^^^ reference local3
+//                                ^^^^^^^^^^ reference local4
     allowModelBuildRequests = false;
 //  ^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/TypedEpoxyController#allowModelBuildRequests.
   }
@@ -100,7 +100,7 @@ public abstract class TypedEpoxyController<T> extends EpoxyController {
    ^^^^^^^^ reference java/lang/Override#
   public void requestDelayedModelBuild(int delayMs) {
 //            ^^^^^^^^^^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/TypedEpoxyController#requestDelayedModelBuild().
-//                                         ^^^^^^^ definition local15
+//                                         ^^^^^^^ definition local5
     if (!allowModelBuildRequests) {
 //       ^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/TypedEpoxyController#allowModelBuildRequests.
       throw new IllegalStateException(
@@ -112,7 +112,7 @@ public abstract class TypedEpoxyController<T> extends EpoxyController {
     super.requestDelayedModelBuild(delayMs);
 //  ^^^^^ reference _root_/
 //        ^^^^^^^^^^^^^^^^^^^^^^^^ reference requestDelayedModelBuild#
-//                                 ^^^^^^^ reference local17
+//                                 ^^^^^^^ reference local5
   }
 
   @Nullable
@@ -144,5 +144,5 @@ public abstract class TypedEpoxyController<T> extends EpoxyController {
   protected abstract void buildModels(T data);
 //                        ^^^^^^^^^^^ definition com/airbnb/epoxy/TypedEpoxyController#buildModels(+1).
 //                                    ^ reference com/airbnb/epoxy/TypedEpoxyController#[T]
-//                                      ^^^^ definition local18
+//                                      ^^^^ definition local6
 }

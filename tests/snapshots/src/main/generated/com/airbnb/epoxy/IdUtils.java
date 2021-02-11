@@ -26,16 +26,16 @@ public final class IdUtils {
 //                   ^^^^^^^^^^^^^ definition com/airbnb/epoxy/IdUtils#hashLong64Bit().
 //                                      ^^^^^ definition local0
     value ^= (value << 21);
-//  ^^^^^ reference local2
-//            ^^^^^ reference local3
+//  ^^^^^ reference local0
+//            ^^^^^ reference local0
     value ^= (value >>> 35);
-//  ^^^^^ reference local4
-//            ^^^^^ reference local5
+//  ^^^^^ reference local0
+//            ^^^^^ reference local0
     value ^= (value << 4);
-//  ^^^^^ reference local6
-//            ^^^^^ reference local7
+//  ^^^^^ reference local0
+//            ^^^^^ reference local0
     return value;
-//         ^^^^^ reference local8
+//         ^^^^^ reference local0
   }
 
   /**
@@ -51,32 +51,32 @@ public final class IdUtils {
 //                   ^^^^^^^^^^^^^^^ definition com/airbnb/epoxy/IdUtils#hashString64Bit().
 //                                    ^^^^^^^^ reference androidx/annotation/Nullable#
 //                                             ^^^^^^^^^^^^ reference java/lang/CharSequence#
-//                                                          ^^^ definition local9
+//                                                          ^^^ definition local1
     if (str == null) {
-//      ^^^ reference local11
+//      ^^^ reference local1
       return 0;
     }
 
     long result = 0xcbf29ce484222325L;
-//       ^^^^^^ definition local12
+//       ^^^^^^ definition local2
     final int len = str.length();
-//            ^^^ definition local14
-//                  ^^^ reference local16
+//            ^^^ definition local3
+//                  ^^^ reference local1
 //                      ^^^^^^ reference java/lang/CharSequence#length().
     for (int i = 0; i < len; i++) {
-//           ^ definition local17
-//                  ^ reference local19
-//                      ^^^ reference local20
-//                           ^ reference local21
+//           ^ definition local4
+//                  ^ reference local4
+//                      ^^^ reference local3
+//                           ^ reference local4
       result ^= str.charAt(i);
-//    ^^^^^^ reference local22
-//              ^^^ reference local23
+//    ^^^^^^ reference local2
+//              ^^^ reference local1
 //                  ^^^^^^ reference java/lang/CharSequence#charAt().
-//                         ^ reference local24
+//                         ^ reference local4
       result *= 0x100000001b3L;
-//    ^^^^^^ reference local25
+//    ^^^^^^ reference local2
     }
     return result;
-//         ^^^^^^ reference local26
+//         ^^^^^^ reference local2
   }
 }

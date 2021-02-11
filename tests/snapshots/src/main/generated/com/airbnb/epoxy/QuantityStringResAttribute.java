@@ -35,33 +35,33 @@ public class QuantityStringResAttribute {
 //       ^^^^^^ definition com/airbnb/epoxy/QuantityStringResAttribute#`<init>`().
 //                                   ^^^^^^^^^^ reference androidx/annotation/PluralsRes#
 //                                                  ^^ definition local0
-//                                                          ^^^^^^^^ definition local2
+//                                                          ^^^^^^^^ definition local1
       @Nullable Object[] formatArgs) {
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //              ^^^^^^ reference java/lang/Object#
-//                       ^^^^^^^^^^ definition local4
+//                       ^^^^^^^^^^ definition local2
     this.quantity = quantity;
 //  ^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#this.
 //       ^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#quantity.
-//                  ^^^^^^^^ reference local6
+//                  ^^^^^^^^ reference local1
     this.id = id;
 //  ^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#this.
 //       ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
-//            ^^ reference local7
+//            ^^ reference local0
     this.formatArgs = formatArgs;
 //  ^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#this.
 //       ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
-//                    ^^^^^^^^^^ reference local8
+//                    ^^^^^^^^^^ reference local2
   }
 
   public QuantityStringResAttribute(int id, int quantity) {
 //       ^^^^^^ definition com/airbnb/epoxy/QuantityStringResAttribute#`<init>`(+1).
-//                                      ^^ definition local9
-//                                              ^^^^^^^^ definition local11
+//                                      ^^ definition local3
+//                                              ^^^^^^^^ definition local4
     this(id, quantity, null);
 //  ^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#`<init>`().
-//       ^^ reference local13
-//           ^^^^^^^^ reference local14
+//       ^^ reference local3
+//           ^^^^^^^^ reference local4
   }
 
   @PluralsRes
@@ -91,20 +91,20 @@ public class QuantityStringResAttribute {
 //       ^^^^^^^^^^^^ reference java/lang/CharSequence#
 //                    ^^^^^^^^ definition com/airbnb/epoxy/QuantityStringResAttribute#toString().
 //                             ^^^^^^^ reference _root_/
-//                                     ^^^^^^^ definition local15
+//                                     ^^^^^^^ definition local5
     if (formatArgs == null || formatArgs.length == 0) {
 //      ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
 //                            ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
 //                                       ^^^^^^ reference length.
       return context.getResources().getQuantityString(id, quantity);
-//           ^^^^^^^ reference local17
+//           ^^^^^^^ reference local5
 //                   ^^^^^^^^^^^^ reference getResources#
 //                                  ^^^^^^^^^^^^^^^^^ reference getResources#getQuantityString#
 //                                                    ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
 //                                                        ^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#quantity.
     } else {
       return context.getResources().getQuantityString(id, quantity, formatArgs);
-//           ^^^^^^^ reference local18
+//           ^^^^^^^ reference local5
 //                   ^^^^^^^^^^^^ reference getResources#
 //                                  ^^^^^^^^^^^^^^^^^ reference getResources#getQuantityString#
 //                                                    ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
@@ -118,33 +118,33 @@ public class QuantityStringResAttribute {
   public boolean equals(Object o) {
 //               ^^^^^^ definition com/airbnb/epoxy/QuantityStringResAttribute#equals().
 //                      ^^^^^^ reference java/lang/Object#
-//                             ^ definition local19
+//                             ^ definition local6
     if (this == o) {
 //      ^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#this.
-//              ^ reference local21
+//              ^ reference local6
       return true;
     }
     if (!(o instanceof QuantityStringResAttribute)) {
-//        ^ reference local22
+//        ^ reference local6
 //                     ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#
       return false;
     }
 
     QuantityStringResAttribute that = (QuantityStringResAttribute) o;
 //  ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#
-//                             ^^^^ definition local23
+//                             ^^^^ definition local7
 //                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#
-//                                                                 ^ reference local25
+//                                                                 ^ reference local6
 
     if (id != that.id) {
 //      ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
-//            ^^^^ reference local26
+//            ^^^^ reference local7
 //                 ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
       return false;
     }
     if (quantity != that.quantity) {
 //      ^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#quantity.
-//                  ^^^^ reference local27
+//                  ^^^^ reference local7
 //                       ^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#quantity.
       return false;
     }
@@ -153,7 +153,7 @@ public class QuantityStringResAttribute {
 //         ^^^^^^ reference java/util/Arrays#
 //                ^^^^^^ reference java/util/Arrays#equals(+8).
 //                       ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
-//                                   ^^^^ reference local28
+//                                   ^^^^ reference local7
 //                                        ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
   }
 
@@ -162,19 +162,19 @@ public class QuantityStringResAttribute {
   public int hashCode() {
 //           ^^^^^^^^ definition com/airbnb/epoxy/QuantityStringResAttribute#hashCode().
     int result = id;
-//      ^^^^^^ definition local29
+//      ^^^^^^ definition local8
 //               ^^ reference com/airbnb/epoxy/QuantityStringResAttribute#id.
     result = 31 * result + quantity;
-//  ^^^^^^ reference local31
-//                ^^^^^^ reference local32
+//  ^^^^^^ reference local8
+//                ^^^^^^ reference local8
 //                         ^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#quantity.
     result = 31 * result + Arrays.hashCode(formatArgs);
-//  ^^^^^^ reference local33
-//                ^^^^^^ reference local34
+//  ^^^^^^ reference local8
+//                ^^^^^^ reference local8
 //                         ^^^^^^ reference java/util/Arrays#
 //                                ^^^^^^^^ reference java/util/Arrays#hashCode(+8).
 //                                         ^^^^^^^^^^ reference com/airbnb/epoxy/QuantityStringResAttribute#formatArgs.
     return result;
-//         ^^^^^^ reference local35
+//         ^^^^^^ reference local8
   }
 }

@@ -75,17 +75,17 @@ public class DiffResult {
 //                                                ^^^^^^^^^^ reference _root_/
 //                                                               ^^^^^^ definition local0
     if (models == null) {
-//      ^^^^^^ reference local2
+//      ^^^^^^ reference local0
       models = Collections.emptyList();
-//    ^^^^^^ reference local3
+//    ^^^^^^ reference local0
 //             ^^^^^^^^^^^ reference java/util/Collections#
 //                         ^^^^^^^^^ reference java/util/Collections#emptyList().
     }
     return new DiffResult(models, models, null);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#`<init>`().
 //             ^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#
-//                        ^^^^^^ reference local4
-//                                ^^^^^^ reference local5
+//                        ^^^^^^ reference local0
+//                                ^^^^^^ reference local0
   }
 
   /** The previous list was empty and the given non empty list was inserted. */
@@ -95,14 +95,14 @@ public class DiffResult {
 //                            ^^^^^^^ reference androidx/annotation/NonNull#
 //                                    ^^^^ reference java/util/List#
 //                                                   ^^^^^^^^^^ reference _root_/
-//                                                                  ^^^^^^^^^ definition local6
+//                                                                  ^^^^^^^^^ definition local1
     //noinspection unchecked
     return new DiffResult(Collections.EMPTY_LIST, newModels, null);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#`<init>`().
 //             ^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#
 //                        ^^^^^^^^^^^ reference java/util/Collections#
 //                                    ^^^^^^^^^^ reference java/util/Collections#EMPTY_LIST.
-//                                                ^^^^^^^^^ reference local8
+//                                                ^^^^^^^^^ reference local1
   }
 
   /** The previous list was non empty and the new list is empty. */
@@ -112,12 +112,12 @@ public class DiffResult {
 //                         ^^^^^^^ reference androidx/annotation/NonNull#
 //                                 ^^^^ reference java/util/List#
 //                                                ^^^^^^^^^^ reference _root_/
-//                                                               ^^^^^^^^^^^^^^ definition local9
+//                                                               ^^^^^^^^^^^^^^ definition local2
     //noinspection unchecked
     return new DiffResult(previousModels, Collections.EMPTY_LIST, null);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#`<init>`().
 //             ^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#
-//                        ^^^^^^^^^^^^^^ reference local11
+//                        ^^^^^^^^^^^^^^ reference local2
 //                                        ^^^^^^^^^^^ reference java/util/Collections#
 //                                                    ^^^^^^^^^^ reference java/util/Collections#EMPTY_LIST.
   }
@@ -133,24 +133,24 @@ public class DiffResult {
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^ reference java/util/List#
 //                            ^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^^^^^^ definition local12
+//                                           ^^^^^^^^^^^^^^ definition local3
       @NonNull List<? extends EpoxyModel<?>> newModels,
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^ reference java/util/List#
 //                            ^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^ definition local14
+//                                           ^^^^^^^^^ definition local4
       @NonNull DiffUtil.DiffResult differResult
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^^^^^ reference DiffUtil/
 //                      ^^^^^^^^^^ reference DiffUtil/DiffResult#
-//                                 ^^^^^^^^^^^^ definition local16
+//                                 ^^^^^^^^^^^^ definition local5
   ) {
     return new DiffResult(previousModels, newModels, differResult);
 //         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#`<init>`().
 //             ^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#
-//                        ^^^^^^^^^^^^^^ reference local18
-//                                        ^^^^^^^^^ reference local19
-//                                                   ^^^^^^^^^^^^ reference local20
+//                        ^^^^^^^^^^^^^^ reference local3
+//                                        ^^^^^^^^^ reference local4
+//                                                   ^^^^^^^^^^^^ reference local5
   }
 
   private DiffResult(
@@ -159,59 +159,59 @@ public class DiffResult {
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^ reference java/util/List#
 //                            ^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^^^^^^ definition local21
+//                                           ^^^^^^^^^^^^^^ definition local6
       @NonNull List<? extends EpoxyModel<?>> newModels,
 //     ^^^^^^^ reference androidx/annotation/NonNull#
 //             ^^^^ reference java/util/List#
 //                            ^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^^^ definition local23
+//                                           ^^^^^^^^^ definition local7
       @Nullable DiffUtil.DiffResult differResult
 //     ^^^^^^^^ reference androidx/annotation/Nullable#
 //              ^^^^^^^^ reference DiffUtil/
 //                       ^^^^^^^^^^ reference DiffUtil/DiffResult#
-//                                  ^^^^^^^^^^^^ definition local25
+//                                  ^^^^^^^^^^^^ definition local8
   ) {
     this.previousModels = previousModels;
 //  ^^^^ reference com/airbnb/epoxy/DiffResult#this.
 //       ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#previousModels.
-//                        ^^^^^^^^^^^^^^ reference local27
+//                        ^^^^^^^^^^^^^^ reference local6
     this.newModels = newModels;
 //  ^^^^ reference com/airbnb/epoxy/DiffResult#this.
 //       ^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#newModels.
-//                   ^^^^^^^^^ reference local28
+//                   ^^^^^^^^^ reference local7
     this.differResult = differResult;
 //  ^^^^ reference com/airbnb/epoxy/DiffResult#this.
 //       ^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#differResult.
-//                      ^^^^^^^^^^^^ reference local29
+//                      ^^^^^^^^^^^^ reference local8
   }
 
   public void dispatchTo(Adapter adapter) {
 //            ^^^^^^^^^^ definition com/airbnb/epoxy/DiffResult#dispatchTo().
 //                       ^^^^^^^ reference _root_/
-//                               ^^^^^^^ definition local30
+//                               ^^^^^^^ definition local9
     dispatchTo(new AdapterListUpdateCallback(adapter));
 //  ^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#dispatchTo().
 //                 ^^^^^^^^^^^^^^^^^^^^^^^^^ reference _root_/
-//                                           ^^^^^^^ reference local32
+//                                           ^^^^^^^ reference local9
   }
 
   public void dispatchTo(ListUpdateCallback callback) {
 //            ^^^^^^^^^^ definition com/airbnb/epoxy/DiffResult#dispatchTo(+1).
 //                       ^^^^^^^^^^^^^^^^^^ reference _root_/
-//                                          ^^^^^^^^ definition local33
+//                                          ^^^^^^^^ definition local10
     if (differResult != null) {
 //      ^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#differResult.
       differResult.dispatchUpdatesTo(callback);
 //    ^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#differResult.
 //                 ^^^^^^^^^^^^^^^^^ reference DiffUtil/DiffResult#dispatchUpdatesTo#
-//                                   ^^^^^^^^ reference local35
+//                                   ^^^^^^^^ reference local10
     } else if (newModels.isEmpty() && !previousModels.isEmpty()) {
 //             ^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#newModels.
 //                       ^^^^^^^ reference java/util/List#isEmpty().
 //                                     ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#previousModels.
 //                                                    ^^^^^^^ reference java/util/List#isEmpty().
       callback.onRemoved(0, previousModels.size());
-//    ^^^^^^^^ reference local36
+//    ^^^^^^^^ reference local10
 //             ^^^^^^^^^ reference onRemoved#
 //                          ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#previousModels.
 //                                         ^^^^ reference java/util/List#size().
@@ -221,7 +221,7 @@ public class DiffResult {
 //                                     ^^^^^^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#previousModels.
 //                                                    ^^^^^^^ reference java/util/List#isEmpty().
       callback.onInserted(0, newModels.size());
-//    ^^^^^^^^ reference local37
+//    ^^^^^^^^ reference local10
 //             ^^^^^^^^^^ reference onInserted#
 //                           ^^^^^^^^^ reference com/airbnb/epoxy/DiffResult#newModels.
 //                                     ^^^^ reference java/util/List#size().

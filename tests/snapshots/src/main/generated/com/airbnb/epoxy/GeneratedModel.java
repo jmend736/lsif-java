@@ -14,8 +14,8 @@ public interface GeneratedModel<T> {
 //                   ^^^^^^^^^^^^^^^ reference _root_/
 //                                   ^^^^^^ definition local0
 //                                           ^ reference com/airbnb/epoxy/GeneratedModel#[T]
-//                                             ^^^^^^^^^^^^ definition local2
-//                                                               ^^^^^^^^ definition local4
+//                                             ^^^^^^^^^^^^ definition local1
+//                                                               ^^^^^^^^ definition local2
   /**
    * Called on the generated model immediately after the main model onBind method has been called.
    * This let's the generated model handle binding of its own and dispatch calls to its onBind
@@ -28,6 +28,6 @@ public interface GeneratedModel<T> {
   void handlePostBind(T objectToBind, int position);
 //     ^^^^^^^^^^^^^^ definition com/airbnb/epoxy/GeneratedModel#handlePostBind().
 //                    ^ reference com/airbnb/epoxy/GeneratedModel#[T]
-//                      ^^^^^^^^^^^^ definition local6
-//                                        ^^^^^^^^ definition local8
+//                      ^^^^^^^^^^^^ definition local3
+//                                        ^^^^^^^^ definition local4
 }
