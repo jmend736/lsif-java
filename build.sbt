@@ -19,6 +19,7 @@ inThisBuild(
 name := "root"
 bloopGenerate.in(Compile) := None
 bloopGenerate.in(Test) := None
+skip.in(publish) := true
 
 commands +=
   Command.command("fixAll") { s =>
@@ -62,6 +63,7 @@ lazy val minimized = project
   .in(file("tests/minimized"))
   .settings(
     autoScalaLibrary := false,
+    skip.in(publish) := true,
     javacOptions.in(Compile) ++=
       List[String](
         s"-Arandomtimestamp=${System.nanoTime()}",
@@ -78,6 +80,7 @@ lazy val minimized = project
 
 lazy val minimizedScala = project
   .in(file("tests/minimized-scala"))
+  .settings(skip.in(publish) := true)
   .dependsOn(minimized)
 
 lazy val unit = project
