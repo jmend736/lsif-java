@@ -5,8 +5,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Utility to compute MD5 checksums of strings.
+ */
 public final class MD5 {
-  private static char[] HEX_ARRAY;
+  private static final char[] HEX_ARRAY;
 
   static {
     HEX_ARRAY = "0123456789ABCDEF".toCharArray();

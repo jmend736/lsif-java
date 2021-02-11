@@ -1,7 +1,7 @@
 package minimized;
 
 @Annotations(value = "value", format = "format")
-public class Main {
+public class MinimizedJavaMain {
   public static void main(String[] args) {
     System.out.println(Methods.app(42, "42"));
     System.out.println(Enums.app());

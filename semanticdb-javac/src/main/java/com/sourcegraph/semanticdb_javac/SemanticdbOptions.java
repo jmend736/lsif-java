@@ -4,8 +4,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * Settings that can be configured alongside the -Xplugin compiler option.
+ */
 public class SemanticdbOptions {
 
+  /**
+   * The directory to place
+   */
   public Path targetroot;
   public Path sourceroot;
   public boolean includeText = false;

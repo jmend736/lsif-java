@@ -62,7 +62,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   }
 
   private void emitOccurrence(Symbol sym, JCDiagnostic.DiagnosticPosition pos, Role role) {
-    emitOccurrence(sym, pos, role, CompilerRange.FROM_START);
+    emitOccurrence(sym, pos, role, CompilerRange.FROM_START_TO_END);
   }
 
   private void emitOccurrence(
@@ -89,7 +89,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitClass(ClassTree node, Void unused) {
     if (node instanceof JCTree.JCClassDecl) {
       JCTree.JCClassDecl cls = (JCTree.JCClassDecl) node;
-      emitOccurrence(cls.sym, cls, Role.DEFINITION, CompilerRange.FROM_POINT);
+      emitOccurrence(cls.sym, cls, Role.DEFINITION, CompilerRange.FROM_POINT_TO_SYMBOL_NAME);
     }
     return super.visitClass(node, unused);
   }
@@ -98,7 +98,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitMethod(MethodTree node, Void unused) {
     if (node instanceof JCTree.JCMethodDecl) {
       JCTree.JCMethodDecl meth = (JCTree.JCMethodDecl) node;
-      emitOccurrence(meth.sym, meth, Role.DEFINITION, CompilerRange.FROM_POINT);
+      emitOccurrence(meth.sym, meth, Role.DEFINITION, CompilerRange.FROM_POINT_TO_SYMBOL_NAME);
     }
     return super.visitMethod(node, unused);
   }
@@ -107,7 +107,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitVariable(VariableTree node, Void unused) {
     if (node instanceof JCTree.JCVariableDecl) {
       JCTree.JCVariableDecl decl = (JCTree.JCVariableDecl) node;
-      emitOccurrence(decl.sym, decl, Role.DEFINITION, CompilerRange.FROM_POINT);
+      emitOccurrence(decl.sym, decl, Role.DEFINITION, CompilerRange.FROM_POINT_TO_SYMBOL_NAME);
     }
     return super.visitVariable(node, unused);
   }
@@ -134,7 +134,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
   public Void visitMemberSelect(MemberSelectTree node, Void unused) {
     if (node instanceof JCTree.JCFieldAccess) {
       JCTree.JCFieldAccess select = (JCTree.JCFieldAccess) node;
-      emitOccurrence(select.sym, select, Role.REFERENCE, CompilerRange.FROM_POINT_PLUS_ONE);
+      emitOccurrence(select.sym, select, Role.REFERENCE, CompilerRange.FROM_POINT_TO_SYMBOL_NAME_PLUS_ONE);
     }
     return super.visitMemberSelect(node, unused);
   }
@@ -157,7 +157,7 @@ public class SemanticdbVisitor extends TreePathScanner<Void, Void> {
     int start, end;
     if (kind.isFromPoint() && sym != null && sym.name != null) {
       start = pos.getPreferredPosition();
-      if (kind == CompilerRange.FROM_POINT_PLUS_ONE) {
+      if (kind == CompilerRange.FROM_POINT_TO_SYMBOL_NAME_PLUS_ONE) {
         start++;
       }
       end = start + sym.name.length();
