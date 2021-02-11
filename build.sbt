@@ -61,6 +61,7 @@ lazy val plugin = project
 lazy val minimized = project
   .in(file("tests/minimized"))
   .settings(
+    autoScalaLibrary := false,
     javacOptions.in(Compile) ++=
       List[String](
         s"-Arandomtimestamp=${System.nanoTime()}",
@@ -74,6 +75,10 @@ lazy val minimized = project
       )
   )
   .dependsOn(plugin)
+
+lazy val minimizedScala = project
+  .in(file("tests/minimized-scala"))
+  .dependsOn(minimized)
 
 lazy val unit = project
   .in(file("tests/unit"))
