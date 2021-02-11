@@ -1,7 +1,6 @@
-import scala.util.Properties
-
 def scala213 = "2.13.4"
 def scalametaVersion = "4.4.8"
+
 inThisBuild(
   List(
     scalaVersion := scala213,
